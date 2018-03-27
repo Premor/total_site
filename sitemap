@@ -1,0 +1,5 @@
+// ID : Title ---> URL --> [Parent]
+homepage                 : @(Homepage)               --> /
+blogs                    : @(Blogs)                  --> /news/                      --> homepage
+blogsdetail              : @(Blog detail)            --> /news/{0}/                  --> blogs
+album                    : Album                     --> /album/                     --> homepage
