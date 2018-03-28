@@ -1,0 +1,12 @@
+.thirdBlock {
+    background-image: radial-gradient(circle, #ba0800, #aa0701, #990602, #8a0501, #7a0500);
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+.headerThirdBlock {
+    font-family: 'Oswald';
+    font-size: 60px;
+    color: #ffffff;
+}

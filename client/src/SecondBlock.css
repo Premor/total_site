@@ -1,0 +1,39 @@
+.secondBlock {
+    background-image: radial-gradient(circle, #e9e9e9, #e5e5e5, #e0e0e0, #dcdcdc, #d8d8d8);
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+.textBlock {
+    display: inline-block;
+    color: #181818;
+    width: 911px;
+    height: 402px;
+    margin-top: 250px;
+}
+
+.textHeader {
+    font-family: 'Oswald';
+    font-size: 60px;
+    color: #7A0500;
+}
+
+.textMain {
+    font-family: 'Roboto';
+    font-size: 30px;
+}
+
+.glasses {
+    position: absolute;
+    transform: rotate(46deg);
+    left: 1300px;
+    top: 140px;
+}
+
+.plant {
+    position: absolute;
+    right: 1500px;
+    width: 589px;
+    height: 589px;
+}

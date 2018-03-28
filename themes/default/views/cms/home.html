@@ -28,13 +28,15 @@
 @{else}<!-- render normal page for visitors -->
 	@{if repository.page && repository.page.body}
 		<div id = "carousel">
-				<div class="container-fluid">
-					<div class="row">
-							<img src="/img/caroutest.png" />
-						</div>
+			<div class="container-fluid">
+				<div class="row">
+						<img src="/img/caroutest.png" />
 					</div>
 				</div>
 			</div>
+		</div>
+		<div id = "SecondBlock"></div>
+		<div id="ThirdBlock"></div>
 		@{!repository.page.body}
 	@{fi}
 @{fi}
