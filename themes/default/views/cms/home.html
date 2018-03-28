@@ -9,8 +9,6 @@
 		@{else}
 			<!-- TEMPLATE HTML -->
 			<div class="CMS_widgets"></div>
-			<div class="container h100"><h1 class="h100">KARUSEL</h1></div>
-			<div class="container t"><h1>t2</h1></div>
 		@{fi}
 	</div>
 	<script>
@@ -29,14 +27,14 @@
 	</script>
 @{else}<!-- render normal page for visitors -->
 	@{if repository.page && repository.page.body}
-		<!--@{!repository.page.body}-->
-		<div id="root"></div>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					p sobaka
+		<div id = "carousel">
+				<div class="container-fluid">
+					<div class="row">
+							<img src="/img/caroutest.png" />
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		@{!repository.page.body}
 	@{fi}
 @{fi}

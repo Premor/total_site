@@ -6,25 +6,11 @@ const config = {
         extensions: ['.js']
     },
     output: {
-        path: path.resolve('./', 'public'),
+        path: path.resolve('./', 'themes/default/public/js/'),
         filename: 'app.bundle.js'
     },
     
   module: {
-        /*rules: [
-          {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: [
-              {
-                loader: 'babel-loader',
-                options: {
-                  "presets": [["es2015", {"modules":false}], "react"]
-                }
-              }
-            ]
-          }
-        ],*/
         loaders: [
         {
           test: /\.(json)$/,

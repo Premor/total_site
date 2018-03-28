@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-require('bootstrap-grid');
-
+import Header from './Header';
+import './main.css'
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+  <Header />,
+  document.getElementById('header')
 );

@@ -14,23 +14,26 @@
 	@{import('meta', 'head', 'default.css', 'default.js', 'favicon.ico')}
 </head>
 <body data-jc="exec">
-	
-	<header>
+		<div data-jc="cookie" class="hidden">@(This site uses cookies for visitor statistics. By continuing to browse the site you are agreeing to our use of cookies.) <a href="/privacy/">@(Privacy Policy)</a></div>
+	<!--<header>
 		<div class="container-fluid t">
 			<a href="javascript:void(0)" class="mainmenu-button"><i class="fa fa-navicon"></i></a>
 			<a href="/"><img src="/img/logo.png" alt="@{config.name}" border="0" height="50" /></a>
 			<a href="/login" class="fr"><span>login</span></a>
 			
 		</div>
-	</header>
-	<div class="container">
-	<nav class="row">
-		@{foreach m in global.navigations.mainmenu}
-			<a href="@{m.url}" class="col-sm-2">@{if m.icon}<span class="fa fa-@{m.icon}"></span>@{fi}@{m.name}</a>
-		@{end}
-	</nav>
-	</div>
-	<div class="container">
+	</header>-->
+		<div id="header"></div>
+		<div class="container menu">
+			<nav class="row">
+				@{foreach m in global.navigations.mainmenu}
+					<div class="col menu-block">
+						<a href="@{m.url}" class="menu-text">@{if m.icon}<span class="fa fa-@{m.icon}"></span>@{fi}@{m.name}</a>
+					</div>
+				@{end}
+			</nav>
+		</div>
+	<!--<div class="container">
 		<div class="row hidden-xs">
 			<nav class="breadcrumb col-md-12">
 				<ul>
@@ -39,15 +42,9 @@
 					@{end}
 				</ul>
 			</nav>
-		</div>
-
-		<br />
-		@{body}
-		
-		<br />
-		<br />
-		<div data-jc="cookie" class="hidden">@(This site uses cookies for visitor statistics. By continuing to browse the site you are agreeing to our use of cookies.) <a href="/privacy/">@(Privacy Policy)</a></div>
+		</div>-->
 	</div>
+	@{body}
 	<script src = "@{'app.bundle.js'}"></script>
 	@{view('footer')}
 	
