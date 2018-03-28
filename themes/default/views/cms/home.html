@@ -29,6 +29,14 @@
 	</script>
 @{else}<!-- render normal page for visitors -->
 	@{if repository.page && repository.page.body}
-		@{!repository.page.body}
+		<!--@{!repository.page.body}-->
+		<div id="root"></div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					p sobaka
+				</div>
+			</div>
+		</div>
 	@{fi}
 @{fi}
