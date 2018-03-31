@@ -9,7 +9,7 @@ T-731349393      : Blog detail
 // models\contact.js
 T-1756619801     : Contact form #
 
-// views\manager-login.html
+// views\manager-login.htmlF
 T-785010297      : Enter your login name
 T1758829696      : Enter your password
 T1281629883      : Password

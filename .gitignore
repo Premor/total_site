@@ -2,3 +2,5 @@ node_modules/
 *.pid
 tmp/
 client/node_modules/
+databases/
+logs/
