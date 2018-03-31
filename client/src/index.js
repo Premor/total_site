@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './Header';
 import './main.css'
+/*import Header from './Header';
 import SecondBlock from './SecondBlock'
 import ThirdBlock from './ThirdBlock'
 ReactDOM.render(
@@ -17,4 +17,4 @@ ReactDOM.render(
 ReactDOM.render(
   <ThirdBlock />,
   document.getElementById('ThirdBlock')
-);
+);*/

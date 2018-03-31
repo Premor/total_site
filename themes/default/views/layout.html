@@ -24,13 +24,19 @@
 			
 		</div>
 	</header>-->
-		<div id="header"></div>
+		<div class = "container-fluid header">
+			<div class="row">
+			<div class="col-md-12">
+				<img src="/img/logo.png"/>
+			</div>
+			</div>
+		</div>
 		<div class="container menu">
 			<nav class="row">
 				@{foreach m in global.navigations.mainmenu}
-					<div class="col menu-block">
-						<a href="@{m.url}" class="menu-text">@{if m.icon}<span class="fa fa-@{m.icon}"></span>@{fi}@{m.name}</a>
-					</div>
+						<div class="col menu-block">
+							<a href="@{m.url}" class="menu-text">@{if m.icon}<span class="fa fa-@{m.icon}"></span>@{fi}@{m.name}</a>
+						</div>
 				@{end}
 			</nav>
 		</div>

@@ -27,16 +27,35 @@
 	</script>
 @{else}<!-- render normal page for visitors -->
 	@{if repository.page && repository.page.body}
-		<div id = "carousel">
+		@{!repository.page.body}
+		<div class="news_block">
 			<div class="container-fluid">
 				<div class="row">
-						<img src="/img/caroutest.png" />
+					<div class="col-md-4">
+						<img src="/img/test_image.png" alt="" />
+						<p class="news_title">На юге Афганистана ликвидировали 30 боевиков</p>
+						<p class="news_text">Силы безопасности Афганистана ликвидировали по меньшей мере 30 боевиков радикального движения в ходе операции в южной провинции Кандагар, </p>
+						<a href="#" class="news_tag">В мире</a>
+						<a href="#" class="news_tag">Последние новости собачий дворец собака</a>
+					</div>
+					<div class="col-md-4">
+						<img src="/img/test_image.png" alt="" />
+						<p class="news_title">На юге Афганистана ликвидировали 30 боевиков</p>
+						<p class="news_text">Силы безопасности Афганистана ликвидировали по меньшей мере 30 боевиков радикального движения в ходе операции в южной провинции Кандагар, </p>
+						<a href="#" class="news_tag">В мире</a>
+						<a href="#" class="news_tag">Последние новости собачий дворец собака</a>
+					</div>
+					<div class="col-md-4">
+						<img src="/img/test_image.png" alt="" />
+						<p class="news_title">На юге Афганистана ликвидировали 30 боевиков</p>
+						<p class="news_text">Силы безопасности Афганистана ликвидировали по меньшей мере 30 боевиков радикального движения в ходе операции в южной провинции Кандагар, </p>
+						<a href="#" class="news_tag">В мире</a>
+						<a href="#" class="news_tag">Последние новости собачий дворец собака</a>
+						<a href="#" class="news_tag">В мире</a>
+						<a href="#" class="news_tag">Последние новости собачий дворец собака</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id = "SecondBlock"></div>
-		<div id="ThirdBlock"></div>
-		@{!repository.page.body}
 	@{fi}
 @{fi}
