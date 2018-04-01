@@ -1,11 +1,18 @@
 .news_block {
     color: #181818;
-    
+    box-shadow: 0 0 40px 0 rgba(0,0,0,.3)
 }
+
 
 .news_block img {
     width: 100%;
     margin: auto;
+}
+
+.news_header {
+    font-size: 6vh;
+    font-family: 'Oswald';
+    color: #BA0800; 
 }
 
 .news_title {
@@ -27,11 +34,10 @@
     font-size: 1.5vh;
     padding: 0.2vh;
     color: #181818;
+    margin-bottom: 1vh;
+    margin-right: 1vh;
 }
 
-@keyframes fill-in {
-    0% {box-shadow:inset 0 0 0 0 #BA0800;}
-}
 
 .news_tag:hover,
 .news_tag:focus {
@@ -41,3 +47,11 @@
   text-decoration: none;
 }
 
+.news_block {
+    margin-right: 8vw;
+    margin-left: 8vw;
+}
+
+.news_item {
+    padding-top: 3vh;
+}
