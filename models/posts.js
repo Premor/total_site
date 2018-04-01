@@ -52,6 +52,9 @@ NEWSCHEMA('Post').make(function(schema) {
 		});
 	});
 
+
+	
+
 	// Gets a specific post
 	schema.setGet(function(error, model, options, callback) {
 
