@@ -31,7 +31,15 @@
 		<div class="news_block">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4">
+					@{foreach m in model.items}
+						<div class="col-md-4">
+							<img src="@{m.pictures[0]}" alt="" />
+							<a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</p>
+							<p class="news_text">@{m.perex}</p>
+							@{foreach i in model.items.tags}<a href="#" class="news_tag">@{i}</a>@{end}
+						</div>
+					@{end}
+					<!--<div class="col-md-4">
 						<img src="/img/test_image.png" alt="" />
 						<p class="news_title">На юге Афганистана ликвидировали 30 боевиков</p>
 						<p class="news_text">Силы безопасности Афганистана ликвидировали по меньшей мере 30 боевиков радикального движения в ходе операции в южной провинции Кандагар, </p>
@@ -44,16 +52,9 @@
 						<p class="news_text">Силы безопасности Афганистана ликвидировали по меньшей мере 30 боевиков радикального движения в ходе операции в южной провинции Кандагар, </p>
 						<a href="#" class="news_tag">В мире</a>
 						<a href="#" class="news_tag">Последние новости собачий дворец собака</a>
-					</div>
-					<div class="col-md-4">
-						<img src="/img/test_image.png" alt="" />
-						<p class="news_title">На юге Афганистана ликвидировали 30 боевиков</p>
-						<p class="news_text">Силы безопасности Афганистана ликвидировали по меньшей мере 30 боевиков радикального движения в ходе операции в южной провинции Кандагар, </p>
 						<a href="#" class="news_tag">В мире</a>
 						<a href="#" class="news_tag">Последние новости собачий дворец собака</a>
-						<a href="#" class="news_tag">В мире</a>
-						<a href="#" class="news_tag">Последние новости собачий дворец собака</a>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div>
