@@ -14,7 +14,7 @@ mail-smtp                 : YOUR.SMTPSERVER.COM
 
 // Gmail SMTP settings
 // mail-smtp                : smtp.gmail.com
-// mail-smtp-options        : {"port":465,"secure":true,"user":"ENTER_YOUR_EMAIL","password":"ENTER_YOUR_PASSWORD","rejectUnauthorized":true}
+// mail-smtp-options        : {"port":465,"secure":true,"user":"diamant.webstudio@gmail.com","password":"~KK?qGqtsj}lRx6OyP","rejectUnauthorized":true}
 
 // Office365 SMTP settings
 // mail-smtp                : smtp.office365.com

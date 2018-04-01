@@ -16,21 +16,19 @@
 </head>
 <body data-jc="exec">
 		<div data-jc="cookie" class="hidden">@(This site uses cookies for visitor statistics. By continuing to browse the site you are agreeing to our use of cookies.) <a href="/privacy/">@(Privacy Policy)</a></div>
-	<!--<header>
-		<div class="container-fluid t">
-			<a href="javascript:void(0)" class="mainmenu-button"><i class="fa fa-navicon"></i></a>
-			<a href="/"><img src="/img/logo.png" alt="@{config.name}" border="0" height="50" /></a>
-			<a href="/login" class="fr"><span>login</span></a>
-			
+		<div class = "container-fluid header">
+			<div class="row">
+			<div class="col-md-12">
+				<img src="/img/logo.png"/>
+			</div>
+			</div>
 		</div>
-	</header>-->
-		<div id="header"></div>
 		<div class="container menu">
 			<nav class="row">
 				@{foreach m in global.navigations.mainmenu}
-					<div class="col menu-block">
-						<a href="@{m.url}" class="menu-text">@{if m.icon}<span class="fa fa-@{m.icon}"></span>@{fi}@{m.name}</a>
-					</div>
+						<div class="col menu-block">
+							<a href="@{m.url}" class="menu-text">@{if m.icon}<span class="fa fa-@{m.icon}"></span>@{fi}@{m.name}</a>
+						</div>
 				@{end}
 			</nav>
 		</div>
@@ -44,10 +42,11 @@
 				</ul>
 			</nav>
 		</div>-->
-	<div class="container">
+	
 	@{body}
-</div>
-	<script src = "@{'app.bundle.js'}"></script>
+
+	<br />
+	
 	@{view('footer')}
 	
 

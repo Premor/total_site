@@ -1,6 +1,9 @@
 exports.install = function() {
 	// CMS rendering
 	F.route('/', home,['*Post'])
+	
+	
+	
 	F.route('/*', view_page);
 	F.route('/demo/');
 
@@ -17,6 +20,8 @@ exports.install = function() {
 
 	F.route('#album',            view_album, 		['*Post']);
 	F.route('#albumdetail',      view_album_detail, ['*Post']);
+
+	F.route('/about_us/', about_us, ['*Post'])
 	
 	// FILES
 	F.file('/download/', file_read);
@@ -37,6 +42,7 @@ function home(){
 	var options = {};
 
 	options.category = 'Blogs';
+	options.max = 6;
 
 	if (self.query.q)
 		options.search = self.query.q;
@@ -195,3 +201,21 @@ function view_album_detail(linker) {
 		self.view('album-detail', response);
 	});
 }
+
+function about_us(){
+	var self = this;
+	var options = {};
+
+	options.category = 'Member';
+	//options.max = 6;
+
+	if (self.query.q)
+		options.search = self.query.q;
+
+	if (self.query.page)
+		options.page = self.query.page;
+	
+	self.$query(options, self.callback('about_us'));
+	
+}
+

@@ -1,12 +1,12 @@
 <div class="row">
 	@{foreach m in model.items}
-            <div class="col-md-4">
-              <img src="@{m.pictures[0]}" alt="" />
-              <a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</p>
-              <p class="news_text">@{m.perex}</p>
-              @{foreach i in model.items.tags}<a href="#" class="news_tag">@{i}</a>@{end}
-            </div>
-          @{end}
+	<div class="col-md-10 col-md-offset-1">
+		<div class="b"><a href="@{sitemap_url('albumdetail', m.linker)}">@{m.name}</a></div>
+		<div class="fs11">@{m.datecreated.parseDate().format('yyyy-MM-dd HH:mm')}</div>
+		<p>@{m.perex}</p>
+		<hr />
+	</div>
+	@{end}
 </div>
 
 @{if !model.count}

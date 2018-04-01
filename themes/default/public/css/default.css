@@ -6,6 +6,17 @@ $font    : 'Oswald';
 
 .w100{ width: 100%;}
 
+.fl {
+	float: left;
+}
+
+.w25 {
+	width:25%;
+}
+.w75 {
+	width:75%;
+}
+
 .fr {
 	float: right;
 }
