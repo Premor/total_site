@@ -9,6 +9,18 @@ $font    : 'Oswald';
 .fr {
 	float: right;
 }
+p {
+	cursor: default;
+}
+a {
+	
+	color: #181818;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #181818;
+}
 
 .firstBlock {
 	height: 100vh;
