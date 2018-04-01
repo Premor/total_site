@@ -1,0 +1,59 @@
+<div class="carousel container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="/img/caroutest.png" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="padding">
+    <div class="news_block">
+        <div class="container-fluid white_block">
+          <div class="row">
+              <div class="col-md-12">
+                  <p class="news_header">Новости</p>
+              </div>
+            @{foreach m in model.items}
+              <div class="col-md-4 news_item">
+                <img src="@{m.pictures[0]}" alt="" />
+                <a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</a>
+                <p class="news_text">@{m.perex}</p>
+                @{foreach i in m.tags}<a href="#" class="news_tag">@{i}</a>@{end}
+              </div>
+            @{end}
+          </div>
+        </div>
+      </div>
+      <div class="about_us">
+          <div class="container-fluid">
+              <!--<div class="row">
+                  <div class="col-md-7"></div>
+                  <div class="col-md-5">
+                      <img src="/img/glasses.png" class="glasses" alt="">
+                  </div>
+                </div>-->
+                <!--<div class="row">
+                    <div class="col-md-12">
+                        <img src="/img/notebook.png" alt="" class="notebook">
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+            
+            @{if !model.count}
+                <div class="row" style="margin-top:30px;margin-bottom:100px" id="empty">
+                    <div class="col-md-6 col-md-offset-3 m ui-center">
+                        <div><span class="fa fa-search fa-5x"></span></div>
+                        <br />
+                        <br />
+                        <div>
+                            @(Currently we don't have any items sufficient for search criteria.)<br />
+                            <b>@(Try to visit our page later)</b>.
+                        </div>
+                    </div>
+                </div>
+            @{fi}
+    </div>
+    <div id = "SecondBlock"></div>
+    <div id="ThirdBlock"></div>

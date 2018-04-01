@@ -1,17 +1,23 @@
 exports.install = function() {
 	// CMS rendering
+	F.route('/', home,['*Post'])
 	F.route('/*', view_page);
 	F.route('/demo/');
 
 	
-	F.route('/test/',test, ['*Page','*Post']);
+	//F.route('/test/',test, ['*Page','*Post']);
 	//F.route('/test/',test);
 
+
+
+
 	// POSTS
-	F.route('#blogs',            view_blogs, ['*Post']);
+	F.route('#blogs',            view_blogs, 		['*Post']);
 	F.route('#blogsdetail',      view_blogs_detail, ['*Post']);
 
-	F.route('#album',            view_album, ['*Post']);
+	F.route('#album',            view_album, 		['*Post']);
+	F.route('#albumdetail',      view_album_detail, ['*Post']);
+	
 	// FILES
 	F.file('/download/', file_read);
 };
@@ -24,6 +30,27 @@ function view_page() {
 	var self = this;
 	// models/pages.js --> Controller.prototype.render()
 	self.render(self.url);
+}
+
+function home(){
+	var self = this;
+	var options = {};
+
+	options.category = 'Blogs';
+
+	if (self.query.q)
+		options.search = self.query.q;
+
+	if (self.query.page)
+		options.page = self.query.page;
+
+	self.$query(options, self.callback('home_news'));
+	
+	options.max = 5;
+	/*NOSQL('posts').find().sort('datecreated').take(6).callback((err,res)=>{
+		this.repository.test_NOSQL = res;
+		this.render(this.url);
+	})*/
 }
 
 function test() {
@@ -41,7 +68,7 @@ function test() {
 // For images (jpg, gif, png) supports percentual resizing according "?s=NUMBER" argument in query string e.g.: .jpg?s=50, .jpg?s=80 (for image galleries)
 // URL: /download/*.*
 function file_read(req, res) {
-
+	
 	var id = req.split[1].replace('.' + req.extension, '');
 	var resize = req.query.s && (req.extension === 'jpg' || req.extension === 'gif' || req.extension === 'png') ? true : false;
 
@@ -154,5 +181,18 @@ function view_blogs_detail(linker) {
 			return self.throw404(err);
 		NOSQL('posts').counter.hit(response.id);
 		self.view('blogs-detail', response);
+	});
+}
+
+function view_album_detail(linker) {
+	var self = this;
+	var options = {};
+	options.category = 'Album';
+	options.linker = linker;
+	self.$read(options, function(err, response) {
+		if (err)
+			return self.throw404(err);
+		NOSQL('posts').counter.hit(response.id);
+		self.view('album-detail', response);
 	});
 }
