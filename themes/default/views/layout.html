@@ -23,7 +23,16 @@
 			</div>
 			</div>
 		</div>
-		<div class="container menu">
+	</header>-->
+	<div class="container-fluid content_block">
+		<div class = "container-fluid header">
+			<div class="row">
+			<div class="col-md-12">
+				<img src="/img/logo.png"/>
+			</div>
+			</div>
+		</div>
+		<div class="container-fluid menu white_block">
 			<nav class="row">
 				@{foreach m in global.navigations.mainmenu}
 						<div class="col menu-block">
@@ -32,21 +41,19 @@
 				@{end}
 			</nav>
 		</div>
-	<!--<div class="container">
-		<div class="row hidden-xs">
-			<nav class="breadcrumb col-md-12">
-				<ul>
-					@{foreach m in sitemap()}
-						<li>@{if !m.first}<span class="fa fa-caret-right"></span>@{fi}<a href="@{m.url}">@{m.name}</a></li>
-					@{end}
-				</ul>
-			</nav>
-		</div>-->
-	
-	@{body}
-
-	<br />
-	
+		<!--<div class="container">
+			<div class="row hidden-xs">
+				<nav class="breadcrumb col-md-12">
+					<ul>
+						@{foreach m in sitemap()}
+							<li>@{if !m.first}<span class="fa fa-caret-right"></span>@{fi}<a href="@{m.url}">@{m.name}</a></li>
+						@{end}
+					</ul>
+				</nav>
+			</div>-->
+			@{body}
+	</div>
+	<script src = "@{'app.bundle.js'}"></script>
 	@{view('footer')}
 	
 
