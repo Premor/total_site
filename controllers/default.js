@@ -43,10 +43,8 @@ function home(){
 
 	if (self.query.page)
 		options.page = self.query.page;
-
+	options.max = 6;
 	self.$query(options, self.callback('home_news'));
-	
-	options.max = 5;
 	/*NOSQL('posts').find().sort('datecreated').take(6).callback((err,res)=>{
 		this.repository.test_NOSQL = res;
 		this.render(this.url);
