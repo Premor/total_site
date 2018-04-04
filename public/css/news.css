@@ -1,6 +1,10 @@
 .news_block {
     color: #181818;
-    box-shadow: 0 0 40px 0 rgba(0,0,0,.3)
+    box-shadow: 0 0 40px 0 rgba(0,0,0,.3);
+    padding-bottom: 6vh;
+    background-color: #ffffff;
+    padding-right: 2vw;
+    padding-left: 2vw;
 }
 
 

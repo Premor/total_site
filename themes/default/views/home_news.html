@@ -13,34 +13,107 @@
               <div class="col-md-12">
                   <p class="news_header">Новости</p>
               </div>
-            @{foreach m in model.items}
-              <div class="col-md-4 news_item">
-                <img src="@{m.pictures[0]}" alt="" />
-                <a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</a>
-                <p class="news_text">@{m.perex}</p>
-                @{foreach i in m.tags}<a href="#" class="news_tag">@{i}</a>@{end}
-              </div>
-            @{end}
+                @{foreach m in model.items}
+                <div class="col-md-4 news_item">
+                    <img src="@{m.pictures[0]}" alt="" />
+                    <a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</a>
+                    <p class="news_text">@{m.perex}</p>
+                    @{foreach i in m.tags}<a href="#" class="news_tag">@{i}</a>@{end}
+                </div>
+                @{end}
           </div>
         </div>
       </div>
       <div class="about_us">
           <div class="container-fluid">
-              <!--<div class="row">
-                  <div class="col-md-7"></div>
+              <div class="row">
+                  <div class="col-md-3">
+                      <div class="plant">
+                          <img src="/img/plant.png" alt="">
+                      </div>
+                <div class="row">
+                    <div class="pen">
+                        <img src="/img/pen.png" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text">
+                        <p class="au_header">
+                            О нас
+                        </p>
+                        <p class="content">
+                            Новая модель организационной деятельности говорит о возможностях системы обучения кадров, соответствующей насущным потребностям. Предприниматели в сети интернет, вне зависимости от их уровня, должны быть объективно рассмотрены соответствующими инстанциями. Таким образом, повышение уровня гражданского сознания требует анализа модели развития.
+                        </p>
+                        <div class="menu-block">
+                            <p>Узнать больше</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                      <div class="pencils">
+                          <img src="/img/pencils.png" alt="">
+                      </div>
+                  </div>
+                </div>
                   <div class="col-md-5">
                       <img src="/img/glasses.png" class="glasses" alt="">
                   </div>
-                </div>-->
-                <!--<div class="row">
+                </div>
+                <div class="row">
                     <div class="col-md-12">
                         <img src="/img/notebook.png" alt="" class="notebook">
                     </div>
-                </div>-->
+                </div>
             </div>
         </div>
     </div>
-            
+          
+    <div class="practice">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contacts">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="cup">
+                        <img src="/img/cup.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="apple">
+                        <img src="/img/apple.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text">
+                    <p class="au_header">
+                        Контакты
+                    </p>
+                    <p class="content">
+                        Телефон: +7 (499) 40-600-28 
+                        <br />
+                        Звонки принимаются с 09:00 до 18:00. 
+                        <br />
+                        Адрес: г. Москва, ул. Малая Пироговская, д. 13, стр. 1, оф. 317
+                        <br />
+                        Электронная почта: pravovik-k@bk.ru
+                    </p>
+                    <div class="menu-block">
+                        <p>Как проехать?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
             @{if !model.count}
                 <div class="row" style="margin-top:30px;margin-bottom:100px" id="empty">
                     <div class="col-md-6 col-md-offset-3 m ui-center">
