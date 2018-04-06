@@ -1,0 +1,19 @@
+
+.about_us {
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+}
+
+.about_us .glasses {
+	margin-top: -5vh;
+	height: 70vh;
+	margin-left: 10vw;
+}
+
+.about_us .notebook {
+	height: 70vh;
+	float: right;
+	position: relative;
+	z-index: 0;
+}

@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=10" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <meta name="robots" content="all,follow" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700&subset=latin,latin-ext" />
-  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
-  <link rel="stylesheet" href="@{global.css}" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  @{import('meta', 'head', 'default.css', 'default.js', 'favicon.ico')}
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="robots" content="all,follow" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700&subset=latin,latin-ext" />
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
+	<link rel="stylesheet" href="@{global.css}" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	@{import('meta', 'head', 'default.css', 'default.js', 'favicon.ico')}
 </head>
 <body data-jc="exec">
-    <div data-jc="cookie" class="hidden">@(This site uses cookies for visitor statistics. By continuing to browse the site you are agreeing to our use of cookies.) <a href="/privacy/">@(Privacy Policy)</a></div>
-  <!--<header>
-    <div class="container-fluid t">
-      <a href="javascript:void(0)" class="mainmenu-button"><i class="fa fa-navicon"></i></a>
-      <a href="/"><img src="/img/logo.png" alt="@{config.name}" border="0" height="50" /></a>
-      <a href="/login" class="fr"><span>login</span></a>
-      
-    </div>
-  </header>-->
-  <div class="container-fluid content_block">
-    <div class = "container-fluid header">
-      <div class="row">
-      <div class="col-md-12">
-        <img src="/img/logo.png"/>
-      </div>
-      </div>
-    </div>
-    <div class="container-fluid menu white_block">
-      <nav class="row">
-        @{foreach m in global.navigations.mainmenu}
-            <div class="col menu-block">
-              <a href="@{m.url}" class="menu-text">@{if m.icon}<span class="fa fa-@{m.icon}"></span>@{fi}@{m.name}</a>
-            </div>
-        @{end}
-      </nav>
-    </div>
-    <!--<div class="container">
-      <div class="row hidden-xs">
-        <nav class="breadcrumb col-md-12">
-          <ul>
-            @{foreach m in sitemap()}
-              <li>@{if !m.first}<span class="fa fa-caret-right"></span>@{fi}<a href="@{m.url}">@{m.name}</a></li>
-            @{end}
-          </ul>
-        </nav>
-      </div>-->
-      @{body}
-  </div>
-  <script src = "@{'app.bundle.js'}"></script>
-  @{view('footer')}
-  
+		<div data-jc="cookie" class="hidden">@(This site uses cookies for visitor statistics. By continuing to browse the site you are agreeing to our use of cookies.) <a href="/privacy/">@(Privacy Policy)</a></div>
+	<!--<header>
+		<div class="container-fluid t">
+			<a href="javascript:void(0)" class="mainmenu-button"><i class="fa fa-navicon"></i></a>
+			<a href="/"><img src="/img/logo.png" alt="@{config.name}" border="0" height="50" /></a>
+			<a href="/login" class="fr"><span>login</span></a>
+			
+		</div>
+	</header>-->
+	<div class="container-fluid content_block">
+		<div class = "container-fluid header">
+			<div class="row">
+			<div class="col-md-12">
+				<img src="/img/logo.png"/>
+			</div>
+			</div>
+		</div>
+		<div class="container-fluid menu white_block">
+			<nav class="row">
+				@{foreach m in global.navigations.mainmenu}
+						<div class="col menu-block">
+							<a href="@{m.url}" class="menu-text">@{if m.icon}<span class="fa fa-@{m.icon}"></span>@{fi}@{m.name}</a>
+						</div>
+				@{end}
+			</nav>
+		</div>
+		<!--<div class="container">
+			<div class="row hidden-xs">
+				<nav class="breadcrumb col-md-12">
+					<ul>
+						@{foreach m in sitemap()}
+							<li>@{if !m.first}<span class="fa fa-caret-right"></span>@{fi}<a href="@{m.url}">@{m.name}</a></li>
+						@{end}
+					</ul>
+				</nav>
+			</div>-->
+			@{body}
+	</div>
+	<script src = "@{'app.bundle.js'}"></script>
+	@{view('footer')}
+	
 
 </body>
 </html>
