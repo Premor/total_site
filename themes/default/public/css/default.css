@@ -15,6 +15,27 @@ html, body {
 	background-color: #fff;
 }
 
+.contacts .cup {
+	position: relative;
+	top: 30.1vh;
+	right: 2vw;
+}
+
+.contacts .cup img {
+	height: 50vh;
+}
+
+.contacts .apple {
+	transform: rotate(270deg);
+	position: relative;
+	left: 13vw;
+	bottom: 38vh;
+}
+
+.contacts .apple img {
+	height: 50vh;
+}
+
 a {
 	color: #181818;
 }
@@ -31,9 +52,6 @@ a:hover {
 
 .fr {
 	float: right;
-}
-p {
-	cursor: default;
 }
 
 .CMS_hidden { display: none; }

@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"2018-04":{"request":2083,"pending":0,"web":927,"xhr":778,"file":1156,"websocket":0,"get":894,"options":0,"head":0,"post":29,"put":3,"path":0,"upload":0,"schema":13,"mmr":0,"blocked":0,"delete":1,"mobile":0,"desktop":927}}
+=======
+{"2018-04":{"request":6350,"pending":0,"web":3531,"xhr":3138,"file":2819,"websocket":0,"get":3467,"options":0,"head":0,"post":59,"put":3,"path":0,"upload":0,"schema":23,"mmr":0,"blocked":0,"delete":2,"mobile":39,"desktop":3492}}
+>>>>>>> c74a46b9bc4f80419735210d201fa5d4a5c33773
