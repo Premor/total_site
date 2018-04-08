@@ -1,0 +1,74 @@
+.about_us {
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+}
+
+.about_us .glasses {
+	position: relative;
+
+	top: 7vh;
+	height: 37vh;
+	left: 46vw;
+	transform: rotate(33deg);
+}
+
+.about_us .notebook {
+	height: 50vh;
+	float: right;
+	position: relative;
+	z-index: 0;
+	left: 0vw;
+	bottom: 25vh;
+}
+
+.about_us .plant {
+	float: left;
+	position: relative;
+	z-index: 15;
+	right: 5vw;
+}
+
+.about_us .plant img {
+	height: 70vh;
+}
+
+.about_us .pen {
+	float: left;
+	position: relative;
+	z-index: 14;
+	right: 17vw;
+	transform: rotate(71deg);
+	top: 20vh;
+}
+
+.about_us .pen img {
+	height: 25vh;
+}
+
+.about_us .text {
+	position: absolute;
+	width: 43vw;
+	text-align: center;
+	left: 28.5vw;
+}
+
+
+.au_header {
+	font-size: 8vh;
+	color: #BA0800;
+	font-family: 'Oswald';
+}
+
+.about_us .pencils {
+	float: left;
+	position: relative;
+	z-index: 14;
+	right: 20vw;
+	top: 13vh;
+	transform: rotate(350deg);
+}
+
+.about_us .pencils img {
+	height: 60vh;
+}

@@ -1,0 +1,40 @@
+.our-command {
+    font-family: 'Oswald';
+    margin-right: 8vw;
+    margin-left: 8vw;
+}
+
+.command-header p {
+    font-size: 60px;
+    color: #BA0800;
+}
+
+.command-list p {
+    color: #181818;
+    font-size: 23px;
+}
+
+.command-list {
+    border-right: 3px solid #7A0500;
+}
+.command-tile {
+    
+}
+.member_img {
+    max-width: 100%;
+    border: 1px solid #BA0800;
+}
+.member_name {
+    font-size: 30px;
+    color: #7A0500;
+}
+.member_achievments {
+    font-size: 20px;
+    color: #181818;
+}
+
+
+.member_block {
+    display: inline-block;
+    width: 33% !important;
+}
