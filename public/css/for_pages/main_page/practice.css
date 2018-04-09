@@ -1,0 +1,6 @@
+.practice {
+	background-image: radial-gradient(circle, #ba0800, #aa0701, #990602, #8a0501, #7a0500);
+	height: 100vh;
+	position: relative;
+	z-index: 10;
+}

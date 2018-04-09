@@ -35,9 +35,10 @@
 		<div class="container-fluid menu white_block">
 			<nav class="row">
 				@{foreach m in global.navigations.mainmenu}
-						<div class="col menu-block">
-							<a href="@{m.url}" class="menu-text">@{if m.icon}<span class="fa fa-@{m.icon}"></span>@{fi}@{m.name}</a>
-						</div>
+					<a href="@{m.url}" class="menu-href menu-block col fillup">
+						<!--@{if m.icon}<span class="fa fa-@{m.icon}"></span><p class="menu-text">@{fi}@{m.name}</p>-->
+						<!--<p class = "menu-text">-->@{m.name}<!--</p>-->
+					</a>
 				@{end}
 			</nav>
 		</div>
@@ -53,7 +54,7 @@
 			</div>-->
 			@{body}
 	</div>
-	<script src = "@{'app.bundle.js'}"></script>
+	<!-- <script src = "@{'app.bundle.js'}"></script> Пока React не используется.-->
 	@{view('footer')}
 	
 

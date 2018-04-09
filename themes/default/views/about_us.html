@@ -1,3 +1,6 @@
+
+<!--
+
 <div class="row">
 <div class="col-md-2">@{foreach m in [1,2,3,4,5]}<h3>test</h3>@{end}</div>
 <div class="col-md-10">
@@ -7,4 +10,41 @@
     @{end}
     </div>
 </div> 
+</div>  
+-->
+
+<div class="carousel container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="/img/au_caroutest.png" alt="">
+        </div>
+    </div>
+</div>
+
+
+<div class="our-command">
+    <div class="container-fluid white_block">
+        <div class="row">
+            <div class="col-md-12 command-header">
+                <p>О нас</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 command-list">
+                @{foreach m in model.items}
+                <p class="col-md-12">@{m.name}</p>
+                @{end}
+            </div>
+                <div class="col-md-9 command-tile">
+                    @{foreach m in model.items}
+                        <div class="col-md-4 member_block">
+                            <img class="member_img" src="@{m.pictures[0]}" alt="" />
+                            <p class="member_name">@{m.name}</p>
+                            <p class="member_achievments">@{m.perex}</p>
+                        </div>
+                    @{end}
+                </div>
+        </div>
+        <div class="row spacer"></div>
+    </div>
 </div>
