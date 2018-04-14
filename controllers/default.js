@@ -17,7 +17,7 @@ exports.install = function() {
 	// POSTS
 	F.route('#person',          view_person, 		['*Post']);
 	F.route('#persondetail',    view_person_detail, ['*Post']);
-
+	F.route('/test/',test)
 
 	F.route('#blogs',           view_blogs, 		['*Post']);
 	F.route('#blogsdetail',     view_blogs_detail,  ['*Post']);
@@ -41,6 +41,12 @@ function view_page() {
 	self.render(self.url);
 }
 
+function test(){
+	const str = 'чутка рандомных слов'
+	const engl = 'mother fucker no fuck word'
+	console.log(`str: ${str}\nkey: ${str.keywords(false,true)}\nstren: ${engl}\nkey: ${engl.keywords(true,true).concat(['a','b']).join(' ')}\nmy test str: ${str}\nmy test key: ${str.replace(/у/g, 'и')}`)
+}
+
 function home(){
 	var self = this;
 	var options = {};
@@ -62,13 +68,13 @@ function home(){
 	})*/
 }
 
-function test() {
+/*function test() {
 	NOSQL('posts').find().filter((res)=>{return Date.now() -Date.parse(res.datecreated) < 2592000000}).callback((err,res)=>{
 		this.repository.test_NOSQL = res[0];
 		console.log('Work???')
 		this.render(this.url);
 	})
-}
+}*/
 // ==========================================================================
 // FILES
 // ==========================================================================

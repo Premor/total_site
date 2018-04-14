@@ -26,8 +26,9 @@ default-image-converter   : gm
 
 // Default theme
 default-theme             : default
-directory-public-virtual : /client/
+
 directory-public : /public/
+directory-public-virtual : /client/
 allow-compile-script : false
 allow-compile-html : false
 allow-compile-css : false

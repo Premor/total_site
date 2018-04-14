@@ -32,7 +32,7 @@ NEWSCHEMA('Post').make(function(schema) {
 
 		options.language && filter.where('language', options.language);
 		options.category && filter.where('category_linker', options.category);
-		options.search && filter.like('search', options.search.keywords(true, true));
+		options.search && filter.like('search', options.search.keywords(false, true));
 
 		filter.take(take);
 		filter.skip(skip);
@@ -80,7 +80,7 @@ NEWSCHEMA('Post').make(function(schema) {
 
 	// Saves the post into the database
 	schema.setSave(function(error, model, controller, callback) {
-
+		
 		var newbie = model.id ? false : true;
 		var nosql = NOSQL('posts');
 
@@ -101,7 +101,13 @@ NEWSCHEMA('Post').make(function(schema) {
 		if (category)
 			model.category_linker = category.linker;
 
-		model.search = ((model.name || '') + ' ' + (model.keywords || '') + ' ' + (model.search || '')).keywords(true, true).join(' ').max(1000);
+		
+		let tagstr = ''
+		if (model.tags)
+			tagstr = model.tags.join(' ')
+
+		model.search = ((model.name || '') + ' ' + (model.keywords || '') + ' ' + (model.search || '')+  ' ' + (model.author || '')+ ' ' + (model.perex || '')).keywords(false, false).concat((model.tags || '')).join(' ').max(1000);
+		
 		model.body = U.minifyHTML(model.body);
 
 		(newbie ? nosql.insert(model) : nosql.modify(model).where('id', model.id)).callback(function() {
@@ -109,6 +115,13 @@ NEWSCHEMA('Post').make(function(schema) {
 			F.emit('posts.save', model);
 			callback(SUCCESS(true));
 			refresh_cache();
+
+			/*if (F.repository.search){
+				F.repository.search.concat({name:model.title,search:model.search});
+			} 
+			else{
+				F.repository.search =[{name:model.title,search:model.search}];
+			}*/
 
 			model.datebackup = F.datetime;
 			NOSQL('posts_backup').insert(model);
