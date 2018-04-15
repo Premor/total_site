@@ -29,6 +29,8 @@ exports.install = function() {
 	
 	// FILES
 	F.file('/download/', 	    file_read);
+	load_news();
+	
 };
 
 // ==========================================================================
@@ -255,4 +257,23 @@ function view_person_detail(linker) {
 		NOSQL('posts').counter.hit(response.id);
 		self.view('person-detail', response);
 	});
+}
+
+function load_news(){
+	var filter = NOSQL('posts').find();
+	filter.where('category_linker', 'blogs');
+	//filter.fields('name','search');
+	filter.sort('datecreated', true);
+	filter.callback((err, docs, count)=> {
+		
+		for (a of docs){
+			if (F.global.search){
+				F.global.search = F.global.search.concat({name:a.name,search:a.search});
+			} 
+			else {
+				F.global.search = [{name:a.name,search:a.search}]
+			}
+		}
+	
+	})
 }
