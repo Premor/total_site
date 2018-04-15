@@ -3,11 +3,14 @@
 <div><input type="text" data-jc="" data-jc-path="search" /></div>
 <br />
 <div data-jc="search" data-jc-path="search" data-jc-config="selector:div">
-    @{foreach m in model.items}
-    <div data-search="@{m.search}"><span class="cb"> @{m.title}</span></div>
+    @{if global.search!=null}
+    @{foreach m in global.search}
+    <div data-search="@{m.search}"><span class="cb"> @{m.name}</span></div>
     @{end}
+    @{fi}
 </div>
 
 <script>
+    
     var search = '';
 </script>
