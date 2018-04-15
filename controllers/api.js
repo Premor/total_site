@@ -4,7 +4,7 @@
 exports.install = function() {
 	// COMMON
 	F.route('/api/ping/',        json_ping);
-	F.route('/api/search/',search);
+	F.route('/api/search/',		 search);
 	// NEWSLETTER
 	F.route('/api/newsletter/',  json_save, ['post', '*Newsletter']);
 
@@ -20,6 +20,10 @@ exports.install = function() {
 function json_ping() {
 	var self = this;
 	self.plain('null');
+}
+
+function search(){
+	this.json(F.global.search)
 }
 
 // ==========================================================================
