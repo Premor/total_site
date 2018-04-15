@@ -12,29 +12,37 @@
 .command-list p {
     color: #181818;
     font-size: 23px;
+    margin-bottom: 0px;
 }
 
 .command-list {
     border-right: 3px solid #7A0500;
+    padding-right: 0px !important;
 }
 .command-tile {
     
 }
 .member_img {
     max-width: 100%;
-    border: 1px solid #BA0800;
+    border: 2px solid #BA0800;
 }
 .member_name {
     font-size: 30px;
     color: #7A0500;
+    margin-bottom: 0px;
 }
 .member_achievments {
     font-size: 20px;
     color: #181818;
 }
 
+.command-list p:hover {
+    font-size: 24px;
+    color: #BA0800;
+}
 
 .member_block {
     display: inline-block;
     width: 33% !important;
+    text-align: center;
 }
