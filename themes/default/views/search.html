@@ -1,4 +1,4 @@
-
+<!--
 
 <div><input type="text" data-jc="" data-jc-path="search" /></div>
 <br />
@@ -11,6 +11,29 @@
 </div>
 
 <script>
-    
+    console.log(framework.global.search[0].name)    
     var search = '';
 </script>
+
+
+-->
+
+<style>
+        body { background-color: #F0F0F0; }
+    </style>
+    
+    <div data-jc="features" data-jc-config="placeholder:Search ..."></div>
+    
+    <div class="container">
+        <a href="javascript:features()">Show features</a>
+    </div>
+    
+    <script>
+        function features() {
+            AJAX('GET /api/search/', '',(res)=>{SETTER('features', 'show',res , function(value) {
+                console.log('CLICK', value);
+            });});
+            
+        }
+        setTimeout(features, 500);
+    </script>

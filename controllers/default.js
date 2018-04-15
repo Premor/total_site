@@ -1,6 +1,6 @@
 exports.install = function() {
 	// CMS rendering
-	F.route('/', home,['*Post'])
+	F.route('/', home,['*Post']);
 	
 	
 	
@@ -29,11 +29,17 @@ exports.install = function() {
 	
 	// FILES
 	F.file('/download/', 	    file_read);
+	
+	
 };
 
 // ==========================================================================
 // CMS (Content Management System)
 // ==========================================================================
+
+function search(){
+	this.json(F.global.search)
+}
 
 function view_page() {
 	var self = this;
@@ -256,3 +262,4 @@ function view_person_detail(linker) {
 		self.view('person-detail', response);
 	});
 }
+

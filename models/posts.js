@@ -117,20 +117,20 @@ NEWSCHEMA('Post').make(function(schema) {
 			refresh_cache();
 			if( model.category == 'Blogs'){
 			if (F.global.search){
-				console.log('work???')
+				
 				let buf = F.global.search.findIndex((e)=>{return e.name==model.name})
 				if (buf==(-1))
-				{	console.log('work??')
-				F.global.search = F.global.search.concat({name:model.name,search:model.search});}
+				{	
+				F.global.search = F.global.search.concat({name:model.name,keywords:model.search});}
 				else {
-					console.log('work?')
-					F.global.search[buf].search=model.search;
+					
+					F.global.search[buf].keywords=model.search;
 				}
 			} 
 			else{
-				F.global.search =[{name:model.name,search:model.search}];
+				F.global.search =[{name:model.name,keywords:model.search}];
 			}}
-			console.log(F.global.search)
+			
 			model.datebackup = F.datetime;
 			NOSQL('posts_backup').insert(model);
 		});
