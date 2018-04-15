@@ -1,6 +1,6 @@
 exports.install = function() {
 	// CMS rendering
-	F.route('/', home,['*Post'])
+	F.route('/', home,['*Post']);
 	
 	
 	
@@ -29,13 +29,17 @@ exports.install = function() {
 	
 	// FILES
 	F.file('/download/', 	    file_read);
-	load_news();
+	
 	
 };
 
 // ==========================================================================
 // CMS (Content Management System)
 // ==========================================================================
+
+function search(){
+	this.json(F.global.search)
+}
 
 function view_page() {
 	var self = this;
@@ -259,21 +263,3 @@ function view_person_detail(linker) {
 	});
 }
 
-function load_news(){
-	var filter = NOSQL('posts').find();
-	filter.where('category_linker', 'blogs');
-	//filter.fields('name','search');
-	filter.sort('datecreated', true);
-	filter.callback((err, docs, count)=> {
-		
-		for (a of docs){
-			if (F.global.search){
-				F.global.search = F.global.search.concat({name:a.name,search:a.search});
-			} 
-			else {
-				F.global.search = [{name:a.name,search:a.search}]
-			}
-		}
-	
-	})
-}
