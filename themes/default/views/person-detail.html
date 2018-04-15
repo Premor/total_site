@@ -1,0 +1,9 @@
+@{title(model.name)}
+@{sitemap('persondetail')}
+@{sitemap_change('persondetail', 'url', model.linker)}
+@{sitemap_change('persondetail', 'name', model.name)}
+
+<div class="padding">
+	
+	@{!model.body.tidyCMS()}
+</div>

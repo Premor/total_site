@@ -15,16 +15,20 @@ exports.install = function() {
 
 
 	// POSTS
-	F.route('#blogs',            view_blogs, 		['*Post']);
-	F.route('#blogsdetail',      view_blogs_detail, ['*Post']);
+	F.route('#person',          view_person, 		['*Post']);
+	F.route('#persondetail',    view_person_detail, ['*Post']);
+	F.route('/test/',test)
 
-	F.route('#album',            view_album, 		['*Post']);
-	F.route('#albumdetail',      view_album_detail, ['*Post']);
+	F.route('#blogs',           view_blogs, 		['*Post']);
+	F.route('#blogsdetail',     view_blogs_detail,  ['*Post']);
 
-	F.route('/about_us/', about_us, ['*Post'])
+	F.route('#album',           view_album, 		['*Post']);
+	F.route('#albumdetail',     view_album_detail,  ['*Post']);
+
+	F.route('/about_us/', 		about_us,		    ['*Post']);
 	
 	// FILES
-	F.file('/download/', file_read);
+	F.file('/download/', 	    file_read);
 };
 
 // ==========================================================================
@@ -35,6 +39,12 @@ function view_page() {
 	var self = this;
 	// models/pages.js --> Controller.prototype.render()
 	self.render(self.url);
+}
+
+function test(){
+	const str = 'чутка рандомных слов'
+	const engl = 'mother fucker no fuck word'
+	console.log(`str: ${str}\nkey: ${str.keywords(false,true)}\nstren: ${engl}\nkey: ${engl.keywords(true,true).concat(['a','b']).join(' ')}\nmy test str: ${str}\nmy test key: ${str.replace(/у/g, 'и')}`)
 }
 
 function home(){
@@ -58,13 +68,13 @@ function home(){
 	})*/
 }
 
-function test() {
+/*function test() {
 	NOSQL('posts').find().filter((res)=>{return Date.now() -Date.parse(res.datecreated) < 2592000000}).callback((err,res)=>{
 		this.repository.test_NOSQL = res[0];
 		console.log('Work???')
 		this.render(this.url);
 	})
-}
+}*/
 // ==========================================================================
 // FILES
 // ==========================================================================
@@ -219,3 +229,30 @@ function about_us(){
 	
 }
 
+
+function view_person() {
+	var self = this;
+	var options = {};
+
+	options.category = 'Member';
+
+	if (self.query.q)
+		options.search = self.query.q;
+
+	if (self.query.page)
+		options.page = self.query.page;
+
+	self.$query(options, self.callback('person-all'));
+}
+function view_person_detail(linker) {
+	var self = this;
+	var options = {};
+	options.category = 'Member';
+	options.linker = linker;
+	self.$read(options, function(err, response) {
+		if (err)
+			return self.throw404(err);
+		NOSQL('posts').counter.hit(response.id);
+		self.view('person-detail', response);
+	});
+}

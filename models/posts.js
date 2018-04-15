@@ -32,7 +32,7 @@ NEWSCHEMA('Post').make(function(schema) {
 
 		options.language && filter.where('language', options.language);
 		options.category && filter.where('category_linker', options.category);
-		options.search && filter.like('search', options.search.keywords(true, true));
+		options.search && filter.like('search', options.search.keywords(false, true));
 
 		filter.take(take);
 		filter.skip(skip);
@@ -80,7 +80,7 @@ NEWSCHEMA('Post').make(function(schema) {
 
 	// Saves the post into the database
 	schema.setSave(function(error, model, controller, callback) {
-
+		
 		var newbie = model.id ? false : true;
 		var nosql = NOSQL('posts');
 
@@ -101,7 +101,13 @@ NEWSCHEMA('Post').make(function(schema) {
 		if (category)
 			model.category_linker = category.linker;
 
-		model.search = ((model.name || '') + ' ' + (model.keywords || '') + ' ' + (model.search || '')).keywords(true, true).join(' ').max(1000);
+		
+		let tagstr = ''
+		if (model.tags)
+			tagstr = model.tags.join(' ')
+
+		model.search = ((model.name || '') + ' ' + (model.keywords || '') + ' ' + (model.search || '')+  ' ' + (model.author || '')+ ' ' + (model.perex || '')).keywords(false, false).concat((model.tags || '')).join(' ').max(1000);
+		
 		model.body = U.minifyHTML(model.body);
 
 		(newbie ? nosql.insert(model) : nosql.modify(model).where('id', model.id)).callback(function() {
@@ -109,7 +115,22 @@ NEWSCHEMA('Post').make(function(schema) {
 			F.emit('posts.save', model);
 			callback(SUCCESS(true));
 			refresh_cache();
-
+			if( model.category == 'Blogs'){
+			if (F.global.search){
+				console.log('work???')
+				let buf = F.global.search.findIndex((e)=>{return e.name==model.name})
+				if (buf==(-1))
+				{	console.log('work??')
+				F.global.search = F.global.search.concat({name:model.name,search:model.search});}
+				else {
+					console.log('work?')
+					F.global.search[buf].search=model.search;
+				}
+			} 
+			else{
+				F.global.search =[{name:model.name,search:model.search}];
+			}}
+			console.log(F.global.search)
 			model.datebackup = F.datetime;
 			NOSQL('posts_backup').insert(model);
 		});

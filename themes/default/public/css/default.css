@@ -1,6 +1,6 @@
 $font    : 'Oswald';
 
-
+.hidden { display: none; }
 .CMS_hidden { display: none; }
 .container { padding-left: 25px; padding-right: 25px; }
 
@@ -106,3 +106,4 @@ footer { text-align: center; font-size: 12px; padding: 50px 0; color: gray; bord
 .h100 {
 	height: 100vh;
 }
+.cb {color: black;}

@@ -5,3 +5,5 @@ blogsdetail              : @(Blog detail)            --> /news/{0}/             
 album                    : @(Album)                  --> /album/                     --> homepage
 albumdetail              : @(Album detail)           --> /album/{0}/                 --> album
 aboutus                  : @(About us)               --> /about_us/                  --> homepage
+person                   : @(Album)                  --> /person/                    --> homepage
+persondetail             : @(Album detail)           --> /person/{0}/                --> person
