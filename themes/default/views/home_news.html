@@ -13,15 +13,17 @@
               <div class="col-md-12">
                   <p class="news_header">Новости</p>
               </div>
-                @{foreach m in model.items}
-                <div class="col-md-4 news_item">
-                    <img src="@{m.pictures[0]}" alt="" />
-                    <a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</a>
-                    <p class="news_text">@{m.perex}</p>
-                    @{foreach i in m.tags}<a href="#" class="news_tag">@{i}</a>@{end}
-                </div>
-                @{end}
           </div>
+          <div class="row news_cont">
+            @{foreach m in model.items}
+            <div class="col-md-4 news_item">
+                <img src="@{m.pictures[0]}" alt="" />
+                <a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</a>
+                <p class="news_text">@{m.perex}</p>
+                @{foreach i in m.tags}<a href="#" class="news_tag">@{i}</a>@{end}
+            </div>
+            @{end}
+        </div>
           <div class="row spacer"></div>
         </div>
       </div>

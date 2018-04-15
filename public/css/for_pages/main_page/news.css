@@ -7,12 +7,18 @@
 .news_block img {
     width: 100%;
     margin: auto;
+    border: 2px solid #BA0800;  
 }
 
 .news_header {
     font-size: 6vh;
     font-family: 'Oswald';
     color: #BA0800; 
+}
+
+.news_cont {
+    padding-left: 51px !important;
+	padding-right: 51px !important;
 }
 
 .news_title {
@@ -31,7 +37,7 @@
     height: 2.8vh;
     display: inline-block;
     font-family: 'Roboto';
-    font-size: 1.5vh;
+    font-size: 1.35vh;
     padding: 0.2vh;
     color: #181818;
     margin-bottom: 1vh;
@@ -42,7 +48,7 @@
 .news_tag:hover,
 .news_tag:focus {
   box-shadow: inset 0 0 0 2em #BA0800;
-  color: #ffffff;
+  color: #ffffff !important;
   animation: fill-in 0.5s;
   text-decoration: none;
 }
