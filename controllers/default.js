@@ -37,9 +37,6 @@ exports.install = function() {
 // CMS (Content Management System)
 // ==========================================================================
 
-function search(){
-	this.json(F.global.search)
-}
 
 function view_page() {
 	var self = this;
