@@ -49,7 +49,6 @@ exports.install = function() {
 // ==========================================================================
 
 
-
 function view_page() {
 	var self = this;
 	// models/pages.js --> Controller.prototype.render()
