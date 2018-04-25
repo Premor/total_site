@@ -3,16 +3,16 @@ exports.install = function() {
 	F.route('/', home,['*Post']);
 	
 	
-	ROUTE('/registration',view_registration,['#session']);
+	//ROUTE('/registration',view_registration,['#session']);
 	//ROUTE('/registration',view_registration_auth,[/*'authorize',*/'#session']);
-	ROUTE('/registration', json_create_user, ['post'/*,'unauthorize'*/,'#session']);
-	ROUTE('/login',view_login,'#session');
+	//ROUTE('/registration', json_create_user, ['post'/*,'unauthorize'*/,'#session']);
+	//ROUTE('/login',view_login,'#session');
 	
-	ROUTE('/login/google',oauth_login,[/*'unauthorize',*/'#session']);
-	ROUTE('/login/google/callback/', oauth_login_callback, [/*'unauthorize',*/'#session']);
+	//ROUTE('/login/google',oauth_login,[/*'unauthorize',*/'#session']);
+	//ROUTE('/login/google/callback/', oauth_login_callback, [/*'unauthorize',*/'#session']);
 	//ROUTE('/test', test);
-	ROUTE('/login', login, ['post','#session']);
-	ROUTE('/logout',logout,[/*'authorize',*/'#session']);
+	//ROUTE('/login', login, ['post','#session']);
+	//ROUTE('/logout',logout,[/*'authorize',*/'#session']);
 
 
 	F.route('/*', view_page);
