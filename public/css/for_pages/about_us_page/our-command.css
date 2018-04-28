@@ -9,12 +9,6 @@
     color: #BA0800;
 }
 
-.command-list p {
-    color: #181818;
-    font-size: 23px;
-    margin-bottom: 0px;
-}
-
 .command-list {
     border-right: 3px solid #7A0500;
     padding-right: 0px !important;
@@ -36,9 +30,17 @@
     color: #181818;
 }
 
-.command-list p:hover {
+.command-list a:hover {
     font-size: 24px;
-    color: #BA0800;
+    color: #BA0800 !important;
+    text-decoration: none;
+}
+
+.command-list a {
+    display: block;
+    color: #181818;
+    font-size: 23px;
+    margin-bottom: 0px;
 }
 
 .member_block {

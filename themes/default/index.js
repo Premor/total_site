@@ -6,6 +6,7 @@ exports.install = function() {
 	'/css/for_pages/main_page/footer.css',  '/css/for_pages/main_page/header.css',  '/css/for_pages/main_page/menu.css',  
 	'/css/for_pages/main_page/practice.css','/css/for_pages/main_page/news.css', 
 	/*about_us_page*/ '/css/for_pages/about_us_page/our-command.css',
+	'/css/for_pages/about_us_page/member.css',
 	 /*search*/ '/css/search.css',
 	 '/css/ui.css', '/css/bootstrap.min.css', '/css/animate.css',
 	 '=default/public/css/default.css');
