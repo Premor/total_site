@@ -16,6 +16,10 @@
     color: #BA0800; 
 }
 
+p.news_header {
+    margin-bottom: 0;
+}
+
 .news_cont {
     padding-left: 51px !important;
 	padding-right: 51px !important;

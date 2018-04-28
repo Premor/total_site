@@ -1,0 +1,24 @@
+.template_things {
+    text-align: left;
+    font-size: 35px !important;
+    color: #BA0800;
+}
+
+.t-member_block {
+    text-align: left;
+}
+
+.t-member_block p, .t-practice_block p {
+    margin-bottom: 0 !important;
+    font-size: 25px;    
+}
+
+
+.t-member_img {
+    width: 270px;
+    height: 270px;
+}
+.t-practice_block {
+    border-left: 2px solid #E58D8D;
+    text-align: left;
+}
