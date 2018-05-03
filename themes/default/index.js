@@ -8,10 +8,10 @@ exports.install = function() {
 	/*about_us_page*/ '/css/for_pages/about_us_page/our-command.css',
 	'/css/for_pages/about_us_page/member.css',
 	 /*search*/ '/css/search.css',
+	 /*contacts_page*/ '/css/for_pages/contacts_page/contacts.css',
 	 '/css/ui.css', '/css/bootstrap.min.css', '/css/animate.css',
 	 '=default/public/css/default.css');
 	F.merge('/default/js/default.js', '/js/spa.min.js', '/js/ui.js', 
-	
 	 '=default/public/js/default.js');
 	F.localize('/default/templates/*.html', ['compress']);
 };

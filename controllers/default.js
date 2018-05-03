@@ -1,4 +1,6 @@
 exports.install = function() {
+	F.route('/contacts/',contacts)
+
 	// CMS rendering
 	F.route('/', home,['*Post']);
 	
@@ -18,7 +20,6 @@ exports.install = function() {
 	F.route('#person',          view_person, 		['*Post']);
 	F.route('#persondetail',    view_person_detail, ['*Post']);
 	F.route('/test/',test)
-
 	F.route('#blogs',           view_blogs, 		['*Post']);
 	F.route('#blogsdetail',     view_blogs_detail,  ['*Post']);
 
@@ -42,6 +43,11 @@ function view_page() {
 	var self = this;
 	// models/pages.js --> Controller.prototype.render()
 	self.render(self.url);
+}
+
+
+function contacts () {
+	this.view('contacts');
 }
 
 function test(){

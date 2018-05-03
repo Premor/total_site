@@ -3,8 +3,16 @@ PING('GET /api/ping/');
 UPTODATE('2 hours', '/');
 
 $(document).ready(function() {
-	$(document).on('click', '.mainmenu-button', function() {
-		$(this).parent().find('nav').toggleClass('mainmenu-visible');
+	var originalCode = $('.command-tile').html();
+	$(document).on('click', '.personname', function() {
+		
+		var code = $(this).children('span').text();
+		$('.command-tile').html(code);
+		$('.backToBeg').removeClass('hidden');
+	});
+	$(document).on('click', '.backToBeg',function() {
+		$('.command-tile').html(originalCode);
+		$('.backToBeg').addClass('hidden');
 	});
 });
 
