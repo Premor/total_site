@@ -1,7 +1,7 @@
 exports.install = function() {
 	// CMS rendering
 	F.route('/', home,['*Post']);
-	
+	F.route('/contacts/',twq);
 	
 	//ROUTE('/registration',view_registration,['#session']);
 	//ROUTE('/registration',view_registration_auth,[/*'authorize',*/'#session']);
@@ -89,6 +89,10 @@ function home(){
 		this.render(this.url);
 	})
 }*/
+
+function twq(){
+	this.view('contacts');
+}
 // ==========================================================================
 // FILES
 // ==========================================================================

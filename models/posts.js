@@ -95,7 +95,7 @@ NEWSCHEMA('Post').make(function(schema) {
 		if (!model.datecreated)
 			model.datecreated = F.datetime;
 
-		model.linker = model.datecreated.format('yyyyMMdd') + '-' + model.name.slug();
+		model.linker = model.datecreated.format('yyyyMMdd') + '-' + model.name.toUnicode().slug();
 
 		var category = F.global.posts.find('name', model.category);
 		if (category)
