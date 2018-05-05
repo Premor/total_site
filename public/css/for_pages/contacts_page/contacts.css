@@ -20,3 +20,11 @@
     font-size: 22px;
     color: #181818;
 }
+
+iframe {
+    pointer-events:none;
+}
+
+.yandexmap_click {
+    height: 570px;
+}

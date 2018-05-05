@@ -14,6 +14,10 @@ $(document).ready(function() {
 		$('.command-tile').html(originalCode);
 		$('.backToBeg').addClass('hidden');
 	});
+
+	$(document).on('click', '.yandexmap_click', function() {
+		$(this).children('.ymap_frame').css("pointer-events", "auto");
+	})
 });
 
 COMPONENT('emaildecode', function() {
