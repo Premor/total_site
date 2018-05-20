@@ -18,6 +18,12 @@ $(document).ready(function() {
 	$(document).on('click', '.yandexmap_click', function() {
 		$(this).children('.ymap_frame').css("pointer-events", "auto");
 	})
+
+	/*$(document).on('click', '.search-button', function() {
+		if ($(this).hasClass('hidden')) {
+			$(this).removeClass
+		}
+	})*/
 });
 
 COMPONENT('emaildecode', function() {
@@ -258,7 +264,7 @@ COMPONENT('search', 'class:hidden;delay:200;attribute:data-search', function(sel
 
 
 COMPONENT('features', 'height:37', function(self, config) {
-
+	console.log(self);
 	var container, timeout, input, search, scroller = null;
 	var is = false, results = false, selectedindex = 0, resultscount = 0;
 
@@ -268,7 +274,6 @@ COMPONENT('features', 'height:37', function(self, config) {
 	self.callback = null;
 	self.readonly();
 	self.singleton();
-
 	self.configure = function(key, value, init) {
 		if (init)
 			return;

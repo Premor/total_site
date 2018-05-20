@@ -15,3 +15,10 @@
 .ui-features li:hover { background-color: #F8F8F8; }
 /*.ui-features-noscroll { overflow: hidden !important; }*/
 .hidden { display: none; }
+.search_container {
+    text-align: right;
+}
+
+.search_container i {
+    color: #ffffff;
+}
