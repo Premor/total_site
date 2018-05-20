@@ -45,10 +45,10 @@ function load_news(){
 		
 		for (a of docs){
 			if (F.global.search){
-				F.global.search = F.global.search.concat({name:a.name,keywords:a.search});
+				F.global.search = F.global.search.concat({name:a.name,keywords:a.search,link:model.linker});
 			} 
 			else {
-				F.global.search = [{name:a.name,keywords:a.search}]
+				F.global.search = [{name:a.name,keywords:a.search,link:model.linker}]
 			}
 		}
 	

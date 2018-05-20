@@ -121,14 +121,14 @@ NEWSCHEMA('Post').make(function(schema) {
 				let buf = F.global.search.findIndex((e)=>{return e.name==model.name})
 				if (buf==(-1))
 				{	
-				F.global.search = F.global.search.concat({name:model.name,keywords:model.search});}
+				F.global.search = F.global.search.concat({name:model.name,keywords:model.search,link:model.linker});}
 				else {
 					
 					F.global.search[buf].keywords=model.search;
 				}
 			} 
 			else{
-				F.global.search =[{name:model.name,keywords:model.search}];
+				F.global.search =[{name:model.name,keywords:model.search,link:model.linker}];
 			}}
 			
 			model.datebackup = F.datetime;
