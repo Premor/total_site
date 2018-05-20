@@ -95,7 +95,7 @@ NEWSCHEMA('Post').make(function(schema) {
 		if (!model.datecreated)
 			model.datecreated = F.datetime;
 
-		model.linker = model.datecreated.format('yyyyMMdd') + '-' + model.name.slug();
+		model.linker = model.datecreated.format('yyyyMMdd') + '-' + model.name.toUnicode().slug();
 
 		var category = F.global.posts.find('name', model.category);
 		if (category)
@@ -121,14 +121,14 @@ NEWSCHEMA('Post').make(function(schema) {
 				let buf = F.global.search.findIndex((e)=>{return e.name==model.name})
 				if (buf==(-1))
 				{	
-				F.global.search = F.global.search.concat({name:model.name,keywords:model.search});}
+				F.global.search = F.global.search.concat({name:model.name,keywords:model.search,link:model.linker});}
 				else {
 					
 					F.global.search[buf].keywords=model.search;
 				}
 			} 
 			else{
-				F.global.search =[{name:model.name,keywords:model.search}];
+				F.global.search =[{name:model.name,keywords:model.search,link:model.linker}];
 			}}
 			
 			model.datebackup = F.datetime;

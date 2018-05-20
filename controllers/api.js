@@ -4,7 +4,7 @@
 exports.install = function() {
 	// COMMON
 	F.route('/api/ping/',        json_ping);
-	F.route('/api/search/',search);
+	F.route('/api/search/',		 search);
 	// NEWSLETTER
 	F.route('/api/newsletter/',  json_save, ['post', '*Newsletter']);
 
@@ -45,10 +45,10 @@ function load_news(){
 		
 		for (a of docs){
 			if (F.global.search){
-				F.global.search = F.global.search.concat({name:a.name,keywords:a.search});
+				F.global.search = F.global.search.concat({name:a.name,keywords:a.search,link:a.linker});
 			} 
 			else {
-				F.global.search = [{name:a.name,keywords:a.search}]
+				F.global.search = [{name:a.name,keywords:a.search,link:a.linker}]
 			}
 		}
 	
