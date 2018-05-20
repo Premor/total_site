@@ -1,0 +1,30 @@
+.left_text p, right_text p {
+    font-family: 'Roboto';
+    margin-bottom: 0 !important;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.left_text {
+    margin-bottom: 50px;
+    border-right: 2px solid #E58D8D;
+    display: inline-block;
+}
+
+.right_text {
+    display: inline-block;
+}
+
+.backToBeg {
+    cursor: pointer;
+    font-size: 22px;
+    color: #181818;
+}
+
+iframe {
+    pointer-events:none;
+}
+
+.yandexmap_click {
+    height: 570px;
+}

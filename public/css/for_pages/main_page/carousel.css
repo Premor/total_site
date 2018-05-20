@@ -4,6 +4,10 @@
 	box-shadow: 0 5px 25px 0 rgba(0,0,0,.4);
 }
 
+.carousel iframe {
+	box-shadow: 0 5px 25px 0 rgba(0,0,0,.4);
+}
+
 .carousel {
 	text-align: center;
 }

@@ -10,13 +10,26 @@
     <div class="news_block">
         <div class="container-fluid white_block">
           <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-6">
                   <p class="news_header">Новости</p>
+              </div>
+              <div class="col-md-1 th_wrap">
+                  <p class="themes_header">Темы:</p>
+              </div>
+              <div class="col-md-5 themes_right">
+                    @{foreach m in model.items}
+                        @{foreach i in m.tags}
+                            <a href="#" class="news_tag">@{i}</a>
+                        @{end}
+                    @{end}
               </div>
           </div>
           <div class="row news_cont">
             @{foreach m in model.items}
             <div class="col-md-4 news_item">
+                <div class="news_date">
+                    <!--<p>@{m.datecreated}</p> Как вытащить дату в нормальный формат?-->
+                </div>
                 <img src="@{m.pictures[0]}" alt="" />
                 <a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</a>
                 <p class="news_text">@{m.perex}</p>
@@ -72,10 +85,35 @@
     </div>
           
     <div class="practice">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    
+                    <div class="practice_header">Практики</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 practice_block">
+                    <div class="practice_img fiz"></div>
+                    <p>Физической пицце</p>
+                </div>
+                <div class="col-md-3 practice_block">
+                    <div class="practice_img port"></div>
+                    <p>Юридическим лицам</p>
+                </div>
+                <div class="col-md-3 practice_block">    
+                    <div class="practice_img doc"></div>
+                    <p>Административные споры</p>        
+                </div>
+                <div class="col-md-3 practice_block">
+                    <div class="practice_img law"></div>
+                    <p>Уголовно-правовая защита</p> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="menu-block practice_but">
+                            <p>Узнать больше</p>
+                    </div>
                 </div>
             </div>
         </div>

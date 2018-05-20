@@ -24,19 +24,21 @@
     font-size: 30px;
     color: #7A0500;
     margin-bottom: 0px;
+    cursor: pointer;
 }
 .member_achievments {
     font-size: 20px;
     color: #181818;
 }
 
-.command-list a:hover {
+.command-list p:hover {
     font-size: 24px;
     color: #BA0800 !important;
     text-decoration: none;
+    cursor: pointer;
 }
 
-.command-list a {
+.command-list p {
     display: block;
     color: #181818;
     font-size: 23px;

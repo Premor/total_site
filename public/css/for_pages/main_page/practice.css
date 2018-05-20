@@ -1,6 +1,107 @@
 .practice {
 	background-image: radial-gradient(circle, #ba0800, #aa0701, #990602, #8a0501, #7a0500);
-	height: 100vh;
+	height: 60vh;
 	position: relative;
 	z-index: 10;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+
+.practice_header {
+	font-size: 8vh;
+	color:#fff;
+	font-family: 'Oswald';
+}
+
+.practice .col-md-3 {
+	display: inline-block;
+}
+
+.practice img {
+	width: 100%;
+	max-width: 146px;
+	vertical-align: middle;
+}
+
+.practice_block {
+	width: 280px;
+	height: 260px;
+	padding-top: 20px;
+	color: #ffffff;
+}
+
+.practice_block p {
+	color: #ffffff;
+	margin-top: 20px;
+}
+
+.practice_block:hover .fiz {
+	background: url(/img/fiz2.png);
+}
+
+.practice_block:hover .doc {
+	background: url(/img/doc2.png);
+}
+
+.practice_block:hover .port {
+	background: url(/img/port2.png);
+}
+
+.practice_block:hover .law {
+	background: url(/img/law2.png);
+}
+
+.practice_block:hover {
+	background-color: #fff;
+	border-radius: 0px 40px 0px 40px;
+}
+
+.practice_block:hover p {
+	color: #181818;
+}
+
+.practice_img {
+	background-size: 146px !important;
+	background-repeat: no-repeat !important;
+	background-position: center !important;
+	background-position-y: center !important;
+}
+
+.fiz {
+	background: url(/img/fiz.png);
+	height: 180px;
+}
+
+
+.port {
+	background: url(/img/port.png);
+	height: 180px;
+}
+
+.doc {
+	background: url(/img/doc.png);
+	height: 180px;
+}
+
+.law {
+	background: url(/img/law.png);
+	height: 180px;
+}
+/*
+.fiz:hover {
+	background: url(/img/fiz2.png);
+	background-color: #fff;
+}*/
+
+.practice_but {
+	background-color: #fff;
+	width: 11vw;
+	height: 6vh;
+	font-size: 2.5vh;
+	margin-top: 20px;
+}
+
+.practice_but p {
+	margin-top: 0.7vh;
 }

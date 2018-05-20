@@ -3,6 +3,21 @@
     box-shadow: 0 0 40px 0 rgba(0,0,0,.3)
 }
 
+.themes_right {
+    padding-top: 20px;
+}
+
+.th_wrap {
+    text-align: right;
+}
+
+.themes_header {
+    color: #7A0500;
+    font-size: 20px;
+    font-family: 'Oswald';
+    padding-top: 16px;
+}
+
 
 .news_block img {
     width: 100%;

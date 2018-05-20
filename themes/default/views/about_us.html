@@ -32,18 +32,25 @@
         <div class="row">
             <div class="col-md-3 command-list">
                 @{foreach m in model.items}
-                <a href="@{sitemap_url('persondetail', m.linker)}" class="col-md-12 left_mName">@{m.name}</a>
+                <p class="col-md-12 left_mName personname">@{m.name} <span class="hidden">@{m.body}</span></p>
+                
                 @{end}
             </div>
                 <div class="col-md-9 command-tile">
                     @{foreach m in model.items}
                         <div class="col-md-4 member_block">
                             <img class="member_img" src="@{m.pictures[0]}" alt="" />
-                            <a href="@{sitemap_url('persondetail', m.linker)}" class="member_name">@{m.name}</a>
+                            <p class="member_name personname">@{m.name}<span class="hidden">@{m.body}</span></p>
                             <p class="member_achievments">@{m.perex}</p>
                         </div>
                     @{end}
                 </div>
+        </div>
+        <div class="row">
+            <div class="col-md-11"></div>
+            <div class="col-md-1">
+                <i class="fa fa-times backToBeg hidden"></i>
+            </div>
         </div>
         <div class="row spacer"></div>
     </div>
