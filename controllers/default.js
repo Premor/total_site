@@ -1,6 +1,7 @@
 exports.install = function() {
 	F.route('/contacts/',contacts)
-
+	F.route('/practice/',practice)
+	/*F.route('/news/',news)*/
 	// CMS rendering
 	F.route('/', home,['*Post']);
 	F.route('/contacts/',twq);
@@ -60,6 +61,15 @@ function view_page() {
 function contacts () {
 	this.view('contacts');
 }
+
+function practice () {
+	this.view('practice');
+}
+/*
+function news () {
+	this.view('news');
+}
+*/
 
 function test(){
 	const str = 'чутка рандомных слов'

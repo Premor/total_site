@@ -9,6 +9,8 @@ exports.install = function() {
 	'/css/for_pages/about_us_page/member.css',
 	 /*search*/ '/css/search.css',
 	 /*contacts_page*/ '/css/for_pages/contacts_page/contacts.css',
+	 /*login & registration */ '/css/for_pages/logreg_pages/logreg.css',
+	 /*practice_page */ '/css/for_pages/practice_page/practice.css',
 	 '/css/ui.css', '/css/bootstrap.min.css', '/css/animate.css',
 	 '=default/public/css/default.css');
 	F.merge('/default/js/default.js', '/js/spa.min.js', '/js/ui.js', 

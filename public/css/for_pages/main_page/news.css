@@ -23,6 +23,7 @@
     width: 100%;
     margin: auto;
     border: 2px solid #BA0800;  
+    margin-bottom: 0.5vh;
 }
 
 .news_header {
@@ -41,8 +42,11 @@ p.news_header {
 }
 
 .news_title {
+    padding-top: 0.7vh;
     font-size: 3vh;
     margin-bottom: 0.7vh;
+    font-family: 'Oswald';
+    line-height: 110%;
 }
 
 .news_text {

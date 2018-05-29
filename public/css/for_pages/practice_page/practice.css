@@ -1,0 +1,50 @@
+.fiz2 {
+	background: url(/img/fiz2.png);
+	height: 180px;
+}
+
+
+.port2 {
+	background: url(/img/port2.png);
+	height: 180px;
+}
+
+.doc2 {
+	background: url(/img/doc2.png);
+	height: 180px;
+}
+
+.law2 {
+	background: url(/img/law2.png);
+	height: 180px;
+}
+
+
+.practice_block:hover .fiz2 {
+	background: url(/img/fiz.png);
+}
+
+.practice_block:hover .doc2 {
+	background: url(/img/doc.png);
+}
+
+.practice_block:hover .port2 {
+	background: url(/img/port.png);
+}
+
+.practice_block:hover .law2 {
+	background: url(/img/law.png);
+}
+
+.pr_page p{
+    text-align: center;
+    color: #000000;
+}
+
+.pr_page.practice_block:hover {
+    background: #ba0800;
+}
+
+.pr_page.practice_block:hover p {
+    color: #ffffff;
+}
