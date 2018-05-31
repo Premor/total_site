@@ -1,13 +1,17 @@
-<div class="row">
-	@{foreach m in model.items}
-	<div class="col-md-10 col-md-offset-1">
-		<div class="b"><a href="@{sitemap_url('blogsdetail', m.linker)}">@{m.name}</a></div>
-		<div class="fs11">@{m.datecreated.parseDate().format('yyyy-MM-dd HH:mm')}</div>
-		<p>@{m.perex}</p>
-		<hr />
+
+  <div class="row news_cont">
+		@{foreach m in model.items}
+		<div class="col-md-4 news_item">
+			<div class="news_date">
+				<!--<p>@{m.datecreated}</p> Как вытащить дату в нормальный формат?-->
+			</div>
+			<img src="@{m.pictures[0]}" alt="" />
+			<a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</a>
+			<p class="news_text">@{m.perex}</p>
+			@{foreach i in m.tags}<a href="#" class="news_tag">@{i}</a>@{end}
+		</div>
+		@{end}
 	</div>
-	@{end}
-</div>
 
 @{if !model.count}
 	<div class="row" style="margin-top:30px;margin-bottom:100px" id="empty">

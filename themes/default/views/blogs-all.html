@@ -1,7 +1,37 @@
 @{sitemap('blogs')}
 
-<div class="padding">
-	<h1>@{title}</h1>
-	@{view('partial-blogs', model)}
-	@{view('partial-pagination', model)}
+<div class="carousel container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<img src="/img/caroutest.png" alt="">
+		</div>
+	</div>
+</div>
+<div class="padding news_block">
+	<div class="padding news_block container-fluid white_block">
+		<div class="row">
+				<div class="col-md-3">
+					<p class="news_header">Новости</p>
+				</div>
+				<div class="col-md-3">
+					'search here ---- >'
+				</div>
+				<div class="col-md-1 th_wrap">
+					<p class="themes_header">Темы:</p>
+				</div>
+				<div class="col-md-5 themes_right">
+						@{foreach m in model.items}
+							@{foreach i in m.tags}
+								<a href="#" class="news_tag">@{i}</a>
+							@{end}
+						@{end}
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-md-12">
+				@{view('partial-blogs', model)}
+				@{view('partial-pagination', model)}
+			</div>	
+		</div>
+	</div>
 </div>
