@@ -1,97 +1,5 @@
-let previ = '';
-$(document).ready(function() {
-    $('.fiz_block').on('click',function(){
-        window.location.replace('/practice?practice=fiz')
-    });
-    $('.port_block').on('click',function(){
-        window.location.replace('/practice?practice=port')
-    });
-    $('.doc_block').on('click',function(){
-        window.location.replace('/practice?practice=doc')
-        
-    });
-    $('.port_law').on('click',function(){
-        window.location.replace('/practice?practice=law')
-    })
 
-    /* For practice animation */
-    $('.fiz2_block').on('click',function fiz_slider (){
-        $('.pr_page').css('position','relative');
-        $('.pr_page').css('z-index','0');
-        previ = 'fiz2';
-        $(this).addClass('prev');
-        $(this).css('z-index','50')
-        $(this).animate({left: '-15.8%'},700);
-        $(this).css('background', '#ba0800')
-        $(this).children('.fiz2').css('background', 'url(/img/fiz.png)')
-        $(this).children('p').css('color','#ffffff')
-        $('.port2_block').animate({left: '-32.5%'},700);
-        setTimeout(() => {
-            $('.port2_block').css('visibility','hidden');
-        }, 700);
-
-        $('.doc2_block').animate({left: '-46.5%'},700);
-        setTimeout(() => {
-            $('.doc2_block').css('visibility','hidden');
-        }, 700);
-
-        $('.law2_block').animate({left: '-65.5%'},700);
-        setTimeout(() => {
-            $('.law2_block').css('visibility','hidden');
-        }, 700);
-
-        /*vertical animation*/
-
-        setTimeout(() => {
-            $('.port3_block').css('visibility','visible');
-            $('.port3_block').animate({bottom: '-105%'},700);
-        }, 700);
-
-        setTimeout(() => {
-            $('.doc3_block').css('visibility','visible');
-            $('.doc3_block').animate({bottom: '-205%'},700);
-        }, 700);
-
-        setTimeout(() => {
-            $('.law3_block').css('visibility','visible');
-            $('.law3_block').animate({bottom: '-305%'},700);
-        }, 700);
-        $(this).unbind('click');
-
-
-        $('.fiz2').on('click', function () {
-            $(this).css('background', '#ba0800')
-            $(this).children('.f2').css('background', 'url(/img/doc.png)')
-            $(this).children('p').css('color','#ffffff')
-    
-            switch (previ) {
-                case 'fiz3': 
-                    $('.fiz3_block').css('background', '#ffffff')
-                    $('.fiz3_block').children('.fiz2').css('background', 'url(/img/fiz2.png)')
-                    $('.fiz3_block').children('p').css('color','#181818')
-                    break;
-                case 'law3': 
-                    $('.law3_block').css('background', '#ffffff')
-                    $('.law3_block').children('.law2').css('background', 'url(/img/law2.png)')
-                    $('.law3_block').children('p').css('color','#181818')
-                    break;
-                case 'port3': 
-                    $('.port3_block').css('background', '#ffffff')
-                    $('.port3_block').children('.port2').css('background', 'url(/img/port2.png)')
-                    $('.port3_block').children('p').css('color','#181818')
-                    break;
-                case 'doc3': 
-                    $('.doc3_block').css('background', '#ffffff')
-                    $('.doc3_block').children('.doc2').css('background', 'url(/img/doc2.png)')
-                    $('.doc3_block').children('p').css('color','#181818')
-                    break;
-            }
-    
-            previ = 'fiz2';
-            console.log(previ);
-        })
-
-        $('.port2').on('click', function () {
+/*$('.port2').on('click', function () {
             $(this).css('background', '#ba0800')
             $(this).children('.port2').css('background', 'url(/img/port.png)')
             $(this).children('p').css('color','#ffffff')
@@ -182,6 +90,98 @@ $(document).ready(function() {
             }
     
             previ = 'port2';
+        }) */
+let previ = '';
+$(document).ready(function() {
+    $('.fiz_block').on('click',function(){
+        window.location.replace('/practice?practice=fiz')
+    });
+    $('.port_block').on('click',function(){
+        window.location.replace('/practice?practice=port')
+    });
+    $('.doc_block').on('click',function(){
+        window.location.replace('/practice?practice=doc')
+        
+    });
+    $('.law_block').on('click',function(){
+        window.location.replace('/practice?practice=law')
+    })
+
+    /* For practice animation */
+    $('.fiz2_block').on('click',function fiz_slider (){
+        $('.pr_page').css('position','relative');
+        $('.pr_page').css('z-index','0');
+        previ = 'fiz2';
+        $(this).addClass('prev');
+        $(this).css('z-index','50')
+        $(this).animate({left: '-15.8%'},700);
+        $(this).css('background', '#ba0800')
+        $(this).children('.fiz2').css('background', 'url(/img/fiz.png)')
+        $(this).children('p').css('color','#ffffff')
+        $('.port2_block').animate({left: '-32.5%'},700);
+        setTimeout(() => {
+            $('.port2_block').css('visibility','hidden');
+        }, 700);
+
+        $('.doc2_block').animate({left: '-46.5%'},700);
+        setTimeout(() => {
+            $('.doc2_block').css('visibility','hidden');
+        }, 700);
+
+        $('.law2_block').animate({left: '-65.5%'},700);
+        setTimeout(() => {
+            $('.law2_block').css('visibility','hidden');
+        }, 700);
+
+        /*vertical animation*/
+
+        setTimeout(() => {
+            $('.port3_block').css('visibility','visible');
+            $('.port3_block').animate({bottom: '-105%'},700);
+        }, 700);
+
+        setTimeout(() => {
+            $('.doc3_block').css('visibility','visible');
+            $('.doc3_block').animate({bottom: '-205%'},700);
+        }, 700);
+
+        setTimeout(() => {
+            $('.law3_block').css('visibility','visible');
+            $('.law3_block').animate({bottom: '-305%'},700);
+        }, 700);
+        $(this).unbind('click');
+
+
+        $('.fiz2').on('click', function () {
+            $(this).css('background', '#ba0800')
+            $(this).children('.f2').css('background', 'url(/img/doc.png)')
+            $(this).children('p').css('color','#ffffff')
+    
+            switch (previ) {
+                case 'fiz3': 
+                    $('.fiz3_block').css('background', '#ffffff')
+                    $('.fiz3_block').children('.fiz2').css('background', 'url(/img/fiz2.png)')
+                    $('.fiz3_block').children('p').css('color','#181818')
+                    break;
+                case 'law3': 
+                    $('.law3_block').css('background', '#ffffff')
+                    $('.law3_block').children('.law2').css('background', 'url(/img/law2.png)')
+                    $('.law3_block').children('p').css('color','#181818')
+                    break;
+                case 'port3': 
+                    $('.port3_block').css('background', '#ffffff')
+                    $('.port3_block').children('.port2').css('background', 'url(/img/port2.png)')
+                    $('.port3_block').children('p').css('color','#181818')
+                    break;
+                case 'doc3': 
+                    $('.doc3_block').css('background', '#ffffff')
+                    $('.doc3_block').children('.doc2').css('background', 'url(/img/doc2.png)')
+                    $('.doc3_block').children('p').css('color','#181818')
+                    break;
+            }
+    
+            previ = 'fiz2';
+            console.log(previ);
         })
     });
 /* ======================================================================================== */
@@ -330,7 +330,6 @@ $(document).ready(function() {
         console.log(previ)
         switch (previ) {
             case 'fiz2': 
-                alert('PIZDES')
                 $('.fiz2').css('background', '#ffffff')
                 $('.fiz2').children('.fiz2').css('background', 'url(/img/fiz2.png)')
                 $('.fiz2').children('p').css('color','#181818')
