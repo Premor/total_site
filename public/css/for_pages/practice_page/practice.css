@@ -45,6 +45,11 @@
     background: #ba0800;
 }
 
+.pr_page.practice_block {
+    background: #fff;
+}
+
+
 .pr_page.practice_block:hover p {
     color: #ffffff;
 }
