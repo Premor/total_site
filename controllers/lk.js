@@ -95,7 +95,7 @@ function view_login(){
 function login(){
 	var self = this;
 	MODEL('user').find_u(this.body.login, this.body.psw, (err,res)=>{
-		if (err)
+		if (err||!res)
 			this.view('fail', err);
 		else
 		{

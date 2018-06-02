@@ -10,6 +10,7 @@ exports.install = function() {
 
 	// CONTACTFORM
 	F.route('/api/contact/',     json_save, ['post', '*Contact']);
+	F.global.search = [];
 	load_news();
 };
 
@@ -44,12 +45,7 @@ function load_news(){
 	filter.callback((err, docs, count)=> {
 		
 		for (a of docs){
-			if (F.global.search){
-				F.global.search = F.global.search.concat({name:a.name,keywords:a.search,link:a.linker});
-			} 
-			else {
-				F.global.search = [{name:a.name,keywords:a.search,link:a.linker}]
-			}
+				F.global.search.push({name:a.name,keywords:a.search,link:a.linker});
 		}
 	
 	})
