@@ -1,30 +1,28 @@
-<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
-@{import('meta', 'head', 'default.css', 'default.js', 'favicon.ico')}
-@{layout('')}
+@{layout('layout_logreg')}
  <div class="container-fluid logreg_cont">
      <div class="row">
          <div class="col-md-12 logreg_image" >
-             <img src="/img/logo.png" alt="">
+                <a href="/">
+                    <img src="/img/logo.png" alt="">
+                </a>
          </div>
      </div>
      <div class="row">
          <div class="col-md-12">
              <div class="logreg_wrapper">
                  <div class="col-md-12">
-                    <form action="" method="POST">
+                    <form action="/login" method="POST">
                         <p>Логин:</p>
                         <input type="text" class = "logreg_inp" name="login"/>
                         <p>Пароль:</p>
                         <input type="password" class = "logreg_inp" name="psw"/> 
-                        <br />
-                        <input type="submit">
+                        <button type="submit">
+                            <div class="menu-block practice_but">
+                                Войти
+                            </div>
+                        </button>
                     </form>
                 </div>
-                <a href="">
-                    <div class="menu-block practice_but">
-                        Войти
-                    </div>
-                </a>
             </div>
          </div>
  </div>
