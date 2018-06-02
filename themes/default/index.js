@@ -13,7 +13,8 @@ exports.install = function() {
 	 /*practice_page */ '/css/for_pages/practice_page/practice.css',
 	 '/css/ui.css', '/css/bootstrap.min.css', '/css/animate.css',
 	 '=default/public/css/default.css');
-	F.merge('/default/js/default.js', '/js/spa.min.js', '/js/ui.js', 
+	F.merge('/default/js/default.js', '/js/spa.min.js', '/js/ui.js',
+	/*my own js*/ '/js/common.js', 
 	 '=default/public/js/default.js');
 	F.localize('/default/templates/*.html', ['compress']);
 };
