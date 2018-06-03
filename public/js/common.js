@@ -568,10 +568,10 @@ $(document).ready(function() {
                 $('.law2_block').children('.law2').css('background', 'url(/img/law2.png)')
                 $('.law2_block').children('p').css('color','#181818')
                 break;
-            case 'fiz3': 
-                $('.fiz3_block').css('background', '#ffffff')
-                $('.fiz3_block').children('.fiz2').css('background', 'url(/img/fiz2.png)')
-                $('.fiz3_block').children('p').css('color','#181818')
+            case 'doc3': 
+                $('.doc3_block').css('background', '#ffffff')
+                $('.doc3_block').children('.doc2').css('background', 'url(/img/doc2.png)')
+                $('.doc3_block').children('p').css('color','#181818')
                 break;
             case 'law3': 
                 $('.law3_block').css('background', '#ffffff')
