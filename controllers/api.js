@@ -10,8 +10,11 @@ exports.install = function() {
 
 	// CONTACTFORM
 	F.route('/api/contact/',     json_save, ['post', '*Contact']);
+	F.route('/api/practics/', get_practics);
 	F.global.search = [];
+	F.global.practics = [];
 	load_news();
+	load_practics();
 };
 
 // ==========================================================================
@@ -36,6 +39,16 @@ function json_save() {
 	self.body.$save(self.callback());
 }
 
+function get_practics(){
+	this.json(F.global.practics);
+}
+
+function load_practics(){
+	NOSQL('practics').one().callback((err,res)=>{
+		if (!err||res)
+			F.global.practics = res;
+	});
+}
 
 function load_news(){
 	var filter = NOSQL('posts').find();
