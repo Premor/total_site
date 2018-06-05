@@ -52,7 +52,7 @@ function get_practics(){
 function load_practics(){
 	NOSQL('practics').one().where("id",1).callback((err,res)=>{
 		if (!err&&res){
-			F.global.practics = res.practics;
+			F.global.practics = res.category;
 			console.log('load success: ',res);
 		}
 		else{
