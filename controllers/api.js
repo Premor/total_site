@@ -13,7 +13,6 @@ exports.install = function() {
 	F.route('/api/practics/', get_practics);
 	F.global.search = [];
 	F.global.practics = [];
-	create_new();
 	load_news();
 	load_practics();
 };
