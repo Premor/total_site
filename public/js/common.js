@@ -1,96 +1,9 @@
 
-/*$('.port2').on('click', function () {
-            $(this).css('background', '#ba0800')
-            $(this).children('.port2').css('background', 'url(/img/port.png)')
-            $(this).children('p').css('color','#ffffff')
-    
-            switch (previ) {
-                case 'fiz3': 
-                    $('.fiz3_block').css('background', '#ffffff')
-                    $('.fiz3_block').children('.fiz2').css('background', 'url(/img/fiz2.png)')
-                    $('.fiz3_block').children('p').css('color','#181818')
-                    break;
-                case 'law3': 
-                    $('.law3_block').css('background', '#ffffff')
-                    $('.law3_block').children('.law2').css('background', 'url(/img/law2.png)')
-                    $('.law3_block').children('p').css('color','#181818')
-                    break;
-                case 'port3': 
-                    $('.port3_block').css('background', '#ffffff')
-                    $('.port3_block').children('.port2').css('background', 'url(/img/port2.png)')
-                    $('.port3_block').children('p').css('color','#181818')
-                    break;
-                case 'doc3': 
-                    $('.doc3_block').css('background', '#ffffff')
-                    $('.doc3_block').children('.doc2').css('background', 'url(/img/doc2.png)')
-                    $('.doc3_block').children('p').css('color','#181818')
-                    break;
-            }
-    
-            previ = 'port2';
-        })
-
-        $('.doc2').on('click', function () {
-            $(this).css('background', '#ba0800')
-            $(this).children('.doc2').css('background', 'url(/img/doc.png)')
-            $(this).children('p').css('color','#ffffff')
-    
-            switch (previ) {
-                case 'fiz3': 
-                    $('.fiz3_block').css('background', '#ffffff')
-                    $('.fiz3_block').children('.fiz2').css('background', 'url(/img/fiz2.png)')
-                    $('.fiz3_block').children('p').css('color','#181818')
-                    break;
-                case 'law3': 
-                    $('.law3_block').css('background', '#ffffff')
-                    $('.law3_block').children('.law2').css('background', 'url(/img/law2.png)')
-                    $('.law3_block').children('p').css('color','#181818')
-                    break;
-                case 'port3': 
-                    $('.port3_block').css('background', '#ffffff')
-                    $('.port3_block').children('.port2').css('background', 'url(/img/port2.png)')
-                    $('.port3_block').children('p').css('color','#181818')
-                    break;
-                case 'doc3': 
-                    $('.doc3_block').css('background', '#ffffff')
-                    $('.doc3_block').children('.doc2').css('background', 'url(/img/doc2.png)')
-                    $('.doc3_block').children('p').css('color','#181818')
-                    break;
-            }
-    
-            previ = 'doc2';
-        })
-
-        $('.law2').on('click', function () {
-            $(this).css('background', '#ba0800')
-            $(this).children('.law2').css('background', 'url(/img/law.png)')
-            $(this).children('p').css('color','#ffffff')
-    
-            switch (previ) {
-                case 'fiz3': 
-                    $('.fiz3_block').css('background', '#ffffff')
-                    $('.fiz3_block').children('.fiz2').css('background', 'url(/img/fiz2.png)')
-                    $('.fiz3_block').children('p').css('color','#181818')
-                    break;
-                case 'law3': 
-                    $('.law3_block').css('background', '#ffffff')
-                    $('.law3_block').children('.law2').css('background', 'url(/img/law2.png)')
-                    $('.law3_block').children('p').css('color','#181818')
-                    break;
-                case 'port3': 
-                    $('.port3_block').css('background', '#ffffff')
-                    $('.port3_block').children('.port2').css('background', 'url(/img/port2.png)')
-                    $('.port3_block').children('p').css('color','#181818')
-                    break;
-                case 'doc3': 
-                    $('.doc3_block').css('background', '#ffffff')
-                    $('.doc3_block').children('.doc2').css('background', 'url(/img/doc2.png)')
-                    $('.doc3_block').children('p').css('color','#181818')
-                    break;
-            }
-    
-            previ = 'port2';
-        }) */
+$.ajax({
+    type: 'GET',
+    url: '/api/practics',
+    success: function (data) {alert('sobaka'); console.log(data)}
+})
 let previ = '';
 $(document).ready(function() {
     $('.fiz_block').on('click',function(){
@@ -585,6 +498,6 @@ $(document).ready(function() {
                 break;
         }
 
-        previ = 'fiz3';
+        previ = 'fiz3';цццы
     })
 })
