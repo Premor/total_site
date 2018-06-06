@@ -1,9 +1,3 @@
-
-$.ajax({
-    type: 'GET',
-    url: '/api/practics',
-    success: function (data) {alert('sobaka'); console.log(data)}
-})
 let previ = '';
 $(document).ready(function() {
     $('.fiz_block').on('click',function(){
@@ -498,6 +492,6 @@ $(document).ready(function() {
                 break;
         }
 
-        previ = 'fiz3';цццы
+        previ = 'fiz3';
     })
 })

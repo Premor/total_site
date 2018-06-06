@@ -21,6 +21,10 @@ exports.install = function() {
 // COMMON
 // ==========================================================================
 
+function create_new(){
+	NOSQL('practics').insert({"id":1,"practics":["test1","test2","test3"]});
+}
+
 function json_ping() {
 	var self = this;
 	self.plain('null');
@@ -56,9 +60,15 @@ function get_practics(){
 }
 
 function load_practics(){
-	NOSQL('practics').one().callback((err,res)=>{
-		if (!err||res)
-			F.global.practics = res;
+	NOSQL('practics').one().where("id",1).callback((err,res)=>{
+		if (!err&&res){
+			F.global.practics = res.practics;
+			console.log('load success: ',res);
+		}
+		else{
+			console.log('fuck: ',res);
+			console.log('fuck: ',err);
+		}
 	});
 }
 
