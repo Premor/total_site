@@ -50,6 +50,19 @@ function load_practics(){
 	});
 }
 
+
+function get_practics(){
+	this.json(F.global.practics);
+}
+
+function load_practics(){
+	NOSQL('practics').one().callback((err,res)=>{
+		if (!err||res)
+			F.global.practics = res;
+	});
+}
+
+
 function load_news(){
 	var filter = NOSQL('posts').find();
 	filter.where('category_linker', 'blogs');
