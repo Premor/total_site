@@ -4,7 +4,8 @@ const C_LAW = `law`;
 const C_PORT = `port`;
 let CLICKED = ``;
 
-$(document).ready(function() {
+$(document).ready(function() { 
+    /*on main - replaces from practice block */
     $('.fiz_block').on('click',function(){
         window.location.replace('/practice?practice=fiz')
     });
@@ -17,16 +18,20 @@ $(document).ready(function() {
     $('.law_block').on('click',function(){
         window.location.replace('/practice?practice=law')
     })
-
+    /**
+     * "CHANGE_CATEGORY" sets handler when elements are on left side.
+     * @param {string} CLICKED type of icon (fiz, port, doc, law)
+     * @param {string} NUM number of icon (2,3)
+     */
     function CHANGE_CATEGORY(CLICKED,NUM) {
         $(`.${CLICKED}${NUM}_block`).on(`click`, function () {
             $(this).css(`background`, `#ba0800`)
             $(this).children(`.${CLICKED}2`).css(`background`, `url(/img/${CLICKED}.png)`)
             $(this).children(`p`).css(`color`,`#ffffff`)
-            switch (`${CLICKED}${NUM}`) {
+            switch (`${CHOSEN}`) {
                 case `${C_FIZ}2`: 
                     $(`.${C_FIZ}2_block`).css(`background`, `#ffffff`)
-                    $(`.${C_FIZ}2_block`).children(`.${C_FIZ}2`).css(`background`, `url(/img/${C_FIZ}2.png)`)
+                    $(`.${C_FIZ}2_block`).children(`.${C_FIZ}2`).css(`background`, `url(/img/${C_FIZ}.png)`)
                     $(`.${C_FIZ}2_block`).children(`p`).css(`color`,`#181818`)
                     break;
                 case `${C_LAW}2`: 
@@ -65,11 +70,11 @@ $(document).ready(function() {
                     break;
                 }
             console.log(CHOSEN);
-            CHOSEN = `${CLICKED}${NUM}`;
+            CHOSEN = `${CLICKED}${NUM}`; //Why did we need 'CHOSEN'?
         })
     }
 
-    $(`.${C_FIZ}2_block`).on(`click`,function (){
+    $(`.${C_FIZ}2_block`).on(`click`,function (){//Hander if U clicked on 'fiz' in hor. line
         $(`.pr_page`).css(`position`,`relative`);
         $(`.pr_page`).css(`z-index`,`0`);
         $(this).addClass(`prev`);
@@ -116,7 +121,7 @@ $(document).ready(function() {
 
     });
 
-    $(`.${C_PORT}2_block`).on(`click`,function(){
+    $(`.${C_PORT}2_block`).on(`click`,function(){//Hander if U clicked on 'port' in hor. line
         $(`.pr_page`).css(`position`,`relative`);
         $(`.pr_page`).css(`z-index`,`0`);
         CHOSEN = `${C_PORT}2`;
@@ -164,7 +169,7 @@ $(document).ready(function() {
     });
 
 
-    $(`.${C_DOC}2_block`).on(`click`,function(){
+    $(`.${C_DOC}2_block`).on(`click`,function(){//Hander if U clicked on 'doc' in hor. line
         $(`.pr_page`).css(`position`,`relative`);
         $(`.pr_page`).css(`z-index`,`0`);
         CHOSEN = `${C_DOC}2`;
@@ -213,7 +218,7 @@ $(document).ready(function() {
 
     });
 
-    $(`.${C_LAW}2_block`).on(`click`,function(){
+    $(`.${C_LAW}2_block`).on(`click`,function(){//Hander if U clicked on 'law' in hor. line
         $(`.pr_page`).css(`position`,`relative`);
         $(`.pr_page`).css(`z-index`,`0`);
         $(this).css(`z-index`,`50`)
@@ -261,7 +266,7 @@ $(document).ready(function() {
         CHANGE_CATEGORY(`${C_LAW}`,2);
 
     });
-
+    
     CHANGE_CATEGORY(`${C_FIZ}`,3);
     CHANGE_CATEGORY(`${C_PORT}`,3);
     CHANGE_CATEGORY(`${C_DOC}`,3);
