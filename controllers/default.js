@@ -1,11 +1,12 @@
 exports.install = function() {
 	F.route('/contacts/',contacts)
-	F.route('/practice/',practice)
+	F.route('/practice/',practice,['*Post'])
 	/*F.route('/news/',news)*/
 	// CMS rendering
 	F.route('/', home,['*Post']);
 	F.route('/contacts/',twq);
-	
+	F.route('#publication',           view_publication, 		['*Post']);
+	F.route('#publicationdetail',     view_publication_detail,  ['*Post']);
 	//ROUTE('/registration',view_registration,['#session']);
 	//ROUTE('/registration',view_registration_auth,[/*'authorize',*/'#session']);
 	//ROUTE('/registration', json_create_user, ['post'/*,'unauthorize'*/,'#session']);
@@ -63,7 +64,18 @@ function contacts () {
 }
 
 function practice () {
-	this.view('practice');
+	var self = this;
+	var options = {};
+
+	options.category = 'Practice';
+
+	if (self.query.q)
+		options.search = self.query.q;
+
+	if (self.query.page)
+		options.page = self.query.page;
+
+	self.$query(options, self.callback('practice'));
 }
 /*
 function news () {
@@ -191,6 +203,23 @@ function file_read(req, res) {
 // POSTS
 // ============================================
 
+
+function view_publication() {
+	var self = this;
+	var options = {};
+
+	options.category = 'Publication';
+
+	if (self.query.q)
+		options.search = self.query.q;
+
+	if (self.query.page)
+		options.page = self.query.page;
+
+	self.$query(options, self.callback('publication-all'));
+}
+
+
 function view_blogs() {
 	var self = this;
 	var options = {};
@@ -204,6 +233,19 @@ function view_blogs() {
 		options.page = self.query.page;
 
 	self.$query(options, self.callback('blogs-all'));
+}
+
+function view_publication_detail(linker) {
+	var self = this;
+	var options = {};
+	options.category = 'Publication';
+	options.linker = linker;
+	self.$read(options, function(err, response) {
+		if (err)
+			return self.throw404(err);
+		NOSQL('posts').counter.hit(response.id);
+		self.view('publication-detail', response);
+	});
 }
 
 function view_album() {

@@ -7,3 +7,5 @@ albumdetail              : @(Album detail)           --> /album/{0}/            
 aboutus                  : @(About us)               --> /about_us/                  --> homepage
 person                   : @(Album)                  --> /person/                    --> homepage
 persondetail             : @(Album detail)           --> /person/{0}/                --> person
+publication                    : @(Blogs)                  --> /publication/                      --> homepage
+publicationdetail              : @(Blog detail)            --> /publication/{0}/                  --> publication
