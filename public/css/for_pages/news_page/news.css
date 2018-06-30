@@ -1,0 +1,8 @@
+.news_page_block {
+    box-shadow: none !important;
+}
+
+.news_page-item {
+    background-color: #ffffff;
+    margin-right: 10px;
+}

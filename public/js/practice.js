@@ -25,13 +25,14 @@ $(document).ready(function() {
      */
     function CHANGE_CATEGORY(CLICKED,NUM) {
         $(`.${CLICKED}${NUM}_block`).on(`click`, function () {
+            console.log(CHOSEN)
             $(this).css(`background`, `#ba0800`)
             $(this).children(`.${CLICKED}2`).css(`background`, `url(/img/${CLICKED}.png)`)
             $(this).children(`p`).css(`color`,`#ffffff`)
             switch (`${CHOSEN}`) {
                 case `${C_FIZ}2`: 
                     $(`.${C_FIZ}2_block`).css(`background`, `#ffffff`)
-                    $(`.${C_FIZ}2_block`).children(`.${C_FIZ}2`).css(`background`, `url(/img/${C_FIZ}.png)`)
+                    $(`.${C_FIZ}2_block`).children(`.${C_FIZ}2`).css(`background`, `url(/img/${C_FIZ}2.png)`)
                     $(`.${C_FIZ}2_block`).children(`p`).css(`color`,`#181818`)
                     break;
                 case `${C_LAW}2`: 
@@ -70,7 +71,7 @@ $(document).ready(function() {
                     break;
                 }
             console.log(CHOSEN);
-            CHOSEN = `${CLICKED}${NUM}`; //Why did we need 'CHOSEN'?
+            CHOSEN = `${CLICKED}${NUM}`; //Chosen - our previous element.
         })
     }
 
