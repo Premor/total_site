@@ -285,13 +285,23 @@ $(document).ready(function() {
 
 })
 
-function get_value_practice(name){
+function get_2nd_lvl(name){
     let ret = '';
     switch(name){
-        case C_FIZ:ret = practics.fiz;break;
-        case C_DOC:ret = practics.yr;break;
-        case C_LAW:ret = practics.admspor;break;
-        case C_PORT:ret = practics.zash;break;
+        case C_FIZ:ret = practics.fiz.map((cur)=>{return cur.name});break;
+        case C_DOC:ret = practics.yr.map((cur)=>{return cur.name});break;
+        case C_LAW:ret = practics.admspor.map((cur)=>{return cur.name});break;
+        case C_PORT:ret = practics.zash.map((cur)=>{return cur.name});break;
     }
     return ret;
+}
+function get_3rd_lvl(name,lvl2){
+    let ret = '';
+    switch(name){
+        case C_FIZ:ret = practics.fiz.find((cur)=>{return cur.name==lvl2});break;
+        case C_DOC:ret = practics.yr.find((cur)=>{return cur.name==lvl2});break;
+        case C_LAW:ret = practics.admspor.find((cur)=>{return cur.name==lvl2});break;
+        case C_PORT:ret = practics.zash.find((cur)=>{return cur.name==lvl2});break;
+    }
+    return ret.category;
 }
