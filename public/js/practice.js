@@ -3,7 +3,14 @@ const C_DOC = `doc`;
 const C_LAW = `law`;
 const C_PORT = `port`;
 let CLICKED = ``;
-
+let practics;
+function get_practics(){
+    AJAX('GET /api/practics/', '',(res)=>{
+        practics = res;
+        console.log('res: ',res);
+    });
+}
+get_practics();
 $(document).ready(function() { 
     /*on main - replaces from practice block */
     $('.fiz_block').on('click',function(){
@@ -268,9 +275,24 @@ $(document).ready(function() {
 
     });
     
+    $(`.${C_LAW}3_block`).on(`click`,function(){//Hander
+        $('.qwe').append(`<p> ${get_value_practice(C_LAW)}`)
+    });
+
     CHANGE_CATEGORY(`${C_FIZ}`,3);
     CHANGE_CATEGORY(`${C_PORT}`,3);
     CHANGE_CATEGORY(`${C_DOC}`,3);
     CHANGE_CATEGORY(`${C_LAW}`,3);
 
 })
+
+function get_value_practice(name){
+    let ret = '';
+    switch(name){
+        case C_FIZ:ret = practics.fiz;break;
+        case C_DOC:ret = practics.yr;break;
+        case C_LAW:ret = practics.admspor;break;
+        case C_PORT:ret = practics.zash;break;
+    }
+    return ret;
+}
