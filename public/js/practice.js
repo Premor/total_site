@@ -82,7 +82,7 @@ $(document).ready(function() {
         })
     }
 
-    $(`.${C_FIZ}2_block`).on(`click`,function (){//Hander if U clicked on 'fiz' in hor. line
+    $(`.${C_FIZ}2_block`).on(`click`,function (){//Hanlder if U clicked on 'fiz' in hor. line
         $(`.pr_page`).css(`position`,`relative`);
         $(`.pr_page`).css(`z-index`,`0`);
         $(this).addClass(`prev`);
@@ -129,7 +129,7 @@ $(document).ready(function() {
 
     });
 
-    $(`.${C_PORT}2_block`).on(`click`,function(){//Hander if U clicked on 'port' in hor. line
+    $(`.${C_PORT}2_block`).on(`click`,function(){//Hanlder if U clicked on 'port' in hor. line
         $(`.pr_page`).css(`position`,`relative`);
         $(`.pr_page`).css(`z-index`,`0`);
         CHOSEN = `${C_PORT}2`;
@@ -177,7 +177,7 @@ $(document).ready(function() {
     });
 
 
-    $(`.${C_DOC}2_block`).on(`click`,function(){//Hander if U clicked on 'doc' in hor. line
+    $(`.${C_DOC}2_block`).on(`click`,function(){//Hanlder if U clicked on 'doc' in hor. line
         $(`.pr_page`).css(`position`,`relative`);
         $(`.pr_page`).css(`z-index`,`0`);
         CHOSEN = `${C_DOC}2`;
@@ -226,7 +226,7 @@ $(document).ready(function() {
 
     });
 
-    $(`.${C_LAW}2_block`).on(`click`,function(){//Hander if U clicked on 'law' in hor. line
+    $(`.${C_LAW}2_block`).on(`click`,function(){//Hanlder if U clicked on 'law' in hor. line
         $(`.pr_page`).css(`position`,`relative`);
         $(`.pr_page`).css(`z-index`,`0`);
         $(this).css(`z-index`,`50`)
@@ -272,12 +272,13 @@ $(document).ready(function() {
         $(this).unbind(`click`);
 
         CHANGE_CATEGORY(`${C_LAW}`,2);
-
     });
     
-    $(`.${C_LAW}3_block`).on(`click`,function(){//Hander
-        $('.qwe').append(`<p> ${get_value_practice(C_LAW)}`)
-    });
+
+    lvl1_handler(C_FIZ, 3)
+    lvl1_handler(C_PORT, 3)
+    lvl1_handler(C_DOC, 3)
+    lvl1_handler(C_LAW, 3)
 
     CHANGE_CATEGORY(`${C_FIZ}`,3);
     CHANGE_CATEGORY(`${C_PORT}`,3);
@@ -285,6 +286,39 @@ $(document).ready(function() {
     CHANGE_CATEGORY(`${C_LAW}`,3);
 
 })
+
+function lvl2_handler(prevName) {
+    $(`.lvl_2`).on(`click`, function(){
+        that = $(this).html();
+        $('.qwe3rdlvl').html('');
+        nexted = get_3rd_lvl(prevName,that);
+        for (i of nexted) {
+            $('.qwe3rdlvl').append(`<p>${i}</p>`)
+            $('.qwe3rdlvl').css('display','block')
+            $('.qwe3rdlvl').css('z-index','300')
+            $(`.${prevName}2_block`).css('left','-18%')
+            $('.qwe3rdlvl').css('left','15%')
+            $('.qwe3rdlvl').css('top','5%')
+        }
+    })
+}
+
+function lvl1_handler(firstName, num){
+    $(`.${firstName}${num}_block`).on(`click`,function(){//Handler
+        $('.qwe').html('');
+        $('.qwe3rdlvl').html('');
+        elems = get_2nd_lvl(firstName);
+        for(i of elems) {
+            $('.qwe').append(`<p class = "lvl_2">${i}</p>`)
+            $('.qwe').css('display','block')
+            $('.qwe').css('z-index','300')
+            $(`.${firstName}2_block`).css('left','-18%')
+            $('.qwe').css('left','15%')
+            $('.qwe').css('top','5%')
+        }
+        lvl2_handler(firstName)
+    });
+}
 
 function get_2nd_lvl(name){
     let ret = '';
@@ -299,10 +333,11 @@ function get_2nd_lvl(name){
 function get_3rd_lvl(name,lvl2){
     let ret = '';
     switch(name){
-        case C_FIZ:ret = practics.fiz.find((cur)=>{return cur.name==lvl2});break;
-        case C_DOC:ret = practics.yr.find((cur)=>{return cur.name==lvl2});break;
-        case C_LAW:ret = practics.admspor.find((cur)=>{return cur.name==lvl2});break;
-        case C_PORT:ret = practics.zash.find((cur)=>{return cur.name==lvl2});break;
+        case C_FIZ:ret = practics.fiz.find((cur)=>{console.log('cur1 ', cur); console.log(lvl2);  console.log(cur.name == lvl2); return cur.name==lvl2});break;
+        case C_DOC:ret = practics.yr.find((cur)=>{console.log('cur2 ', cur); console.log(lvl2); console.log(cur.name == lvl2); return cur.name==lvl2});break;
+        case C_LAW:ret = practics.admspor.find((cur)=>{console.log('cur3 ', cur); console.log(lvl2); console.log(cur.name == lvl2); return cur.name==lvl2});break;
+        case C_PORT:ret = practics.zash.find((cur)=>{console.log(cur.name); console.log(lvl2); console.log(cur.name); return cur.name==lvl2});break;
     }
+    console.log(ret);
     return ret.category;
 }

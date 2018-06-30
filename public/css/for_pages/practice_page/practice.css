@@ -18,6 +18,18 @@
 	height: 180px;
 }
 
+.qwe {
+	display: none;
+	position: relative;
+	z-index:-200;
+}
+
+.qwe3rdlvl {
+	display: none;
+	position: relative;
+	z-index: 200;
+}
+
 .practice_block:hover .fiz2 {
 	background: url(/img/fiz.png);
 }
