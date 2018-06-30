@@ -47,22 +47,18 @@ function get_practics(){
 	this.json(F.global.practics);
 }
 
-function load_practics(){
+/*function load_practics(){
 	NOSQL('practics').one().callback((err,res)=>{
 		if (!err||res)
 			F.global.practics = res;
 	});
-}
+}*/
 
-
-function get_practics(){
-	this.json(F.global.practics);
-}
 
 function load_practics(){
 	NOSQL('practics').one().where("id",1).callback((err,res)=>{
 		if (!err&&res){
-			F.global.practics = res.category;
+			F.global.practics = res.practics;
 			console.log('load success: ',res);
 		}
 		else{
