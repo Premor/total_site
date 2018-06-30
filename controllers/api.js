@@ -43,6 +43,16 @@ function json_save() {
 	self.body.$save(self.callback());
 }
 
+function get_practics(){
+	this.json(F.global.practics);
+}
+
+function load_practics(){
+	NOSQL('practics').one().callback((err,res)=>{
+		if (!err||res)
+			F.global.practics = res;
+	});
+}
 
 
 function get_practics(){

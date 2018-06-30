@@ -36,6 +36,10 @@
 	background: url(/img/law.png);
 }
 
+.practice_block {
+	cursor: pointer;
+}
+
 .pr_page p{
     text-align: center;
     color: #000000;
@@ -45,6 +49,37 @@
     background: #ba0800;
 }
 
+.pr_page.practice_block {
+    background: #fff;
+}
+
+
 .pr_page.practice_block:hover p {
     color: #ffffff;
+}
+
+.raspor {
+	z-index:-100;
+	margin-bottom: 2%;
+}
+
+fiz3_block.rasp {
+	z-index: -99;
+}
+
+port3_block.rasp {
+	z-index: -98;
+}
+
+doc3_block.rasp {
+	z-index: -97;
+}
+
+law3_block.rasp {
+	z-index: -96;
+}
+
+.rasp {
+	position: absolute !important;
+	visibility: hidden;
 }
