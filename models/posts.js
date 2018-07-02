@@ -29,14 +29,14 @@ NEWSCHEMA('Post').make(function(schema) {
 
 		if (options.category)
 			options.category = options.category.slug();
-
+		options.author && filter.where('author',options.author);
 		options.language && filter.where('language', options.language);
 		options.category && filter.where('category_linker', options.category);
 		options.search && filter.like('search', options.search.keywords(false, true));
 
 		filter.take(take);
 		filter.skip(skip);
-		filter.fields('id', 'category', 'body','name', 'language', 'datecreated', 'linker', 'category_linker', 'pictures', 'perex', 'tags');
+		filter.fields('id', 'category', 'body','name', 'language', 'datecreated', 'linker', 'category_linker', 'pictures', 'perex', 'tags','author');
 		filter.sort('datecreated', true);
 
 		filter.callback(function(err, docs, count) {

@@ -37,7 +37,7 @@ $(document).ready(function() {
             $(this).children(`.${CLICKED}2`).css(`background`, `url(/img/${CLICKED}.png)`)
             $(this).children(`p`).css(`color`,`#ffffff`)
             switch (`${CHOSEN}`) {
-                case `${C_FIZ}2`: 
+                /*case `${C_FIZ}2`: 
                     $(`.${C_FIZ}2_block`).css(`background`, `#ffffff`)
                     $(`.${C_FIZ}2_block`).children(`.${C_FIZ}2`).css(`background`, `url(/img/${C_FIZ}2.png)`)
                     $(`.${C_FIZ}2_block`).children(`p`).css(`color`,`#181818`)
@@ -56,7 +56,7 @@ $(document).ready(function() {
                     $(`.${C_PORT}2_block`).css(`background`, `#ffffff`)
                     $(`.${C_PORT}2_block`).children(`.${C_PORT}2`).css(`background`, `url(/img/${C_PORT}2.png)`)
                     $(`.${C_PORT}2_block`).children(`p`).css(`color`,`#181818`)
-                    break;
+                    break;*/
                 case `${C_PORT}3`:
                     $(`.${C_PORT}3_block`).css(`background`, `#ffffff`)
                     $(`.${C_PORT}3_block`).children(`.${C_PORT}2`).css(`background`, `url(/img/${C_PORT}2.png)`)
@@ -294,11 +294,11 @@ function lvl2_handler(prevName) {
         nexted = get_3rd_lvl(prevName,that);
         for (i of nexted) {
             $('.qwe3rdlvl').append(`<p>${i}</p>`)
-            $('.qwe3rdlvl').css('display','block')
-            $('.qwe3rdlvl').css('z-index','300')
-            $(`.${prevName}2_block`).css('left','-18%')
-            $('.qwe3rdlvl').css('left','15%')
-            $('.qwe3rdlvl').css('top','5%')
+            //$('.qwe3rdlvl').css('display','block')
+            //$('.qwe3rdlvl').css('z-index','300')
+            //$(`.${prevName}2_block`).css('left','-18%')
+            //$('.qwe3rdlvl').css('left','15%')
+            //$('.qwe3rdlvl').css('top','5%')
         }
     })
 }
@@ -310,11 +310,11 @@ function lvl1_handler(firstName, num){
         elems = get_2nd_lvl(firstName);
         for(i of elems) {
             $('.qwe').append(`<p class = "lvl_2">${i}</p>`)
-            $('.qwe').css('display','block')
-            $('.qwe').css('z-index','300')
-            $(`.${firstName}2_block`).css('left','-18%')
-            $('.qwe').css('left','15%')
-            $('.qwe').css('top','5%')
+            //$('.qwe').css('display','block')
+            //$('.qwe').css('z-index','300')
+            //$(`.${firstName}2_block`).css('left','-18%')
+            //$('.qwe').css('left','15%')
+            //$('.qwe').css('top','5%')
         }
         lvl2_handler(firstName)
     });

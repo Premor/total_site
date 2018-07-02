@@ -216,6 +216,9 @@ function view_publication() {
 	if (self.query.page)
 		options.page = self.query.page;
 
+	if (this.query.author)
+		options.author = this.query.author;
+
 	self.$query(options, self.callback('publication-all'));
 }
 
