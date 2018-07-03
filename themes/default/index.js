@@ -12,10 +12,13 @@ exports.install = function() {
 	 /*login & registration */ '/css/for_pages/logreg_pages/logreg.css',
 	 /*practice_page */ '/css/for_pages/practice_page/practice.css',
 	 /*news page*/ '/css/for_pages/news_page/news.css',
+	 /*slick carousel*/ '/css/slick.css', '/css/slick-theme.css',
 	 '/css/ui.css', '/css/bootstrap.min.css', '/css/animate.css',
 	 '=default/public/css/default.css');
 	F.merge('/default/js/default.js', '/js/spa.min.js', '/js/ui.js',
 	/*my own js*/ '/js/practice.js', 
+	'/js/main.js',
+	/*slick carousel*/ '/js/slick.min.js',
 	 '=default/public/js/default.js');
 	F.localize('/default/templates/*.html', ['compress']);
 };

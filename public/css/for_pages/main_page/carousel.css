@@ -10,4 +10,24 @@
 
 .carousel {
 	text-align: center;
+	width: 86vw !important;
+}
+/*
+.owl-item {
+	width: 86vw !important;	
+}*/
+
+.owl-nav {
+	position: relative;
+	color: #ffffff;
+	font-size: 30px;
+}
+
+.owl-prev {
+	position: relative;
+	bottom: 500%;
+}
+.owl-next {
+	position: relative;
+	bottom: 600%;
 }
