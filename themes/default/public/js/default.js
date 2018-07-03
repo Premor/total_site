@@ -5,9 +5,11 @@ UPTODATE('2 hours', '/');
 $(document).ready(function() {
 	var originalCode = $('.command-tile').html();
 	$(document).on('click', '.personname', function() {
-		
-		var code = $(this).children('span').text();
-		$('.command-tile').html(code);
+		var self = this;
+		var code = $(this).children('.body').text();
+		console.log('code: ',code);
+		var author =`<a href="/publication?author=${$(this).children('.author').text()}"><span>Публикации</span></a>`;
+		$('.command-tile').html(code).append(author);
 		$('.backToBeg').removeClass('hidden');
 	});
 	$(document).on('click', '.backToBeg',function() {

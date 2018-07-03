@@ -29,14 +29,16 @@ NEWSCHEMA('Post').make(function(schema) {
 
 		if (options.category)
 			options.category = options.category.slug();
-
+		options.author && filter.where('author',options.author);
 		options.language && filter.where('language', options.language);
 		options.category && filter.where('category_linker', options.category);
 		options.search && filter.like('search', options.search.keywords(false, true));
-
+		options.name && filter.where('name', options.name);
+		
+		
 		filter.take(take);
 		filter.skip(skip);
-		filter.fields('id', 'category', 'body','name', 'language', 'datecreated', 'linker', 'category_linker', 'pictures', 'perex', 'tags');
+		filter.fields('id', 'category', 'body','name', 'language', 'datecreated', 'linker', 'category_linker', 'pictures', 'perex', 'tags','author');
 		filter.sort('datecreated', true);
 
 		filter.callback(function(err, docs, count) {
@@ -56,7 +58,13 @@ NEWSCHEMA('Post').make(function(schema) {
 	
 
 	// Gets a specific post
-	schema.setGet(function(error, model, options, callback) {
+    schema.setGet(function(error, model, options, callback) {
+	if (options.lvl2 && options.lvl3){
+	    options.lvl2 = `\$2${options.lvl2}`
+	    options.lvl3 = `\$3${options.lvl3}`
+	    console.log('lvl2: ',options.lvl2);
+	    console.log('lvl3: ',options.lvl3);
+	}
 
 		if (options.category)
 			options.category = options.category.slug();
@@ -67,8 +75,9 @@ NEWSCHEMA('Post').make(function(schema) {
 		options.linker && filter.where('linker', options.linker);
 		options.id && filter.where('id', options.id);
 		options.language && filter.where('language', options.language);
-		options.template && filter.where('template', options.template);
-
+	options.template && filter.where('template', options.template);
+	options.lvl2 && filter.filter((doc)=>{return doc.tags.includes(options.lvl2)});
+	options.lvl3 && filter.filter((doc)=>{return doc.tags.includes(options.lvl3)});
 		filter.callback(callback, 'error-404-post');
 	});
 

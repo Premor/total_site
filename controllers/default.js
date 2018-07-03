@@ -2,7 +2,8 @@ exports.install = function() {
 	F.route('/contacts/',contacts)
 	F.route('/practice/',practice,['*Post'])
 	/*F.route('/news/',news)*/
-	// CMS rendering
+    // CMS rendering
+    F.route('/constructor/',constructor);
 	F.route('/', home,['*Post']);
 	F.route('/contacts/',twq);
 	F.route('#publication',           view_publication, 		['*Post']);
@@ -82,6 +83,23 @@ function news () {
 	this.view('news');
 }
 */
+function constructor(){
+    var self = this;
+    var options = {};
+    options.category = 'Constructor';
+    if (this.query.lvl2 && this.query.lvl3){
+	option.lvl2 = this.query.lvl2;
+	option.lvl3 = this.query.lvl3;
+    }
+    //options.linker = linker;
+    self.$read(options, function(err, response) {
+	if (err)
+	    return self.throw404(err);
+	NOSQL('posts').counter.hit(response.id);
+	self.view('constructor', response);
+	});
+}
+
 
 function test(){
 	const str = 'чутка рандомных слов'
@@ -216,6 +234,9 @@ function view_publication() {
 	if (self.query.page)
 		options.page = self.query.page;
 
+	if (this.query.author)
+		options.author = this.query.author;
+
 	self.$query(options, self.callback('publication-all'));
 }
 
@@ -301,6 +322,9 @@ function about_us(){
 	if (self.query.page)
 		options.page = self.query.page;
 	
+	if (this.query.author)
+		options.name = this.query.author;
+
 	self.$query(options, self.callback('about_us'));
 	
 }

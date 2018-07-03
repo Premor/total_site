@@ -3,6 +3,7 @@
 		@{foreach m in model.items}
 		<div class="col-md-4 news_item">
 			<div class="news_date">
+				<a href="/about_us?author=@{m.author}"> <span>@{m.author}</span> </a>
 				<!--<p>@{m.datecreated}</p> Как вытащить дату в нормальный формат?-->
 			</div>
 			<img src="@{m.pictures[0]}" alt="" />

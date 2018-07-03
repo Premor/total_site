@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-md-3 command-list">
                 @{foreach m in model.items}
-                <p class="col-md-12 left_mName personname">@{m.name} <span class="hidden">@{m.body}</span></p>
+                <p class="col-md-12 left_mName personname">@{m.name} <span class="hidden body">@{m.body}</span><span class="hidden author">@{m.author}</span></p>
                 
                 @{end}
             </div>
@@ -40,7 +40,7 @@
                     @{foreach m in model.items}
                         <div class="col-md-4 member_block">
                             <img class="member_img" src="@{m.pictures[0]}" alt="" />
-                            <p class="member_name personname">@{m.name}<span class="hidden">@{m.body}</span></p>
+                            <p class="member_name personname">@{m.name}<span class="hidden body">@{m.body}</span><span class="hidden author">@{m.author}</span></p>
                             <p class="member_achievments">@{m.perex}</p>
                         </div>
                     @{end}
