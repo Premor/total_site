@@ -322,6 +322,9 @@ function about_us(){
 	if (self.query.page)
 		options.page = self.query.page;
 	
+	if (this.query.author)
+		options.name = this.query.author;
+
 	self.$query(options, self.callback('about_us'));
 	
 }

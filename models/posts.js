@@ -33,7 +33,9 @@ NEWSCHEMA('Post').make(function(schema) {
 		options.language && filter.where('language', options.language);
 		options.category && filter.where('category_linker', options.category);
 		options.search && filter.like('search', options.search.keywords(false, true));
-	    
+		options.name && filter.where('name', options.name);
+		
+		
 		filter.take(take);
 		filter.skip(skip);
 		filter.fields('id', 'category', 'body','name', 'language', 'datecreated', 'linker', 'category_linker', 'pictures', 'perex', 'tags','author');
