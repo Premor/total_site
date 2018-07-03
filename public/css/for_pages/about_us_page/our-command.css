@@ -9,6 +9,21 @@
     color: #BA0800;
 }
 
+.command-header a:hover {
+    font-size: 60px;
+    text-decoration: none;    
+    color: #BA0800;
+    
+}
+
+
+.command-header a {
+    font-size: 60px;
+    
+    color: #BA0800 !important;
+    
+}
+
 .command-list {
     border-right: 3px solid #7A0500;
     padding-right: 0px !important;
@@ -49,4 +64,8 @@
     display: inline-block;
     width: 33% !important;
     text-align: center;
+}
+
+.t-a{
+    text-align: right;
 }
