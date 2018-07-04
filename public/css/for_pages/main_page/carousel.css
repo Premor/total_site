@@ -1,10 +1,9 @@
 .carousel img {
 	height: 100%;
 	width: 86vw;
-	box-shadow: 0 5px 25px 0 rgba(0,0,0,.4);
 }
 
-.carousel iframe {
+.map_contacts iframe {
 	box-shadow: 0 5px 25px 0 rgba(0,0,0,.4);
 }
 
@@ -12,6 +11,14 @@
 	text-align: center;
 	width: 86vw !important;
 }
+
+.slick-slide {
+	box-shadow: 0 5px 25px 0 rgba(0,0,0,.4);
+}
+.map_contacts {
+	text-align: center;
+}
+
 /*
 .owl-item {
 	width: 86vw !important;	

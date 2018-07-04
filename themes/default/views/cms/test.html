@@ -8,12 +8,19 @@
 			@{!repository.page.body}
 		@{else}
 			<!-- TEMPLATE HTML -->
-			<h1 class="CMS_edit CMS_singleline">Header</h1>
-			<br>
-			<p class="CMS_edit CMS_multiline  perex">Test Test Test</p>
-			<div><a href="" class="CMS_edit">aqwe</a></div>
-			<div class="CMS_widgets"></div>
-			
+				<div class="container">
+					<div class="publication_flex">
+						<!-- <p class="CMS_edit CMS_singleline publication_header pub_block_flex">Название публикации</p> -->
+						<div class="pub_block_flex left_flex"></div>
+						<a href="" class="CMS_edit pub_block_flex">Читать</a>
+					</div>
+					<p class="annotation_header">
+						Аннотация
+					</p>
+					<p class="CMS_edit CMS_multiline perex annotation">Введите ваш текст</p>
+				</div>
+				<div class="CMS_widgets"></div>
+		
 			 
 		@{fi}
 	</div>

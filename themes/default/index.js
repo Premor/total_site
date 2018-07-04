@@ -12,6 +12,7 @@ exports.install = function() {
 	 /*login & registration */ '/css/for_pages/logreg_pages/logreg.css',
 	 /*practice_page */ '/css/for_pages/practice_page/practice.css',
 	 /*news page*/ '/css/for_pages/news_page/news.css',
+	 /*publications*/ '/css/for_pages/publications_page/publications.css',
 	 /*slick carousel*/ '/css/slick.css', '/css/slick-theme.css',
 	 '/css/ui.css', '/css/bootstrap.min.css', '/css/animate.css',
 	 '=default/public/css/default.css');

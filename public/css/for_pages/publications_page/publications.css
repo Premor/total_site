@@ -1,0 +1,26 @@
+.publication_flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.pub_block_flex {
+    width: 50%;
+}
+
+a.pub_block_flex {
+    text-align: right;
+}
+
+.annotation {
+    /* border: 2px solid #BA0800; */
+}
+
+.annotation_header {
+    margin-bottom: 0;
+    font-size: 6vh;
+    font-family: 'Oswald';
+
+}
