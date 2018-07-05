@@ -313,9 +313,9 @@ $(document).ready(function() {
         case 'law':$('.law2_block').trigger('click');break;
     }
     console.log("practice=" + practice);
-    
 
 })
+
 
 function lvl2_handler(prevName) {
     $(`.lvl_2`).on(`click`, function(){
@@ -349,6 +349,7 @@ function lvl1_handler(firstName, num){
             //$('.qwe').css('top','5%')
         }
         lvl2_handler(firstName)
+        console.log("sobaodsf ", $('.qwe').children());
     });
 }
 

@@ -2,7 +2,7 @@
 @{nocompress html}
 
 @{if repository.preview}<!-- render preview for editing in $manager -->
-	<div id="CMS">
+	<div id="CMS" class="nopadding">
 		@{if repository.page && repository.page.body}
 			<!-- RENDER UPDATED CONTENT -->
 			@{!repository.page.body}
@@ -14,7 +14,7 @@
 					<div class="CMS_remove tac">
 							<div class="row">
 							
-									<div class="col-md-4"><img src="/img/empty.png" class="CMS_edit img-responsive" data-width="250" data-height="250" alt="" width="250" height="250" /></div><!---->
+									<div class="col-md-4"><img src="/img/empty.png" class="CMS_edit img-responsive img-border" data-width="300px" data-height="300px" alt="" width="100%" height="100%" /></div><!---->
 									<div class="col-md-4 t-member_block">
 										<p class="CMS_edit CMS_singleline template_things">Иван Иванович Иванов</p>
 										<p class="CMS_edit CMS_singleline CMS_perex">Адвокат, к.ю.н.</p>
@@ -32,7 +32,7 @@
 					<br />
 					<div>
 						<div class="CMS_repeat">
-							<div class="CMS_edit col-md-12"><p class="member_about">История этого человека полна великих свершений, но о них не следует говорить.</p></div>
+							<div class="CMS_edit"><p class="member_about">История этого человека полна великих свершений, но о них не следует говорить.</p></div>
 							<br />
 						</div>
 					</div>

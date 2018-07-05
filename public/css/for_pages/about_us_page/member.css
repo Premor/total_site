@@ -13,7 +13,6 @@
     font-size: 25px;    
 }
 
-
 .t-member_img {
     width: 270px;
     height: 270px;
@@ -25,4 +24,12 @@
 
 .member_about {
     font-family: 'Roboto';
+}
+
+.img-border{
+    border: 2px solid #BA0800;
+}
+
+.nopadding {
+    padding: 0px !important;
 }
