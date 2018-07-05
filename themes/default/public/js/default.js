@@ -7,13 +7,8 @@ $(document).ready(function() {
 	$(document).on('click', '.personname', function() {
 		var self = this;
 		var code = $(this).children('.body').text();
-<<<<<<< HEAD
 		console.log('code: ',code);
 		var author =`<a href="/publication?author=${$(this).children('.author').text()}"><span class="publications">Публикации</span></a>`;
-=======
-			
-		var author =`<a href="/publication?author=${$(this).children('.author').text()}"><span>Публикации</span></a>`;
->>>>>>> backend
 		$('.command-tile').html(code).append(author);
 		$('.backToBeg').removeClass('hidden');
 		$('.about_practice').on('click',function(){
@@ -30,7 +25,7 @@ $(document).ready(function() {
 	});
 
 	$(document).on('click', '.yandexmap_click', function() {
-		$(this).children('.ymap_frame').css("pointer-events", "auto");
+		$(this).children('.ymap_frame').css("poWinter-events", "auto");
 	})
 
 	/*$(document).on('click', '.search-button', function() {

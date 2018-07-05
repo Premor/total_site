@@ -10,7 +10,7 @@
     width: 100%;
 }
 
-a.pub_block_flex {
+a.publication_tag_CMS {
     text-align: right;
 }
 
@@ -20,7 +20,32 @@ a.pub_block_flex {
 
 .annotation_header {
     margin-bottom: 0;
-    font-size: 6vh;
+    font-size: 3vh;
     font-family: 'Oswald';
+}
 
+.publication_cont {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.publication_tag_CMS {
+    border: 2px solid #BA0800;
+    box-shadow: inset 0 0 0 2em #BA0800;
+    border-radius: 0 5px 0 5px;
+    height: 23px;
+    font-family: 'Roboto';
+    font-size: 13px;
+    padding: 0.2vh;
+    color: #ffffff !important;
+    margin-bottom: 1vh;
+    margin-right: 1vh;
+    text-decoration: none !important;
+    cursor: pointer;
+    float: right;
+    display: flex;
+}
+
+.tar {
+    text-align: right;
 }
