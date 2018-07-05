@@ -13,6 +13,12 @@ exports.install = function() {
 	F.route(url + '/upload/base64/',           upload_base64, ['post', 10000], 2048); // 2 MB
 	F.route(url + '/logoff/',                  redirect_logoff);
 
+
+	// Practice
+
+	F.route(url + '/practice/',practice_save,['post']);
+
+
 	// DASHBOARD
 	F.route(url + '/api/dashboard/',           json_dashboard);
 	F.route(url + '/api/dashboard/online/',    json_dashboard_online);
@@ -340,4 +346,41 @@ function json_settings() {
 function json_settings_save() {
 	var self = this;
 	self.body.$async(self.callback(), 0).$save(self).$workflow('load');
+}
+
+
+
+function practice_save(){
+	console.log(this.body);
+	let buf = F.global.practics;
+	console.log(buf[this.body.lvl1]);
+	
+	let lvl2 = buf[this.body.lvl1].findIndex((el)=>{return el.name == this.body.lvl2});
+	
+	if (lvl2!=(-1)){
+		let lvl3 =  (buf[this.body.lvl1])[lvl2].category.includes(this.body.lvl3)
+		console.log(lvl3);
+		if (lvl3){
+			this.json({err:"Allready exist"});
+		}
+		else {
+			(F.global.practics[this.body.lvl1])[lvl2].category.push(this.body.lvl3);
+			this.json({ok:"Added"});
+		}
+	}
+	else{
+		//buf[this.body.lvl1].push(new Practice(this.body.lvl2,[this.body.lvl3]));
+		F.global.practics[this.body.lvl1].push(new Practice(this.body.lvl2,[this.body.lvl3]))
+		this.json({ok:"Added"});
+	}
+
+
+	MODEL('practics').save(F.global.practics,(err)=>{console.log(err)});
+}
+
+class Practice{
+	constructor(name,category=[]){
+		this.name = name;
+		this.category=category;
+	}
 }

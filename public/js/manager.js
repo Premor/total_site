@@ -12,6 +12,8 @@ common.form = '';
 $(document).ready(function() {
 	jR.clientside('.jrouting');
 
+	
+
 	$('.jrouting').each(function(index) {
 		var el = $(this);
 		el.toggleClass('hidden', su.roles.length && su.roles.indexOf(el.attr('data-role')) === -1);
@@ -37,6 +39,10 @@ if (window.su) {
 
 	can('newsletter') && jR.route(managerurl + '/newsletter/', function() {
 		SET('common.page', 'newsletter');
+	});
+
+	can('practice') && jR.route(managerurl + '/practice/', function() {
+		SET('common.page', 'practice');
 	});
 
 	can('settings') && jR.route(managerurl + '/settings/', function() {
