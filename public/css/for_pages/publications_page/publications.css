@@ -39,11 +39,11 @@ a.publication_tag_CMS {
 }
 
 .publication_tag_CMS {
-    border: 2px solid #BA0800;
     box-shadow: inset 0 0 0 2em #BA0800;
-    border-radius: 0 5px 0 5px;
+    border-radius: 0 10px 0 10px;
     height: 40px;
-    font-family: 'Roboto';
+    text-align: center !important;
+    font-family: 'Oswald';
     font-size: 23px;
     padding: 0.2vh;
     color: #ffffff !important;
@@ -53,9 +53,12 @@ a.publication_tag_CMS {
     cursor: pointer;
     float: right;
     display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-.tar {
+.publication_tag_CMS:hover {
+    box-shadow: inset 0 0 0 2em #660300;
 }
 
 .fifty_percent {
