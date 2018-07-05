@@ -7,11 +7,18 @@ $(document).ready(function() {
 	$(document).on('click', '.personname', function() {
 		var self = this;
 		var code = $(this).children('.body').text();
-		console.log('code: ',code);
+			
 		var author =`<a href="/publication?author=${$(this).children('.author').text()}"><span>Публикации</span></a>`;
 		$('.command-tile').html(code).append(author);
 		$('.backToBeg').removeClass('hidden');
+		$('.about_practice').on('click',function(){
+			//console.log('PIDOR');
+			document.location.href = `/practice?search=${$(this).text()}`;
+		});
 	});
+	
+	
+
 	$(document).on('click', '.backToBeg',function() {
 		$('.command-tile').html(originalCode);
 		$('.backToBeg').addClass('hidden');
