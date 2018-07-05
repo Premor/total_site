@@ -4,6 +4,7 @@ const C_DOC = `doc`;
 const C_LAW = `law`;
 const C_PORT = `port`;
 let CLICKED = ``;
+let CHOSEN = '';
 
 let practics;
 function get_practics(){
@@ -298,10 +299,10 @@ $(document).ready(function() {
     let search = searchParams.get("search");
     if (search) {
         target = search_practice(search);
-        console.log('target: ',target);
         if (target){
             $(`.${target.lvl1}3_block`).trigger('click');
-            console.log('gavno  ',$('.qwe').children())//.trigger('click');//practics[target.lvl1].[target.lvl2Index].name
+            
+            $('.qwe').children('.lvl_2')[target.lvl2Index].click()//.trigger('click');//practics[target.lvl1].[target.lvl2Index].name
         }
     }
 

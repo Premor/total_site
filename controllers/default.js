@@ -8,6 +8,9 @@ exports.install = function() {
 	F.route('/contacts/',twq);
 	F.route('#publication',           view_publication, 		['*Post']);
 	F.route('#publicationdetail',     view_publication_detail,  ['*Post']);
+	F.route('/events/',events);
+	
+	
 	//ROUTE('/registration',view_registration,['#session']);
 	//ROUTE('/registration',view_registration_auth,[/*'authorize',*/'#session']);
 	//ROUTE('/registration', json_create_user, ['post'/*,'unauthorize'*/,'#session']);
@@ -22,7 +25,7 @@ exports.install = function() {
 
 	F.route('/*', view_page);
 	F.route('/demo/');
-
+	
 	
 	//F.route('/test/',test, ['*Page','*Post']);
 	//F.route('/test/',test);
@@ -52,6 +55,10 @@ exports.install = function() {
 // CMS (Content Management System)
 // ==========================================================================
 
+
+function events(){
+	this.view('events');
+}
 
 function view_page() {
 	var self = this;
