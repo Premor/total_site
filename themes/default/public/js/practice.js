@@ -320,6 +320,8 @@ $(document).ready(function() {
 function lvl2_handler(prevName) {
     $(`.lvl_2`).on(`click`, function(){
         that = $(this).html();
+        $('.lvl_2').css('color', '#181818')
+        $(this).css('color', 'red')
         $('.qwe3rdlvl').html('');
         nexted = get_3rd_lvl(prevName,that);
         for (i of nexted) {

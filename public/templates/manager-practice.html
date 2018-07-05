@@ -16,22 +16,127 @@
         <input type="text" name="lvl3">
         <input type="submit" value="Отправить">
     </form>
+    <!--
+    <p>Практики</p>
+    <div class="view-practice">
+        <div class="fiz row">
+            <p class="col-md-4">Физ лица</p>
+            <div class="col-md-4 lvl2"></div>
+            <div class="col-md-4 lvl3"></div>
+        </div>
+        <div class="yr row">
+            <p class="col-md-4">Юр лица</p>
+            <div class="col-md-4 lvl2"></div>
+            <div class="col-md-4 lvl3"></div>
+        </div>
+        <div class="admspor row">
+            <p class="col-md-4">Адм споры</p>
+            <div class="col-md-4 lvl2"></div>
+            <div class="col-md-4 lvl3"></div>
+        </div>
+        <div class="zash row">
+            <p class="col-md-4">Защита</p>
+            <div class="col-md-4 lvl2"></div>
+            <div class="col-md-4 lvl3"></div>
+        </div>
+    </div>-->
+    <p>Удалить</p>
+
+    <div>
+        <form action="" method="POST" class="delete-practice">
+                <select name="lvl1">
+                    <option value="fiz">Физ лица</option>
+                    <option value="yr">Юр лица</option>
+                    <option value="admspor">Адм споры</option>
+                    <option value="zash">Защита</option>
+                </select>
+                <select name="lvl2">
+                </select>
+                <select name="lvl3">
+                </select>
+                <input type="submit" value="Удалить">
+        </form>
+    </div>
+    <br>
+    <div class="view-practice"></div>
 </div>
 
-<script> $('.practice-add').submit((e)=>{
+<script> 
+let practice = {};
+function update_practice(){
+    AJAX('GET /api/practics/',(res)=>{
+        practice = res;
+        /*for (i in res){
+            res[i].forEach((el)=>{
+                $(`.${i} > lvl2`).append(`<p>${el.name}</p>`);
+                el.category.forEach((el2)=>{
+                    $(`.${i} > lvl2`).append(`<p>${el.name}</p>`);
+                });
+        });
+        }*/
+        $('.view-practice').html('');
+        $('.view-practice').append(`<p>${JSON.stringify(res)}</p>`)
+        $('.delete-practice').children("[name='lvl1']").trigger('change');   
+    })
+    }
+
+    update_practice();
+
+    $('.practice-add').submit((e)=>{
         //console.log($(this));
         e.preventDefault();
         let a = [];
         let buf = $('.practice-add').children("[name*='lvl']").each((i,el) => { a.push($(el).val())});
         console.log(a);
-        AJAX('POST /$manager/practice',{lvl1:a[0],lvl2:a[1],lvl3:a[2]},(res)=>{
+        AJAX('POST /$manager/practice-add',{lvl1:a[0],lvl2:a[1],lvl3:a[2]},(res)=>{
             if (res.err)
                 alert(res.err)
-            if (res.ok)
-                alert(res.ok)
+            if (res.ok){
+                update_practice();
+                alert(res.ok);
+            }
             
         });
         //console.log(buf.map(el => $(el).val()));
         
     });
+    
+    
+    $('.delete-practice').children("[name='lvl1']").change(function (e){
+        let new_v = $(this).val();
+        $('.delete-practice').children("[name='lvl2']").html('');
+        practice[new_v].forEach(el => {
+            $('.delete-practice').children("[name='lvl2']").append(`<option value="${el.name}">${el.name}</option>`);    
+        });
+        $('.delete-practice').children("[name='lvl2']").trigger('change');
+        
+    })
+    $('.delete-practice').children("[name='lvl2']").change(function (e){
+        let new_v = $(this).val();
+        let buf;
+        for (i in practice){
+            buf = practice[i].find((el) => {return el.name == new_v });
+            if (buf) break;
+        }
+        $('.delete-practice').children("[name='lvl3']").html('')
+        buf.category.forEach(el => {
+            $('.delete-practice').children("[name='lvl3']").append(`<option value="${el}">${el}</option>`);    
+        });
+        
+    })
+    $('.delete-practice').submit((e)=>{
+        e.preventDefault();
+        let a = [];
+        let buf = $('.delete-practice').children("[name*='lvl']").each((i,el) => { a.push($(el).val())});
+        AJAX('POST /$manager/practice-del',{lvl1:a[0],lvl2:a[1],lvl3:a[2]},(res)=>{
+            if (res.err)
+                alert(res.err)
+            if (res.ok){
+                update_practice();
+                alert(res.ok);
+            }
+            
+        });    
+    })
+    
 </script>
