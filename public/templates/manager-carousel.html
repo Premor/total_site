@@ -7,12 +7,17 @@
     <p>Файлы на карусель </p>
     <form enctype="multipart/form-data" action="" method="POST" >
         
-        <input type="file" name="lvl2">
+        <input type="file" name="file">
         <input type="submit" value="Отправить">
     </form>
 </div>
 <div>
-    
+    <p>Удалить</p>
+    <form action="" method="POST" class="delete-image">
+        
+        <input type="text" name="number">
+        <input type="submit" value="Отправить">
+    </form>
 </div>
 <script> 
 let practice = {};
@@ -35,13 +40,10 @@ function update_practice(){
 
     update_practice();
 
-    $('.practice-add').submit((e)=>{
+    $('.delete-image').submit((e)=>{
         //console.log($(this));
         e.preventDefault();
-        let a = [];
-        let buf = $('.practice-add').children("[name*='lvl']").each((i,el) => { a.push($(el).val())});
-        console.log(a);
-        AJAX('POST /$manager/practice-add',{lvl1:a[0],lvl2:a[1],lvl3:a[2]},(res)=>{
+        AJAX('POST /$manager/delete-image',{lvl1:a[0],lvl2:a[1],lvl3:a[2]},(res)=>{
             if (res.err)
                 alert(res.err)
             if (res.ok){
