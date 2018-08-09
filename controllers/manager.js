@@ -14,7 +14,7 @@ exports.install = function() {
 	F.route(url + '/logoff/',                  redirect_logoff);
 
 	// Carousel
-	F.route(url + '/carousel/',carousel_add,['post','upload',10000], 3084);
+	F.route(url + '/carousel/',carousel_add,['post','upload',10000], 10000);
 	F.route(url + '/delete-image/',delete_image,['post']);
 
 	// Practice
