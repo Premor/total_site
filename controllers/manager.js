@@ -13,7 +13,10 @@ exports.install = function() {
 	F.route(url + '/upload/base64/',           upload_base64, ['post', 10000], 2048); // 2 MB
 	F.route(url + '/logoff/',                  redirect_logoff);
 
+	// Carousel
 	F.route(url + '/carousel/',carousel_add,['post','upload',10000], 3084);
+	F.route(url + '/delete-image/',delete_image,['post']);
+
 	// Practice
 
 	F.route(url + '/practice-add/',practice_save,['post']);
@@ -61,12 +64,38 @@ exports.install = function() {
 	// SETTINGS
 	F.route(url + '/api/settings/',            json_settings, ['*Settings']);
 	F.route(url + '/api/settings/',            json_settings_save, ['put', '*Settings']);
+
+
 	F.global.carousel=make_size();
 };
 
 // ==========================================================================
 // COMMON
 // ==========================================================================
+
+function delete_image(){
+	console.log(`NUM	${this.body.num}`);
+	let index = this.body.num - 1;
+	Fs.unlink(`./public/img/carousel/carousel${index}.jpg`,(err)=>{
+		F.global.carousel.pop();
+		if (index != F.global.carousel.length){
+			let i = this.body.num;
+			help_callback(null,i);
+		//Fs.rename(`./public/img/carousel/carousel${index}.jpg`,`./public/img/carousel/carousel${index-1}.jpg`,help_callback(err))
+		}
+	
+		this.json({ok:true});
+
+	}) //{Уже нет} Стыдно, конечно, но я не придумал норм способа асинхронно кроме async await
+	
+
+}
+
+function help_callback(err,i){
+	if (err){return err;}
+	if (i <= F.global.carousel.length)
+		Fs.rename(`./public/img/carousel/carousel${i}.jpg`,`./public/img/carousel/carousel${i-1}.jpg`,help_callback(err,i+1));
+}
 
 function make_size(){
 	let files=Fs.readdirSync('./public/img/carousel/');
