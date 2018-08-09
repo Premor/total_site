@@ -45,6 +45,10 @@ if (window.su) {
 		SET('common.page', 'practice');
 	});
 
+	can('carousel') && jR.route(managerurl + '/carousel/', function() {
+		SET('common.page', 'carousel');
+	});
+
 	can('settings') && jR.route(managerurl + '/settings/', function() {
 		SET('common.page', 'settings');
 	});
