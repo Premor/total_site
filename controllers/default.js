@@ -48,7 +48,7 @@ exports.install = function() {
 	// FILES
 	F.file('/download/', 	    file_read);
 	
-	
+	F.global.corusel_size = 2;
 };
 
 // ==========================================================================
@@ -74,7 +74,8 @@ function contacts () {
 function practice () {
 	var self = this;
 	var options = {};
-
+	this.repository.size=F.global.carousel;
+	console.log(`FFF	${F.global.carousel}`)
 	options.category = 'Practice';
 
 	if (self.query.q)
@@ -116,6 +117,7 @@ function test(){
 
 function home(){
 	var self = this;
+	this.repository.corusel_size = F.global.corusel_size;
 	var options = {};
 
 	options.category = 'Blogs';

@@ -3,18 +3,22 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="slick_slider">
+                    @{foreach m in repository.size}
+                    <div>
+                        <img src="/img/carousel/carousel@{m}.jpg" alt="">
+                    </div>
+                    @{end}
+                    <!--
                     <div>
                         <img src="/img/caroutest.png" alt="">
                     </div>
                     <div>
                         <img src="/img/caroutest.png" alt="">
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
     </div>
-
-
     <div class="our-command">
         <div class="container-fluid white_block">
             <div class="row">

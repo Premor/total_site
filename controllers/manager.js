@@ -13,7 +13,7 @@ exports.install = function() {
 	F.route(url + '/upload/base64/',           upload_base64, ['post', 10000], 2048); // 2 MB
 	F.route(url + '/logoff/',                  redirect_logoff);
 
-
+	F.route(url + '/carousel/',carousel_add,['post','upload',10000], 3084);
 	// Practice
 
 	F.route(url + '/practice-add/',practice_save,['post']);
@@ -61,11 +61,45 @@ exports.install = function() {
 	// SETTINGS
 	F.route(url + '/api/settings/',            json_settings, ['*Settings']);
 	F.route(url + '/api/settings/',            json_settings_save, ['put', '*Settings']);
+	F.global.carousel=make_size();
 };
 
 // ==========================================================================
 // COMMON
 // ==========================================================================
+
+function make_size(){
+	let files=Fs.readdirSync('./public/img/carousel/');
+	let size=files.length;	
+	let mas_buf=[];
+	let i = 0;
+	while (i < size) {
+		mas_buf.push(i);
+		i+=1;
+	}
+	return mas_buf;
+}
+
+function carousel_add(){
+	var self = this;
+	var id = [];
+	
+	Fs.readdir('./public/img/carousel/',(err,files)=>{let size=files.length;
+		self.files.wait(function(file, next) {
+			file.read(function(err, data) {
+				Fs.writeFile(`./public/img/carousel/carousel${size}.jpg`,data,(err)=>{F.global.carousel.push(size);size+=1;setTimeout(next, 100);});
+				// Store current file into the HDD
+				//size+=1;
+				//file.extension = U.getExtension(file.filename);
+				//id.push(NOSQL('files').binary.insert(file.filename, data) + '.' + file.extension);
+
+				// Next file
+				//setTimeout(next, 100);
+			});
+
+		}, () => self.json(id));	
+	});	
+}
 
 // Upload (multiple) pictures
 function upload() {

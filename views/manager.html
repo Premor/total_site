@@ -43,6 +43,7 @@
 			<a class="jrouting hidden" href="@{CONFIG('manager-url')}/newsletter/" title="@(Newsletter)" data-role="newsletter"><span class="fa fa-envelope"></span></a>
 			<a class="jrouting hidden" href="@{CONFIG('manager-url')}/settings/" title="@(Settings)" data-role="settings"><span class="fa fa-cogs"></span></a>
 			<a class="jrouting hidden" href="@{CONFIG('manager-url')}/practice/" title="@(Practice)" data-role="practice"><span class="fa fa-cogs"></span></a>
+			<a class="jrouting hidden" href="@{CONFIG('manager-url')}/carousel/" title="@(Carousel)" data-role="carousel"><span class="fa fa-cogs"></span></a>
 			<a class="logoff" href="@{CONFIG('manager-url')}/logoff/" title="@(Sign out)"><span class="fa fa-sign-out"></span></a>
 		</nav>
 	</header>
@@ -51,6 +52,7 @@
 		<div data-jc="page" class="hidden" data-jc-path="common.page" data-if="dashboard" data-template="/templates/manager-dashboard.html"></div>
 		
 		<div data-jc="page" class="hidden" data-jc-path="common.page" data-if="practice" data-template="/templates/manager-practice.html"></div>
+		<div data-jc="page" class="hidden" data-jc-path="common.page" data-if="carousel" data-template="/templates/manager-carousel.html"></div>
 		
 
 		<div data-jc="page" class="hidden" data-jc-path="common.page" data-if="pages" data-template="/templates/manager-pages.html" data-reload="pages_reload"></div>
