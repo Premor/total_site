@@ -20,7 +20,7 @@ exports.install = function() {
 	 `/css/ui.css`, `/css/bootstrap.min.css`, `/css/animate.css`,
 	 `=default/public/css/default.css`);
 	F.merge(`/default/js/default.js`, `/js/spa.min.js`, `/js/ui.js`,
-	/*my own js*/ `/js/practice.js`, 
+	/*my own js*/ //`/js/practice.js`, 
 	`/js/main.js`,
 	/*slick carousel*/ `/js/slick.min.js`,
 	 `=default/public/js/default.js`);

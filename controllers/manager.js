@@ -77,6 +77,7 @@ function delete_image(){
 	console.log(`NUM	${this.body.num}`);
 	let index = this.body.num - 1;
 	Fs.unlink(`./public/img/carousel/carousel${index}.jpg`,(err)=>{
+		if (err) return err;
 		F.global.carousel.pop();
 		if (index != F.global.carousel.length){
 			let i = this.body.num;

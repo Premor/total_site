@@ -7,15 +7,17 @@ let CLICKED = ``;
 let CHOSEN = '';
 
 let practics;
-function get_practics(){
-    AJAX('GET /api/practics/', '',(res)=>{
-        practics = res;
-        console.log('res: ',res);
-    });
+function get_practics(callback){
+    AJAX('GET /api/practics/', '',callback
+    //(res)=>{
+    //    practics = res;
+    //}
+);
 }
-get_practics();
 
 $(document).ready(function() { 
+    get_practics((res)=>{
+        practics = res;
     /*on main - replaces from practice block */
     $('.fiz_block').on('click',function(){
         window.location.replace('/practice?practice=fiz')
@@ -307,14 +309,15 @@ $(document).ready(function() {
     }
 
     if (practice) switch(practice){
-        case 'port':$('.port2_block').trigger('click');break;
-        case 'fiz':$('.fiz2_block').trigger('click');break;
-        case 'doc':$('.doc2_block').trigger('click');break;
-        case 'law':$('.law2_block').trigger('click');break;
+        case 'port':$('.port3_block').trigger('click');break;
+        case 'fiz':$('.fiz3_block').trigger('click');break;
+        case 'doc':$('.doc3_block').trigger('click');break;
+        case 'law':$('.law3_block').trigger('click');break;
     }
     console.log("practice=" + practice);
 
-})
+});
+});
 
 
 function lvl2_handler(prevName) {
