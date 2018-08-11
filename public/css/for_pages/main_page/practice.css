@@ -37,19 +37,19 @@
 	margin-top: 20px;
 }
 
-.practice_block:hover .fiz {
+.practice_block:hover .fiz_home {
 	background: url(/img/fiz2.png);
 }
 
-.practice_block:hover .doc {
+.practice_block:hover .doc_home {
 	background: url(/img/doc2.png);
 }
 
-.practice_block:hover .port {
+.practice_block:hover .port_home {
 	background: url(/img/port2.png);
 }
 
-.practice_block:hover .law {
+.practice_block:hover .law_home {
 	background: url(/img/law2.png);
 }
 
@@ -69,23 +69,23 @@
 	background-position-y: center !important;
 }
 
-.fiz {
+.fiz_home {
 	background: url(/img/fiz.png);
 	height: 180px;
 }
 
 
-.port {
+.port_home {
 	background: url(/img/port.png);
 	height: 180px;
 }
 
-.doc {
+.doc_home {
 	background: url(/img/doc.png);
 	height: 180px;
 }
 
-.law {
+.law_home {
 	background: url(/img/law.png);
 	height: 180px;
 }
