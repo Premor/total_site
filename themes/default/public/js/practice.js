@@ -1,19 +1,19 @@
 
-// const C_FIZ = `fiz`;
-// const C_DOC = `doc`;
-// const C_LAW = `law`;
-// const C_PORT = `port`;
-// let CLICKED = ``;
-// let CHOSEN = '';
+const C_FIZ = `fiz`;
+const C_DOC = `doc`;
+const C_LAW = `law`;
+const C_PORT = `port`;
+let CLICKED = ``;
+let CHOSEN = '';
 
-// let practics;
-// function get_practics(callback){
-//     AJAX('GET /api/practics/', '',callback
-//     //(res)=>{
-//     //    practics = res;
-//     //}
-// );
-// }
+let practics;
+function get_practics(callback){
+    AJAX('GET /api/practics/', '',callback
+    //(res)=>{
+    //    practics = res;
+    //}
+);
+}
 
 // $(document).ready(function() { 
 //     get_practics((res)=>{
@@ -291,30 +291,30 @@
 //     CHANGE_CATEGORY(`${C_DOC}`,3);
 //     CHANGE_CATEGORY(`${C_LAW}`,3);
 
-//     /** check triger for GET arguments */
-//     let url = window.location;
-//     let searchParams = new URLSearchParams(url.search.substring(1));
+    // /** check triger for GET arguments */
+    // let url = window.location;
+    // let searchParams = new URLSearchParams(url.search.substring(1));
 
-//     let practice = searchParams.get("practice");
-//     //loc = searchParams.get("location");
-//     let target;
-//     let search = searchParams.get("search");
-//     if (search) {
-//         target = search_practice(search);
-//         if (target){
-//             $(`.${target.lvl1}3_block`).trigger('click');
+    // let practice = searchParams.get("practice");
+    // //loc = searchParams.get("location");
+    // let target;
+    // let search = searchParams.get("search");
+    // if (search) {
+    //     target = search_practice(search);
+    //     if (target){
+    //         $(`.${target.lvl1}3_block`).trigger('click');
             
-//             $('.qwe').children('.lvl_2')[target.lvl2Index].click()//.trigger('click');//practics[target.lvl1].[target.lvl2Index].name
-//         }
-//     }
+    //         $('.qwe').children('.lvl_2')[target.lvl2Index].click()//.trigger('click');//practics[target.lvl1].[target.lvl2Index].name
+    //     }
+    // }
 
-//     if (practice) switch(practice){
-//         case 'port':$('.port3_block').trigger('click');break;
-//         case 'fiz':$('.fiz3_block').trigger('click');break;
-//         case 'doc':$('.doc3_block').trigger('click');break;
-//         case 'law':$('.law3_block').trigger('click');break;
-//     }
-//     console.log("practice=" + practice);
+    // if (practice) switch(practice){
+    //     case 'port':$('.port3_block').trigger('click');break;
+    //     case 'fiz':$('.fiz3_block').trigger('click');break;
+    //     case 'doc':$('.doc3_block').trigger('click');break;
+    //     case 'law':$('.law3_block').trigger('click');break;
+    // }
+    // console.log("practice=" + practice);
 
 // });
 // });
@@ -338,10 +338,78 @@
 //     })
 // }
 $(document).ready(function(){
-    $('.lvl1_click, .lvl2_click').on('click',function() {
-        var el = $(this).parent('li').children('ul');
-        el.slideToggle(400, 'linear', function() {
-           el.css("position","relative");
+    get_practics((res)=>{
+        practics = res;
+
+        fill_practice(C_DOC);
+        fill_practice(C_FIZ);
+        fill_practice(C_LAW);
+        fill_practice(C_PORT);
+
+
+
+        $('.lvl1_click, .lvl2_click').on('click',function() {
+            var el = $(this).parent('li').children('ul');
+            el.slideToggle(400, 'linear', function() {
+            el.css("position","relative");
+            })
         })
-    })
+       
+
+
+        
+        /** check triger for GET arguments */
+        let url = window.location;
+        let searchParams = new URLSearchParams(url.search.substring(1));
+         
+        // ===========IMPORTANT По сути это надо доделать
+        // let target;
+        // let search = searchParams.get("search");
+        // if (search) {
+        //     target = search_practice(search);
+        //     if (target){
+        //         $(`.${target.lvl1}3_block`).trigger('click');
+                
+        //         $('.qwe').children('.lvl_2')[target.lvl2Index].click()//.trigger('click');//practics[target.lvl1].[target.lvl2Index].name
+        //     }
+        // }
+        // ==============
+        // check redirect home
+        let practice = searchParams.get("practice");
+        if (practice) {
+             $(`.${practice}`).trigger('click');
+            //$(`.lvl1_click`).trigger('click');
+        
+        }
+        // switch(practice){
+        //     case 'port':$('.port3_block').trigger('click');break;
+        //     case 'fiz':$('.fiz3_block').trigger('click');break;
+        //     case 'doc':$('.doc3_block').trigger('click');break;
+        //     case 'law':$('.law3_block').trigger('click');break;
+        // }
+        console.log("practice=" + practice);
+
+    });
 });
+
+
+function fill_practice(name){
+    let name_pract;
+    switch (name){
+        case C_FIZ:name_pract='fiz';break;
+        case C_PORT:name_pract='yr';break;
+        case C_DOC:name_pract='admspor';break;
+        case C_LAW:name_pract='zash';break;
+        
+    }
+    let append_ul='<ul>';
+    for (i of practics[name_pract]){
+        append_ul +=`<li class='lvl2'><p class='lvl2_click'>${i.name}</p><ul>`;
+        for (j of i.category){
+            append_ul+=`<li class='lvl3'><a href='#'>${j}</a></li>`//Вместо # нужно вставить линкер
+        }
+        append_ul +='</ul></li>';
+    }
+    append_ul+='</ul>';
+    $(`.lvl1 .${name}`).parent('li').append(append_ul);
+}
