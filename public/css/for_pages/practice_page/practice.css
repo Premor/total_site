@@ -93,3 +93,86 @@ law3_block.rasp {
 	position: absolute !important;
 	visibility: hidden;
 }
+
+
+/*new system*/
+#practice_level_system {
+	width: 100%;
+	position: relative;
+}
+
+#practice_level_system ul, #practice_level_system {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#practice_level_system .lvl1 {
+	background-color: #f0f0f0;
+	width: 100%;
+}
+
+/* #practice_level_system p:hover {
+	background-color: #CCCCCC;
+} */
+
+#practice_level_system ul {
+	transition: all .2s ease-in-out;
+	display: none;
+}
+#practice_level_system .lvl1_click:hover {
+	background-color: #7a0500;
+}
+
+#practice_level_system .lvl1_click {
+	background-color: #BA0800;
+	padding-left: 15px;
+	color: #ffffff;
+	font-size: 30px;
+	border: 2px solid #7a0500;
+} 
+/* 
+#practice_level_system .lvl1_click:nth-child(n+1) {
+	border-bottom: 0;
+} */
+
+#practice_level_system .lvl2_click {
+	background-color: #f0f0f0;
+	padding-left: 2%;
+	color: #6c757d;
+	font-size: 23px;
+}
+
+#practice_level_system .lvl2_click:hover {
+	background-color: #cccccc;
+}
+
+#practice_level_system .lvl2 ul {
+	background-color: #bfbfbf;
+}
+
+p {
+	margin-bottom: 0 !important;
+}
+
+#practice_level_system .lvl3 {
+	padding-left: 3%;
+}
+/* 
+#practice_level_system .lvl1 ul{
+	height: 10%;
+} */
+
+.rotata {
+	font-size: 50px;
+}
+
+.rotata:hover{
+	animation: rotataon 0.3s ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes rotataon {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(90deg);}
+}

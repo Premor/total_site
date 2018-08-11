@@ -27,47 +27,64 @@
                 </div>
             </div>
             <div class="row">
-            <div class="col-md-2">
-                <div class="col-md-12 practice_block pr_page fiz3_block">
-                    <div class="practice_img fiz2"></div>
-                    <p>Физическим лицам</p>
-                </div>
-                <div class="col-md-12 practice_block pr_page port3_block">
-                    <div class="practice_img port2"></div>
-                    <p>Юридическим лицам</p>
-                </div>
-                <div class="col-md-12 practice_block pr_page doc3_block">    
-                    <div class="practice_img doc2"></div>
-                    <p>Административные споры</p>        
-                </div>
-                <div class="col-md-12 practice_block pr_page law3_block">
-                    <div class="practice_img law2"></div>
-                    <p>Уголовно-правовая защита</p> 
-                </div>
-            </div>
-                <div class="col-md-5 qwe"></div>
-                <div class="col-md-5 qwe3rdlvl"></div>
-            </div>
-
-            <div class="row" style="visibility:hidden"> 
-                <div class="col-md-2">
-                    <div class="col-md-12 practice_block pr_page raspor">
-                        <div class="practice_img fiz2"></div>
-                        <p>Физическим лицам</p>
-                    </div>
-                    <div class="col-md-12 practice_block pr_page raspor">
-                        <div class="practice_img fiz2"></div>
-                        <p>Юридическим лицам</p>
-                    </div>
-                    <div class="col-md-12 practice_block pr_page raspor">    
-                        <div class="practice_img fiz2"></div>
-                        <p>Административные споры</p>        
-                    </div>
-                </div>
-            </div>
+            <ul id="practice_level_system">
+                <li class="lvl1">
+                    <p class="lvl1_click">Уровень 1</a>
+                    <ul>
+                        <li>aqw</li>
+                        <li>ssa</li>
+                        <li>qawads</li>
+                    </ul>
+                </li>
+                <li class="lvl1">
+                    <p class="lvl1_click">Уровень 1</a>
+                    <ul>
+                        <li class="lvl2">
+                            <p class="lvl2_click">
+                                qawas
+                                <ul>
+                                    <li class = "lvl3"><a href="" class="href">aqw TEST</a></li>
+                                    <li class = "lvl3">ssa</li>
+                                    <li class = "lvl3">qawaqweqweqweqweds</li>
+                                </ul>
+                            </p>
+                        </li>
+                        <li class="lvl2">
+                                <p class="lvl2_click">
+                                    qawas
+                                    <ul>
+                                        <li class = "lvl3"><a href="" class="href">aqw TEST</a></li>
+                                        <li class = "lvl3">ssa</li>
+                                        <li class = "lvl3">qawaqweqweqweqweds</li>
+                                    </ul>
+                                </p>
+                        </li>
+                        <li class="lvl2">
+                                <p class="lvl2_click">
+                                    qawas
+                                    <ul>
+                                        <li class = "lvl3"><a href="" class="href">aqw TEST</a></li>
+                                        <li class = "lvl3">ssa</li>
+                                        <li class = "lvl3">qawaqweqweqweqweds</li>
+                                    </ul>
+                                </p>
+                        </li>
+                    </ul>
+                </li>
+                <li class="lvl1">
+                    <p class="lvl1_click">Уровень 1</a>
+                    <ul>
+                        <li>aw</li>
+                        <li>csc</li>
+                        <li>awa</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
     
+
+    <i class="fa fa-caret-right rotata"></i>
 
     <script>
     AJAX('GET /api/practics/', '',(res)=>{
