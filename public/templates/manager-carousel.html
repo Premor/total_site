@@ -3,6 +3,19 @@
 		<div class="caption" style="margin-bottom:10px"><span class="fa fa-cogs mr5"></span> @(Practice change)</div>
 	</div>
 </div>
+
+<div class="container">
+    <div class="row">
+        @{foreach m in repository.size}
+            <div class="col-md-4 adm_carousel">
+                <img src="/img/carousel/carousel@{m}.jpg" alt="">
+            </div>
+            <i class="fa fa-trash"></i>
+        @{end}
+    </div>
+</div>
+
+
 <div class="container">
     <p>Файлы на карусель </p>
     <form enctype="multipart/form-data" action="" method="POST" >
@@ -11,8 +24,9 @@
         <input type="submit" value="Отправить">
     </form>
 </div>
+
 <div class="container">
-    <p>Удалить</p>
+        <i class="fa fa-trash"></i>
     <form action="" method="POST" class="delete-image">
         
         <input type="text" name="number">
@@ -21,9 +35,18 @@
 </div>
 <script> 
 
+    $.ajax({
+        type: 'GET',
+        url: 'api/carousel',
+        success: function(data) {
+            for (var i = 0; i < data.size; i++) {   
+                $('adm_carousel').append('<div class="col-md-4 adm_carousel"><img src="/img/carousel/carousel@{m}.jpg" a></div><i class="fa fa-trash"></i>')
+            }
+        }
 
-    $('.delete-image').submit((e)=>{
-        //console.log($(this));
+    })
+
+    $('.fa-trash').click(function () {
         e.preventDefault();
         let delete_num=$('.delete-image').children("[name='number']").val();
         let send_num = parseInt(delete_num);
@@ -39,11 +62,7 @@
             if (res.ok){
                 alert("Успешное удаление");
             }
-            
-        });
-        //console.log(buf.map(el => $(el).val()));
-        
-    });
-    
-    
+        })
+    })
+
 </script>

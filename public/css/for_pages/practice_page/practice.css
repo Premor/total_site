@@ -143,6 +143,11 @@ law3_block.rasp {
 	font-size: 23px;
 }
 
+.href_click {
+	text-decoration: none !important;
+	color: #6c757d !important;
+}
+
 #practice_level_system .lvl2_click:hover {
 	background-color: #cccccc;
 }
@@ -167,12 +172,12 @@ p {
 	font-size: 50px;
 }
 
-.rotata:hover{
-	animation: rotataon 0.3s ease-in-out;
-	animation-fill-mode: forwards;
-}
-
 @keyframes rotataon {
 	from {transform: rotate(0deg);}
 	to {transform: rotate(90deg);}
+}
+
+@keyframes rotataon_back {
+	from {transform: rotate(90deg);}
+	to {transform: rotate(0deg);}
 }
