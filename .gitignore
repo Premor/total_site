@@ -5,3 +5,4 @@ client/node_modules/
 logs/
 *.backup
 *pidor.js
+public/img/carousel/
