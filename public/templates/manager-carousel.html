@@ -1,3 +1,23 @@
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+
+<style>
+    .adm_carousel img {
+        width: 15vw;
+    }
+    .adm_carousel .col-md-4 {
+        display: block;
+        z-index: 10;
+    }
+    
+    .adm_carousel {
+        z-index: 0;
+    }
+
+
+    
+</style>
+
+
 <div class="filter">
 	<div class="container">
 		<div class="caption" style="margin-bottom:10px"><span class="fa fa-cogs mr5"></span> @(Practice change)</div>
@@ -5,16 +25,10 @@
 </div>
 
 <div class="container">
-    <div class="row">
-        @{foreach m in repository.size}
-            <div class="col-md-4 adm_carousel">
-                <img src="/img/carousel/carousel@{m}.jpg" alt="">
-            </div>
-            <i class="fa fa-trash"></i>
-        @{end}
+    <div class="row adm_carousel">
+
     </div>
 </div>
-
 
 <div class="container">
     <p>Файлы на карусель </p>
@@ -25,44 +39,46 @@
     </form>
 </div>
 
-<div class="container">
-        <i class="fa fa-trash"></i>
-    <form action="" method="POST" class="delete-image">
-        
-        <input type="text" name="number">
-        <input type="submit" value="Отправить">
-    </form>
-</div>
-<script> 
 
+<script src="/js/jquery.fancybox.min.js"></script>
+<script> 
+    $(document).ready(function () {
     $.ajax({
         type: 'GET',
-        url: 'api/carousel',
+        url: '/api/carousel',
         success: function(data) {
             for (var i = 0; i < data.size; i++) {   
-                $('adm_carousel').append('<div class="col-md-4 adm_carousel"><img src="/img/carousel/carousel@{m}.jpg" a></div><div><button><i class="fa fa-trash"></i><button></div>')
+                $('.adm_carousel').append(`<div class="col-md-4"><img src="/img/carousel/carousel${i}.jpg"><div><button class="trash"><i class="fa fa-trash"></i></button> <button class="cogs"><i class="fa fa-cogs"></i></button></div></div>`);
             }
+            $('.trash').click(function () {
+                alert("HASH");
+                // e.preventDefault();
+                let delete_num=($(this).parent(".col-md-4").children('img')).attr('src');
+                let send_num = delete_num[delete_num.length-5];
+                alert(send_num);
+                if (!send_num||send_num<0)
+                    {
+                        alert("Неправильный ввод для удаления, введите номер изображения")
+                        return 0;
+                    }
+                AJAX('POST /$manager/delete-image',{num:send_num},(res)=>{
+                    if (res.err)
+                        alert(res.err)
+                    if (res.ok){
+                        alert("Успешное удаление");
+                    }
+                })
+            })
+            $('.cogs').click(function () {
+                $.fancybox.open('<div class="message"><p>Файл на замену: </p><form enctype="multipart/form-data" action="/$manager/changeimage" method="POST" ><input type="file" name="file"><input type="submit" value="Отправить"></form></div>');
+            })
         }
-
     })
 
-    $('.fa-trash').click(function () {
-        e.preventDefault();
-        let delete_num=$('.delete-image').children("[name='number']").val();
-        let send_num = parseInt(delete_num);
-        alert(send_num);
-        if (!send_num||send_num<0)
-            {
-                alert("Неправильный ввод для удаления, введите номер изображения")
-                return 0;
-            }
-        AJAX('POST /$manager/delete-image',{num:send_num},(res)=>{
-            if (res.err)
-                alert(res.err)
-            if (res.ok){
-                alert("Успешное удаление");
-            }
-        })
+                    //<p>Файлы на карусель </p><form enctype="multipart/form-data" action="" method="POST" ><input type="file" name="file"><input type="submit" value="Отправить"></form>
+
+
     })
+    
 
 </script>

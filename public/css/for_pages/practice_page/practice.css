@@ -211,3 +211,8 @@ p {
 	from {transform: rotate(90deg);}
 	to {transform: rotate(0deg);}
 }
+
+
+.adm_carousel {
+	max-width: 15vw;
+}
