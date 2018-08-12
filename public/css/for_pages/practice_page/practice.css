@@ -50,6 +50,11 @@
 	cursor: pointer;
 }
 
+.practice-oc {
+	margin-right: 8.5vw !important;
+	margin-left: 8.5vw !important;
+}
+
 .pr_page p{
     text-align: center;
     color: #000000;
@@ -99,6 +104,8 @@ law3_block.rasp {
 #practice_level_system {
 	width: 100%;
 	position: relative;
+	padding-right: 15px !important;
+	padding-left: 15px !important;
 }
 
 #practice_level_system ul, #practice_level_system {
@@ -130,17 +137,36 @@ law3_block.rasp {
 	color: #ffffff;
 	font-size: 30px;
 	border: 2px solid #7a0500;
-} 
-/* 
-#practice_level_system .lvl1_click:nth-child(n+1) {
 	border-bottom: 0;
-} */
+}
+
+#practice_level_system .lvl1_last {
+	border-bottom: 2px solid #7a0500 !important;
+} 
 
 #practice_level_system .lvl2_click {
 	background-color: #f0f0f0;
 	padding-left: 2%;
 	color: #6c757d;
 	font-size: 23px;
+}
+
+.href_click {
+	text-decoration: none !important;
+	color: #6c757d !important;
+	cursor: pointer;
+}
+
+.lvl3_href {
+	text-decoration: none !important;
+}
+
+.lvl3:hover {
+	background-color: #888888;
+}
+
+.lvl3 {
+	color: #181818;
 }
 
 #practice_level_system .lvl2_click:hover {
@@ -164,15 +190,19 @@ p {
 } */
 
 .rotata {
-	font-size: 50px;
+	font-size: 25px;
 }
 
-.rotata:hover{
-	animation: rotataon 0.3s ease-in-out;
-	animation-fill-mode: forwards;
+#practice_level_system .lvl2>ul{
+	box-shadow: inset 0 2px 5px rgba(154, 147, 140, 0.5);
 }
 
 @keyframes rotataon {
 	from {transform: rotate(0deg);}
 	to {transform: rotate(90deg);}
+}
+
+@keyframes rotataon_back {
+	from {transform: rotate(90deg);}
+	to {transform: rotate(0deg);}
 }
