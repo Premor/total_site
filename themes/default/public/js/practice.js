@@ -103,10 +103,10 @@ function fill_practice(name){
         if (i.category[0]!="") {
             append_ul +=`<li class='lvl2'><p class='lvl2_click'><i class="fa fa-caret-right rotata"></i> ${i.name}</p><ul>`;
         } else {
-            append_ul +=`<li class='lvl2'><p class='lvl2_click'><i class="fa fa-caret-right rotata"></i> <a href="#" class="href_click">${i.name}</a></p><ul>`;
+            append_ul +=`<li class='lvl2'><a href="#" class="href_click"><p class='lvl2_click'><i class="fa fa-caret-right rotata"></i> ${i.name}</p></a><ul>`;
         }
         for (j of i.category){
-            append_ul+=`<li class='lvl3'><a href='#'>${j}</a></li>`//Вместо # нужно вставить линкер
+            append_ul+=`<a href='#' class="lvl3_href"><li class='lvl3'>${j}</li></a>`//Вместо # нужно вставить линкер
         }
         append_ul +='</ul></li>';
     }
