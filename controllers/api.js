@@ -7,7 +7,7 @@ exports.install = function() {
 	F.route('/api/search/',		 search);
 	// NEWSLETTER
 	F.route('/api/newsletter/',  json_save, ['post', '*Newsletter']);
-
+	F.route('/api/carousel/', get_size);
 	// CONTACTFORM
 	F.route('/api/contact/',     json_save, ['post', '*Contact']);
 	F.route('/api/practics/', get_practics);
@@ -20,6 +20,10 @@ exports.install = function() {
 // ==========================================================================
 // COMMON
 // ==========================================================================
+
+function get_size(){
+	this.json({size:F.global.carousel.length});
+}
 
 function create_new(){
 	NOSQL('practics').insert({"id":1,"practics":["test1","test2","test3"]});

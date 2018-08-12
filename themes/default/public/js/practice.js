@@ -78,12 +78,6 @@ $(document).ready(function(){
             //$(`.lvl1_click`).trigger('click');
         
         }
-        // switch(practice){
-        //     case 'port':$('.port3_block').trigger('click');break;
-        //     case 'fiz':$('.fiz3_block').trigger('click');break;
-        //     case 'doc':$('.doc3_block').trigger('click');break;
-        //     case 'law':$('.law3_block').trigger('click');break;
-        // }
         console.log("practice=" + practice);
 
     });
