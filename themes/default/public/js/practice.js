@@ -38,6 +38,7 @@ $(document).ready(function(){
                 el.css("position","relative");
             })
             var current_rotata= ($(this).parent('li').children('p')).children('.rotata');
+            console.log(`cur_rot ${current_rotata}`)
             if(f[current_rotata]==undefined) {
                 f[current_rotata]=true;
             };
