@@ -55,6 +55,10 @@
 	margin-left: 8.5vw !important;
 }
 
+.practice-oc .white_block {
+	min-height: 72.7vh;
+}
+
 .pr_page p{
     text-align: center;
     color: #000000;
@@ -106,6 +110,7 @@ law3_block.rasp {
 	position: relative;
 	padding-right: 15px !important;
 	padding-left: 15px !important;
+	margin-bottom: 2vh !important;
 }
 
 #practice_level_system ul, #practice_level_system {

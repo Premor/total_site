@@ -1,4 +1,4 @@
-
+var k = 0;
 const C_FIZ = `fiz`;
 const C_DOC = `doc`;
 const C_LAW = `law`;
@@ -38,17 +38,18 @@ $(document).ready(function(){
                 el.css("position","relative");
             })
             var current_rotata= ($(this).parent('li').children('p')).children('.rotata');
-            if(f[current_rotata]==undefined) {
-                f[current_rotata]=true;
+            current_id = current_rotata.attr("id")
+            if(f[current_id]==undefined) {
+                f[current_id]=true;
             };
-            if (f[current_rotata] == true) {
+            if (f[current_id] == true) {
                 $(current_rotata).css("animation","rotataon 0.3s ease-in-out");
                 $(current_rotata).css("animation-fill-mode","forwards");
-                f[current_rotata]=false;
+                f[current_id]=false;
             } else {
                 $(current_rotata).css("animation","rotataon_back 0.3s ease-in-out");
                 $(current_rotata).css("animation-fill-mode","forwards");
-                f[current_rotata]=true;
+                f[current_id]=true;
             }
         })
 
@@ -101,14 +102,15 @@ function fill_practice(name){
     let append_ul='<ul>';
     for (i of practics[name_pract]){
         if (i.category[0]!="") {
-            append_ul +=`<li class='lvl2'><p class='lvl2_click'><i class="fa fa-caret-right rotata"></i> ${i.name}</p><ul>`;
+            append_ul +=`<li class='lvl2'><p class='lvl2_click'><i class="fa fa-caret-right rotata" id="rotata${k}"></i> ${i.name}</p><ul>`;
         } else {
-            append_ul +=`<li class='lvl2'><a href="#" class="href_click"><p class='lvl2_click'><i class="fa fa-caret-right rotata"></i> ${i.name}</p></a><ul>`;
+            append_ul +=`<li class='lvl2'><a href="#" class="href_click"><p class='lvl2_click'><i class="fa fa-caret-right rotata" id="rotata${i}"></i> ${i.name}</p></a><ul>`;
         }
         for (j of i.category){
             append_ul+=`<a href='#' class="lvl3_href"><li class='lvl3'>${j}</li></a>`//Вместо # нужно вставить линкер
         }
         append_ul +='</ul></li>';
+        k++;
     }
     append_ul+='</ul>';
     $(`.lvl1 .${name}`).parent('li').append(append_ul);
