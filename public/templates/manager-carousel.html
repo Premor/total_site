@@ -72,7 +72,7 @@
             })
             $('.cogs').click(function () {
                 let change_num=$(this).parent('div').parent(".col-md-4").children('img').attr('src');
-                let send_num = change_num[change_num.length-5];
+                let send_num = (change_num[change_num.length-5]) - (-1);
                 $.fancybox.open(`<div class="message"><p>Файл на замену: </p><form enctype="multipart/form-data" action="/$manager/change-image" method="POST" ><input type="text" readonly value="${send_num}" name="id"><input type="file" name="file"><input type="submit" value="Отправить"></form></div>`);
             })
         }

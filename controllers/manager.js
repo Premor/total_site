@@ -77,15 +77,15 @@ exports.install = function() {
 function change_image(){
 	let pos = this.body.id;
 	console.log(pos);
-	// Fs.readdir('./public/img/carousel/',(err,files)=>{
-	// 	self.files.wait(function(file, next) {
-	// 		file.read(function(err, data) {
-	// 			Fs.writeFile(`./public/img/carousel/carousel${pos}.jpg`,data,(err)=>{setTimeout(next, 100);});
+	Fs.readdir('./public/img/carousel/',(err,files)=>{
+		self.files.wait(function(file, next) {
+			file.read(function(err, data) {
+				Fs.writeFile(`./public/img/carousel/carousel${pos}.jpg`,data,(err)=>{setTimeout(next, 100);});
 				
-	// 		});
+			});
 
-	// 	}, () => self.json({ok:true}));	
-	// });	
+		}, () => self.json({ok:true}));	
+	});	
 }
 
 function delete_image(){
