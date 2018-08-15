@@ -75,6 +75,7 @@ exports.install = function() {
 // ==========================================================================
 
 function change_image(){
+	let self = this;
 	let pos = this.body.id;
 	console.log(pos);
 	Fs.readdir('./public/img/carousel/',(err,files)=>{
