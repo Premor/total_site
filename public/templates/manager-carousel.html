@@ -51,9 +51,10 @@
                 $('.adm_carousel').append(`<div class="col-md-4"><img src="/img/carousel/carousel${i}.jpg"><div><button class="trash"><i class="fa fa-trash"></i></button> <button class="cogs"><i class="fa fa-cogs"></i></button></div></div>`);
             }
             $('.trash').click(function () {
-                alert("HASH");
+                //alert("HASH");
                 // e.preventDefault();
-                let delete_num=($(this).parent(".col-md-4").children('img')).attr('src');
+                let delete_num=$(this).parent('div').parent(".col-md-4").children('img').attr('src');
+                console.log(delete_num);
                 let send_num = delete_num[delete_num.length-5];
                 alert(send_num);
                 if (!send_num||send_num<0)
@@ -70,7 +71,9 @@
                 })
             })
             $('.cogs').click(function () {
-                $.fancybox.open('<div class="message"><p>Файл на замену: </p><form enctype="multipart/form-data" action="/$manager/changeimage" method="POST" ><input type="file" name="file"><input type="submit" value="Отправить"></form></div>');
+                let change_num=$(this).parent('div').parent(".col-md-4").children('img').attr('src');
+                let send_num = change_num[change_num.length-5];
+                $.fancybox.open(`<div class="message"><p>Файл на замену: </p><form enctype="multipart/form-data" action="/$manager/change-image" method="POST" ><input type="text" readonly value="${send_num}" name="id"><input type="file" name="file"><input type="submit" value="Отправить"></form></div>`);
             })
         }
     })

@@ -120,7 +120,7 @@ function update_practice(){
         }
         $('.delete-practice').children("[name='lvl3']").html('')
         buf.category.forEach(el => {
-            $('.delete-practice').children("[name='lvl3']").append(`<option value="${el}">${el}</option>`);    
+            $('.delete-practice').children("[name='lvl3']").append(`<option value="${el.name}">${el.name}</option>`);    
         });
         
     })

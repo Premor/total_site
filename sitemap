@@ -9,3 +9,5 @@ person                   : @(Album)                  --> /person/               
 persondetail             : @(Album detail)           --> /person/{0}/                --> person
 publication                    : @(Publication)                  --> /publication/                      --> homepage
 publicationdetail              : @(Publication detail)            --> /publication/{0}/                  --> publication
+practice              : @(Practice)            --> /practice/                  --> home
+practicedetail              : @(Practice detail)            --> /practice/{0}/                  --> practice

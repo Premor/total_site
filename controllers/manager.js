@@ -16,6 +16,7 @@ exports.install = function() {
 	// Carousel
 	F.route(url + '/carousel/',carousel_add,['post','upload',10000], 10000);
 	F.route(url + '/delete-image/',delete_image,['post']);
+	F.route(url + '/change-image/',change_image,['post','upload'],10000);
 
 	// Practice
 
@@ -73,6 +74,20 @@ exports.install = function() {
 // COMMON
 // ==========================================================================
 
+function change_image(){
+	let pos = this.body.id;
+	console.log(pos);
+	// Fs.readdir('./public/img/carousel/',(err,files)=>{
+	// 	self.files.wait(function(file, next) {
+	// 		file.read(function(err, data) {
+	// 			Fs.writeFile(`./public/img/carousel/carousel${pos}.jpg`,data,(err)=>{setTimeout(next, 100);});
+				
+	// 		});
+
+	// 	}, () => self.json({ok:true}));	
+	// });	
+}
+
 function delete_image(){
 	console.log(`NUM	${this.body.num}`);
 	let index = this.body.num - 1;
@@ -127,7 +142,7 @@ function carousel_add(){
 				//setTimeout(next, 100);
 			});
 
-		}, () => self.json(id));	
+		}, () => self.json({ok:true}));	
 	});	
 }
 
@@ -213,6 +228,7 @@ function json_query() {
 // Saves specific item
 function json_save() {
 	var self = this;
+	
 	self.body.$save(self, self.callback());
 }
 
@@ -416,26 +432,22 @@ function json_settings_save() {
 
 
 function practice_save(){
-	console.log(this.body);
 	let buf = F.global.practics;
-	console.log(buf[this.body.lvl1]);
-	
 	let lvl2 = buf[this.body.lvl1].findIndex((el)=>{return el.name == this.body.lvl2});
 	
 	if (lvl2!=(-1)){
-		let lvl3 =  (buf[this.body.lvl1])[lvl2].category.includes(this.body.lvl3)
-		console.log(lvl3);
+		let lvl3 =  (buf[this.body.lvl1])[lvl2].category.findIndex((el)=>{return el.name == this.body.lvl3})
 		if (lvl3){
 			this.json({err:"Allready exist"});
 		}
 		else {
-			(F.global.practics[this.body.lvl1])[lvl2].category.push(this.body.lvl3);
+			(F.global.practics[this.body.lvl1])[lvl2].category.push({name:this.body.lvl3,linker:''});
 			this.json({ok:"Added"});
 		}
 	}
 	else{
 		//buf[this.body.lvl1].push(new Practice(this.body.lvl2,[this.body.lvl3]));
-		F.global.practics[this.body.lvl1].push(new Practice(this.body.lvl2,[this.body.lvl3]))
+		F.global.practics[this.body.lvl1].push(new Practice(this.body.lvl2,[{name:this.body.lvl3,linker:''}]))
 		this.json({ok:"Added"});
 	}
 
@@ -444,11 +456,10 @@ function practice_save(){
 }
 
 function practice_delete(){
-	console.log(this.body);
 	let buf = F.global.practics;
 	let lvl2 = buf[this.body.lvl1].findIndex((el)=>{return el.name == this.body.lvl2});
 	if (lvl2!=(-1)){
-		let lvl3 = (buf[this.body.lvl1])[lvl2].category.findIndex((el)=>{return el == this.body.lvl3});
+		let lvl3 = (buf[this.body.lvl1])[lvl2].category.findIndex((el)=>{return el.name == this.body.lvl3});
 		if (lvl3 !=(-1)){
 			(F.global.practics[this.body.lvl1])[lvl2].category.splice(lvl3,1);
 			if ((F.global.practics[this.body.lvl1])[lvl2].category.length == 0) {
@@ -462,7 +473,6 @@ function practice_delete(){
 		else{this.json({err:"Lvl3 not found"})}
 	}
 	else {this.json({err:"Lvl2 not found"});}
-	console.log(F.global.practics);
 	MODEL('practics').save(F.global.practics,(err)=>{console.log(err)});
 	
 }

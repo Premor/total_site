@@ -11,10 +11,12 @@ exports.install = function() {
 	// CONTACTFORM
 	F.route('/api/contact/',     json_save, ['post', '*Contact']);
 	F.route('/api/practics/', get_practics);
+	F.route('/api/update-practice/',update_practice);
 	F.global.search = [];
 	F.global.practics = [];
 	load_news();
 	load_practics();
+	
 };
 
 // ==========================================================================
@@ -57,7 +59,17 @@ function get_practics(){
 			F.global.practics = res;
 	});
 }*/
-
+function update_practice(){
+	let buf;
+	for (i in F.global.practics)
+		for(j=0;j<F.global.practics[i].length;j++)
+			for(k=0;k<(F.global.practics[i])[j].category.length;k++){
+				buf = {name:(F.global.practics[i])[j].category[k],linker:""}
+				F.global.practics[i][j].category[k] = buf;
+			}
+	MODEL('practics').save(F.global.practics,(err)=>{if(err){this.json({err:err})}else{this.json({ok:true})}})
+	
+}
 
 function load_practics(){
 	NOSQL('practics').one().where("id",1).callback((err,res)=>{
