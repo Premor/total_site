@@ -51,11 +51,12 @@
                 $('.adm_carousel').append(`<div class="col-md-4"><img src="/img/carousel/carousel${i}.jpg"><div><button class="trash"><i class="fa fa-trash"></i></button> <button class="cogs"><i class="fa fa-cogs"></i></button></div></div>`);
             }
             $('.trash').click(function () {
-                //alert("HASH");
-                // e.preventDefault();
-                let delete_num=$(this).parent('div').parent(".col-md-4").children('img').attr('src');
-                console.log(delete_num);
-                let send_num = delete_num[delete_num.length-5];
+                let delete_num=(($(this).parent('div').parent('.col-md-4')).children('img')).attr('src');
+                let send_num;
+                for (var i=delete_num.length-5;!((((delete_num[delete_num.length-5]).charCodeAt()>=48)&&((delete_num[delete_num.length-5]).charCodeAt()<=57)));i--) {
+                    //Код против кулхацкеров
+                    send_num=delete_num[i]+send_num; 
+                }
                 alert(send_num);
                 if (!send_num||send_num<0)
                     {
@@ -77,8 +78,6 @@
             })
         }
     })
-
-                    //<p>Файлы на карусель </p><form enctype="multipart/form-data" action="" method="POST" ><input type="file" name="file"><input type="submit" value="Отправить"></form>
 
 
     })

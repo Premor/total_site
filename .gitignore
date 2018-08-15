@@ -5,5 +5,9 @@ client/node_modules/
 logs/
 *.backup
 *pidor.js
+<<<<<<< HEAD
+public/img/carousel/
+=======
 databases/
 img/
+>>>>>>> backend
