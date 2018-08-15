@@ -25,7 +25,7 @@ int main(int argc, char const *argv[])
 	if (i==0){
 		setsid();
 		umask(0);
-		chdir("/home/www/visage_school/new_file");
+		chdir("/home/www/total_site/new_file");
 		signal(SIGILL,nothing);
 		signal(SIGHUP,nothing);
 		signal(SIGUSR1,nothing);
@@ -34,8 +34,8 @@ int main(int argc, char const *argv[])
 		freopen("/dev/null","r",stdin);
 		freopen("/dev/null","w",stdout);
 		freopen("/dev/null","w",stderr);
-		system("node debug.js");
-		openlog("Visage_school",LOG_PID,LOG_DAEMON);
+		system("node debug.js 8001");
+		openlog("Pravovik-K",LOG_PID,LOG_DAEMON);
 		syslog(LOG_DAEMON,"новый демон %d запущен!\n",getpid());
 		}	
 	return 0;
