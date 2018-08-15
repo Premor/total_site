@@ -5,3 +5,5 @@ client/node_modules/
 logs/
 *.backup
 *pidor.js
+databases/
+img/
