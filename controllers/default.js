@@ -1,6 +1,7 @@
 exports.install = function() {
 	F.route('/contacts/',contacts)
-	F.route('/practice/',practice,['*Post'])
+	F.route('#practice',practice,['*Post']);
+	F.route('#practicedetail',practice_detail,['*Post']);
 	/*F.route('/news/',news)*/
     // CMS rendering
     F.route('/constructor/',constructor);
@@ -144,6 +145,19 @@ function home(){
 		this.render(this.url);
 	})
 }*/
+
+function practice_detail(linker){
+	var self = this;
+	var options = {};
+	options.category = 'Practice';
+	options.linker = linker;
+	self.$read(options, function(err, response) {
+		if (err)
+			return self.throw404(err);
+		NOSQL('posts').counter.hit(response.id);
+		self.view('practice-detail', response);
+	});
+}
 
 function twq(){
 	this.view('contacts');

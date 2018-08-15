@@ -13,6 +13,7 @@ NEWSCHEMA('Post').make(function(schema) {
 	schema.define('pictures', '[String]');  		// URL addresses for first 5 pictures
 	schema.define('body', String);
 	schema.define('datecreated', Date);
+	schema.define('practice',String);
 
 	// Gets listing
 	schema.setQuery(function(error, options, callback) {
@@ -92,7 +93,6 @@ NEWSCHEMA('Post').make(function(schema) {
 		
 		var newbie = model.id ? false : true;
 		var nosql = NOSQL('posts');
-
 		if (newbie) {
 			model.id = UID();
 			model.admincreated = controller.user.name;
@@ -100,7 +100,7 @@ NEWSCHEMA('Post').make(function(schema) {
 			model.dateupdated = F.datetime;
 			model.adminupdated = controller.user.name;
 		}
-
+				
 		if (!model.datecreated)
 			model.datecreated = F.datetime;
 
@@ -110,7 +110,41 @@ NEWSCHEMA('Post').make(function(schema) {
 		if (category)
 			model.category_linker = category.linker;
 
-		
+		//Добавление линкера на практку
+		if (model.category == 'Practice') {
+			if(!model.practice){return 0;}
+			else{
+				//dodelot'
+				let lvl2 = -1;
+				let lvl3 = -1;
+				for (i in F.global.practics){
+					lvl2 = F.global.practics[i].findIndex((el)=>{console.log('lvl2 ',el);return el.name==model.practice;});
+					if (lvl2==(-1)){
+						for (j = 0;j< F.global.practics[i].length;j++){
+							lvl3 = (F.global.practics[i])[j].category.findIndex((el)=>{console.log('lvl3 ',el);return el.name == model.practice;});
+							if (lvl3 != (-1)){
+								(F.global.practics[i])[j].category[lvl3].linker = model.linker;
+								break;	
+							}	
+						}
+						if (lvl3!=(-1)){break;}
+					}
+					else {
+						(F.global.practics[i])[lvl2].linker=model.linker;
+						break;
+					}
+				}
+				console.log('lvl2 ',lvl2);
+				console.log('lvl3 ',lvl3);
+				
+				if(lvl2 != (-1) || lvl3 != (-1)){
+					console.log('save practice')
+					MODEL('practics').save(F.global.practics,(err)=>{console.log(err)});				
+				}
+				else {return 0;}
+			}
+		}
+
 		let tagstr = ''
 		if (model.tags)
 			tagstr = model.tags.join(' ')

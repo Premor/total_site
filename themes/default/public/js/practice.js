@@ -95,13 +95,13 @@ function fill_practice(name){
     }
     let append_ul='<ul>';
     for (i of practics[name_pract]){
-        if (i.category[0]!="") {
+        if (i.category[0].name!="") {
             append_ul +=`<li class='lvl2'><p class='lvl2_click'><i class="fa fa-caret-right rotata" id="rotata${k}"></i> ${i.name}</p><ul>`;
         } else {
-            append_ul +=`<li class='lvl2'><a href="#" class="href_click"><p class='lvl2_click'><i class="fa fa-caret-right rotata" id="rotata${i}"></i> ${i.name}</p></a><ul>`;
+            append_ul +=`<li class='lvl2'><a href="/practice/${i.linker}" class="href_click"><p class='lvl2_click'><i class="fa fa-caret-right rotata" id="rotata${i}"></i> ${i.name}</p></a><ul>`;
         }
         for (j of i.category){
-            append_ul+=`<a href='#' class="lvl3_href"><li class='lvl3'>${j}</li></a>`//Вместо # нужно вставить линкер
+            append_ul+=`<a href='/practice/${j.linker}' class="lvl3_href"><li class='lvl3'>${j.name}</li></a>`//Вместо # нужно вставить линкер
         }
         append_ul +='</ul></li>';
         k++;

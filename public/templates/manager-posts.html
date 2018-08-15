@@ -103,6 +103,9 @@
 			<div class="col-md-2 m">
 				<div data-jc="dropdown" data-jc-path="posts.form.language" data-align="center" data-source="languages" data-empty="" data-icon="fa-flag">@(Language)</div>
 			</div>
+			<div class="col-md-2 m">
+				<div data-jc="textbox" data-jc-path="posts.form.practice" data-align="center">@(Practice)</div>
+			</div>
 		</div>
 	</div>
 	<div data-jc="error" data-jc-path="posts.response"></div>
@@ -169,7 +172,7 @@
 		component.submit = function(hide) {
 			var loading = FIND('loading').show();
 			var editor = FIND('#posts.editor');
-
+			alert(posts.form.practice);
 			posts.form.pictures = editor.getPictures();
 			posts.form.body = editor.getContent();
 			posts.form.perex = editor.getPerex();

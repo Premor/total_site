@@ -52,7 +52,7 @@
             }
             $('.trash').click(function () {
                 let delete_num=(($(this).parent('div').parent('.col-md-4')).children('img')).attr('src');
-                let send_num = delete_num[delete_num.length-5]-(-1);
+                let send_num;
                 for (var i=delete_num.length-5;!((((delete_num[delete_num.length-5]).charCodeAt()>=48)&&((delete_num[delete_num.length-5]).charCodeAt()<=57)));i--) {
                     //Код против кулхацкеров
                     send_num=delete_num[i]+send_num; 
@@ -72,7 +72,9 @@
                 })
             })
             $('.cogs').click(function () {
-                $.fancybox.open('<div class="message"><p>Файл на замену: </p><form enctype="multipart/form-data" action="/$manager/changeimage" method="POST" ><input type="file" name="file"><input type="text" style="display:none" value="!!!!!!ZDES NOMER IZOBRASH!!!!!!!!!!!" /><input type="submit" value="Отправить"></form></div>');
+                let change_num=$(this).parent('div').parent(".col-md-4").children('img').attr('src');
+                let send_num = change_num[change_num.length-5];
+                $.fancybox.open(`<div class="message"><p>Файл на замену: </p><form enctype="multipart/form-data" action="/$manager/change-image" method="POST" ><input type="text" readonly value="${send_num}" name="id"><input type="file" name="file"><input type="submit" value="Отправить"></form></div>`);
             })
         }
     })
