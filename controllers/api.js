@@ -62,11 +62,12 @@ function get_practics(){
 function update_practice(){
 	let buf;
 	for (i in F.global.practics)
-		for(j=0;j<F.global.practics[i].length;j++)
+		for(j=0;j<F.global.practics[i].length;j++){
+			F.global.practics[i][j].linker='';
 			for(k=0;k<(F.global.practics[i])[j].category.length;k++){
 				buf = {name:(F.global.practics[i])[j].category[k],linker:""}
 				F.global.practics[i][j].category[k] = buf;
-			}
+			}}
 	MODEL('practics').save(F.global.practics,(err)=>{if(err){this.json({err:err})}else{this.json({ok:true})}})
 	
 }
