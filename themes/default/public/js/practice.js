@@ -95,7 +95,7 @@ function fill_practice(name){
     }
     let append_ul='<ul>';
     for (i of practics[name_pract]){
-        if (i.category[0]!="") {
+        if (i.category[0].name!="") {
             append_ul +=`<li class='lvl2'><p class='lvl2_click'><i class="fa fa-caret-right rotata" id="rotata${k}"></i> ${i.name}</p><ul>`;
         } else {
             append_ul +=`<li class='lvl2'><a href="/practice/${i.linker}" class="href_click"><p class='lvl2_click'><i class="fa fa-caret-right rotata" id="rotata${i}"></i> ${i.name}</p></a><ul>`;
