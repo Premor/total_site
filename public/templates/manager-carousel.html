@@ -43,6 +43,7 @@
 <script src="/js/jquery.fancybox.min.js"></script>
 <script> 
     $(document).ready(function () {
+        let send_num='';
     $.ajax({
         type: 'GET',
         url: '/api/carousel',
@@ -52,12 +53,12 @@
             }
             $('.trash').click(function () {
                 let delete_num=(($(this).parent('div').parent('.col-md-4')).children('img')).attr('src');
-                let send_num;
-                for (var i=delete_num.length-5;!((((delete_num[delete_num.length-5]).charCodeAt()>=48)&&((delete_num[delete_num.length-5]).charCodeAt()<=57)));i--) {
+                
+                for (var i=delete_num.length-5;((((delete_num[i]).charCodeAt()>=48)&&((delete_num[i]).charCodeAt()<=57)));i--) {
                     //Код против кулхацкеров
                     send_num=delete_num[i]+send_num; 
                 }
-                alert(send_num);
+                send_num=send_num-(-1);
                 if (!send_num||send_num<0)
                     {
                         alert("Неправильный ввод для удаления, введите номер изображения")
@@ -73,7 +74,12 @@
             })
             $('.cogs').click(function () {
                 let change_num=$(this).parent('div').parent(".col-md-4").children('img').attr('src');
-                let send_num = change_num[change_num.length-5];
+                for (var i=change_num.length-5;((((change_num[i]).charCodeAt()>=48)&&((change_num[i]).charCodeAt()<=57)));i--) {
+                    //Код против кулхацкеров
+                    send_num=change_num[i]+send_num; 
+                }
+                send_num=send_num;
+                alert(send_num);
                 $.fancybox.open(`<div class="message"><p>Файл на замену: </p><form enctype="multipart/form-data" action="/$manager/change-image" method="POST" ><input type="text" readonly value="${send_num}" name="id"><input type="file" name="file"><input type="submit" value="Отправить"></form></div>`);
             })
         }
