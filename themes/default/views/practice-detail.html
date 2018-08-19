@@ -3,15 +3,6 @@
 @{sitemap_change('practicedetail', 'url', model.linker)}
 @{sitemap_change('practicedetail', 'name', model.name)}
 
-<div class="row">
-<div class="padding col-md-6">
-    @{!model.options.body.tidyCMS()}
-</div>
-<div class="col-md-6">
-    @{view('partial-person', model)}
-</div>
-</div>
-
 <div class="padding current_practice">
     <div class="news_block">
         <div class="container-fluid white_block">
