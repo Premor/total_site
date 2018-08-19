@@ -78,7 +78,10 @@
                     //Код против кулхацкеров
                     send_num=change_num[i]+send_num; 
                 }
+<<<<<<< HEAD
                 alert(send_num);
+=======
+>>>>>>> backend
                 $.fancybox.open(`<div class="message"><p>Файл на замену: </p><form enctype="multipart/form-data" action="/$manager/change-image" method="POST" ><input type="text" readonly value="${send_num}" name="id"><input type="file" name="file"><input type="submit" value="Отправить"></form></div>`);
             })
         }

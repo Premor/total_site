@@ -155,7 +155,22 @@ function practice_detail(linker){
 		if (err)
 			return self.throw404(err);
 		NOSQL('posts').counter.hit(response.id);
-		self.view('practice-detail', response);
+		let options_about = {};
+		options_about.options = response;
+		options_about.category = 'Member';
+		//options.max = 6;
+
+		if (self.query.q)
+		options_about.search = self.query.q;
+
+		if (self.query.page)
+		options_about.page = self.query.page;
+		
+		if (this.query.author)
+		options_about.name = this.query.author;
+
+		self.$query(options_about, self.callback('practice-detail'));
+		//self.view('practice-detail', response);
 	});
 }
 

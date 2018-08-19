@@ -16,6 +16,26 @@
         <input type="text" name="lvl3">
         <input type="submit" value="Отправить">
     </form>
+    <br>
+    <p>Добавить практикующего</p>
+    <div>
+        <form action="" method="POST" class="add-practicing">
+                <select name="lvl1">
+                    <option value="fiz">Физ лица</option>
+                    <option value="yr">Юр лица</option>
+                    <option value="admspor">Адм споры</option>
+                    <option value="zash">Защита</option>
+                </select>
+                <select name="lvl2">
+                </select>
+                <select name="lvl3">
+                </select>
+                <input type="text" name="practicing">
+                <input type="submit" value="Отправить">
+        </form>
+    </div>
+    <br>
+    
     <!--
     <p>Практики</p>
     <div class="view-practice">
@@ -77,6 +97,7 @@ function update_practice(){
         $('.view-practice').html('');
         $('.view-practice').append(`<p>${JSON.stringify(res)}</p>`)
         $('.delete-practice').children("[name='lvl1']").trigger('change');   
+        $('.add-practicing').children("[name='lvl1']").trigger('change');   
     })
     }
 
@@ -101,6 +122,46 @@ function update_practice(){
         
     });
     
+
+
+    $('.add-practicing').children("[name='lvl1']").change(function (e){
+        let new_v = $(this).val();
+        $('.add-practicing').children("[name='lvl2']").html('');
+        practice[new_v].forEach(el => {
+            $('.add-practicing').children("[name='lvl2']").append(`<option value="${el.name}">${el.name}</option>`);    
+        });
+        $('.add-practicing').children("[name='lvl2']").trigger('change');
+        
+    })
+    $('.add-practicing').children("[name='lvl2']").change(function (e){
+        let new_v = $(this).val();
+        let buf;
+        for (i in practice){
+            buf = practice[i].find((el) => {return el.name == new_v });
+            if (buf) break;
+        }
+        $('.add-practicing').children("[name='lvl3']").html('')
+        buf.category.forEach(el => {
+            $('.add-practicing').children("[name='lvl3']").append(`<option value="${el.name}">${el.name}</option>`);    
+        });
+        
+    })
+
+    $('.add-practicing').submit((e)=>{
+        e.preventDefault();
+        let a = [];
+        let buf = $('.add-practicing').children("[name*='lvl']").each((i,el) => { a.push($(el).val())});
+        let practicing = $('.add-practicing').children("[name='practicing']").val();
+        AJAX('POST /$manager/add-practicing',{lvl1:a[0],lvl2:a[1],lvl3:a[2],practicing:practicing},(res)=>{
+            if (res.err)
+                alert(res.err)
+            if (res.ok){
+                update_practice();
+                alert(res.ok);
+            }
+            
+        });    
+    })
     
     $('.delete-practice').children("[name='lvl1']").change(function (e){
         let new_v = $(this).val();
