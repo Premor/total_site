@@ -45,6 +45,7 @@ NEWSCHEMA('Post').make(function(schema) {
 		filter.callback(function(err, docs, count) {
 
 			var data = {};
+			data.options = options.options;
 			data.count = count;
 			data.items = docs;
 			data.limit = options.max;
