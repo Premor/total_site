@@ -146,6 +146,25 @@ function home(){
 	})
 }*/
 
+function find_practicing(practice){
+	for (i in F.global.practics){
+		for(let j = 0;j<F.global.practics[i].length;j++){
+			if(F.global.practics[i][j].name == practice){
+				return F.global.practics[i][j].practicing;
+			}
+			else{
+				for (let k = 0;k <F.global.practics[i][j].category.length;k++){
+					if(F.global.practics[i][j].category[k].name == practice){
+						return F.global.practics[i][j].category[k].practicing;
+					}		
+				}
+			}
+		}
+
+	}
+	return '';
+}
+
 function practice_detail(linker){
 	var self = this;
 	var options = {};
@@ -156,8 +175,10 @@ function practice_detail(linker){
 			return self.throw404(err);
 		NOSQL('posts').counter.hit(response.id);
 		let options_about = {};
+		let name = find_practicing(response.practice);
 		options_about.options = response;
 		options_about.category = 'Member';
+		if (name != '') options_about.name = name;
 		//options.max = 6;
 
 		// if (self.query.q)
