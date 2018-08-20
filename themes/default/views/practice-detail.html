@@ -8,21 +8,24 @@
     <div class="news_block">
         <div class="container-fluid white_block">
           <div class="row">
-				<div class="col-md-9 text">
+				<div class="col-md-12 text">
 						@{!model.options.body.tidyCMS()}
 				</div>
-				<div class="col-md-3">
-					<div class="people">
-							@{foreach m in model.items}
-								<div class="col-md-12 person">
-									<img src="/download/1807041641Tpqjkr.jpg" alt="" class="member_img"/>
-									<p class="member_name">@{m.name}</p>
-									<p class="member_achievments">@{m.body}</p>
-								</div>
-							@{end}
-					</div>
-				</div>
 		  </div>
+		  <div class="people">
+				<div class="">
+					<div class="col-md-12">
+						<p class="header">Практикующие:</p>
+					</div>
+					@{foreach m in model.items}
+						<div class="col-md-2 person">
+							<img src="@{m.pictures[0]}" alt="" class="member_img"/>
+							<p class="member_name">@{m.name}</p>
+							<p class="member_achievments">@{m.perex}</p>
+						</div>
+					@{end}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
