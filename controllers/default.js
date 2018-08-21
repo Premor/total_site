@@ -165,6 +165,15 @@ function find_practicing(practice){
 	return '';
 }
 
+function short_name(arg){
+    //if (!(arg instanceof String)) {return '';}
+    let buf = arg.split(' ');
+    buf[1] = `${buf[1].slice(0,1)}.`;
+    buf[2] = `${buf[2].slice(0,1)}.`;
+    let ret = buf.join(' ');
+    return ret;
+}
+
 function practice_detail(linker){
 	var self = this;
 	var options = {};
