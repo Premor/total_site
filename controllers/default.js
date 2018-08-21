@@ -146,6 +146,34 @@ function home(){
 	})
 }*/
 
+function find_practicing(practice){
+	for (i in F.global.practics){
+		for(let j = 0;j<F.global.practics[i].length;j++){
+			if(F.global.practics[i][j].name == practice){
+				return F.global.practics[i][j].practicing;
+			}
+			else{
+				for (let k = 0;k <F.global.practics[i][j].category.length;k++){
+					if(F.global.practics[i][j].category[k].name == practice){
+						return F.global.practics[i][j].category[k].practicing;
+					}		
+				}
+			}
+		}
+
+	}
+	return '';
+}
+
+function short_name(arg){
+    //if (!(arg instanceof String)) {return '';}
+    let buf = arg.split(' ');
+    buf[1] = `${buf[1].slice(0,1)}.`;
+    buf[2] = `${buf[2].slice(0,1)}.`;
+    let ret = buf.join(' ');
+    return ret;
+}
+
 function practice_detail(linker){
 	var self = this;
 	var options = {};
@@ -155,7 +183,24 @@ function practice_detail(linker){
 		if (err)
 			return self.throw404(err);
 		NOSQL('posts').counter.hit(response.id);
-		self.view('practice-detail', response);
+		let options_about = {};
+		let name = find_practicing(response.practice);
+		options_about.options = response;
+		options_about.category = 'Member';
+		if (name != '') options_about.name = name;
+		//options.max = 6;
+
+		// if (self.query.q)
+		// options_about.search = self.query.q;
+
+		// if (self.query.page)
+		// options_about.page = self.query.page;
+		
+		// if (this.query.author)
+		// options_about.name = this.query.author;
+
+		self.$query(options_about, self.callback('practice-detail'));
+		//self.view('practice-detail', response);
 	});
 }
 

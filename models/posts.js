@@ -28,15 +28,27 @@ NEWSCHEMA('Post').make(function(schema) {
 		var skip = U.parseInt(options.page * options.max);
 		var filter = NOSQL('posts').find();
 
+		
+		
 		if (options.category)
 			options.category = options.category.slug();
 		options.author && filter.where('author',options.author);
 		options.language && filter.where('language', options.language);
 		options.category && filter.where('category_linker', options.category);
 		options.search && filter.like('search', options.search.keywords(false, true));
-		options.name && filter.where('name', options.name);
-		
-		
+		//options.name && filter.where('name', options.name);
+		if (options.name){
+			if (options.name instanceof Array){
+				filter.or();
+				for (i of options.name){
+					filter.where('name',i);
+				}
+				filter.and();
+			}
+			else{
+				filter.where('name', options.name);
+			}
+		}
 		filter.take(take);
 		filter.skip(skip);
 		filter.fields('id', 'category', 'body','name', 'language', 'datecreated', 'linker', 'category_linker', 'pictures', 'perex', 'tags','author');
@@ -45,6 +57,7 @@ NEWSCHEMA('Post').make(function(schema) {
 		filter.callback(function(err, docs, count) {
 
 			var data = {};
+			data.options = options.options;
 			data.count = count;
 			data.items = docs;
 			data.limit = options.max;

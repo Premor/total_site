@@ -3,7 +3,29 @@
 @{sitemap_change('practicedetail', 'url', model.linker)}
 @{sitemap_change('practicedetail', 'name', model.name)}
 
-<div class="padding">
-	<h1>@{title}</h1>
-	@{!model.body.tidyCMS()}
+
+<div class="padding current_practice">
+    <div class="news_block">
+        <div class="container-fluid white_block">
+          <div class="row">
+				<div class="col-md-12 text">
+						@{!model.options.body.tidyCMS()}
+				</div>
+		  </div>
+		  <div class="people">
+				<div class="">
+					<div class="col-md-12">
+						<p class="header">Практикующие:</p>
+					</div>
+					@{foreach m in model.items}
+						<div class="col-md-2 person">
+							<img src="@{m.pictures[0]}" alt="" class="member_img"/>
+							<p class="member_name">@{m.name}</p>
+							<p class="member_achievments">@{m.perex}</p>
+						</div>
+					@{end}
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

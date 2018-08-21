@@ -216,3 +216,54 @@ p {
 .adm_carousel {
 	max-width: 15vw;
 }
+
+.current_practice {
+	font-family: 'Oswald';
+}
+
+.current_practice .news_header {
+	margin-bottom: 2vh !important;
+}
+
+.current_practice .text {
+	font-size: 20px;
+	color: #181818;
+}
+
+.current_practice .people {
+	margin-top: 2vh;
+	margin-bottom: 0vh;
+}
+
+.current_practice .person {
+	text-align: center;
+	margin-bottom: 1vh;
+	display: inline-block;
+	border-radius: 5px;
+	box-shadow: 14px 0px 28px rgba(0,0,0,0.25), 10px 0px 10px rgba(0,0,0,0.22);
+	padding: 1vh;
+}
+
+.current_practice .preson:last-child {
+	/*why ne rabotaet*/
+}
+
+.current_practice .news_block {
+	box-shadow: none;
+}
+
+.current_practice .member_name {
+	font-size: 2.7vh;
+}
+
+.current_practice .member_achievments {
+	font-size: 1.8vh;
+}
+
+.people .header {
+	font-size: 3.5vh;
+	color: #ba0800;
+	background-color: #fff !important;
+	padding-bottom: 0;
+	padding-top: 0;
+}

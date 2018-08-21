@@ -8,4 +8,5 @@ $(document).ready(function(){
     $('.events_to_publ').click(()=> {
         window.location.replace('/publication')
     })
+
   });

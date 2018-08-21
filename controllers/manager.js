@@ -22,7 +22,7 @@ exports.install = function() {
 
 	F.route(url + '/practice-add/',practice_save,['post']);
 	F.route(url + '/practice-del/',practice_delete,['post']);
-
+	F.route(url + '/add-practicing/',add_practicing,['post']);
 
 	// DASHBOARD
 	F.route(url + '/api/dashboard/',           json_dashboard);
@@ -73,6 +73,9 @@ exports.install = function() {
 // ==========================================================================
 // COMMON
 // ==========================================================================
+
+
+
 
 function change_image(){
 	let self = this;
@@ -476,6 +479,32 @@ function practice_delete(){
 	else {this.json({err:"Lvl2 not found"});}
 	MODEL('practics').save(F.global.practics,(err)=>{console.log(err)});
 	
+}
+
+function add_practicing(){
+	let practicing = this.body.practicing;
+	let buf = F.global.practics;
+	let lvl2 = buf[this.body.lvl1].findIndex((el)=>{return el.name == this.body.lvl2});
+	if (lvl2!=(-1)){
+		if (this.body.lvl3 == ''){
+			if (!(F.global.practics[this.body.lvl1])[lvl2].practicing){(F.global.practics[this.body.lvl1])[lvl2].practicing = [];}
+				
+			(F.global.practics[this.body.lvl1])[lvl2].practicing.push(practicing);
+		}
+		else{
+			let lvl3 = (buf[this.body.lvl1])[lvl2].category.findIndex((el)=>{return el.name == this.body.lvl3});
+			
+			if (lvl3 !=(-1)){
+				if (!(F.global.practics[this.body.lvl1])[lvl2].category[lvl3].practicing){(F.global.practics[this.body.lvl1])[lvl2].category[lvl3].practicing = [];}
+				(F.global.practics[this.body.lvl1])[lvl2].category[lvl3].practicing.push(practicing);
+				this.json({ok:`Add practicing to lvl3 ${this.body.lvl3}`});
+			}
+			else{this.json({err:"Lvl3 not found"})}
+		}
+	}
+	else {this.json({err:"Lvl2 not found"});}
+	MODEL('practics').save(F.global.practics,(err)=>{console.log(err)});
+		
 }
 
 class Practice{
