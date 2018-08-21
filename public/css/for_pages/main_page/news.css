@@ -1,6 +1,13 @@
 .news_block {
     color: #181818;
     box-shadow: 0 0 40px 0 rgba(0,0,0,.3)
+    
+}
+
+.news_block {
+    margin-right: auto;
+    margin-left: auto;
+    width: 83vw !important;
 }
 
 .themes_right {
@@ -74,11 +81,6 @@ p.news_header {
   color: #ffffff !important;
   animation: fill-in 0.5s;
   text-decoration: none;
-}
-
-.news_block {
-    margin-right: 8vw;
-    margin-left: 8vw;
 }
 
 .news_item {
