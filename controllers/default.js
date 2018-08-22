@@ -117,20 +117,27 @@ function test(){
 }
 
 function home(){
+
 	var self = this;
 	var options = {};
 	this.repository.size=F.global.carousel;
 	
-	options.category = 'Blogs';
-	options.max = 6;
+	$GET('Page', { url: '/' }, function(err, response) {
+		//console.log(err, response);
+		options.category = 'Blogs';
+		options.max = 6;
+		options.options = response.body;
+		if (self.query.q)
+			options.search = self.query.q;
 
-	if (self.query.q)
-		options.search = self.query.q;
+		if (self.query.page)
+			options.page = self.query.page;
 
-	if (self.query.page)
-		options.page = self.query.page;
+		self.$query(options, self.callback('home_news'));
+	
+	});
 
-	self.$query(options, self.callback('home_news'));
+	
 	
 	/*NOSQL('posts').find().sort('datecreated').take(6).callback((err,res)=>{
 		this.repository.test_NOSQL = res;
