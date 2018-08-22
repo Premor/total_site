@@ -267,3 +267,7 @@ p {
 	padding-bottom: 0;
 	padding-top: 0;
 }
+
+.small_icons {
+	height: 30px;
+}
