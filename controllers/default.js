@@ -3,14 +3,14 @@ exports.install = function() {
 	F.route('#practice',practice,['*Post']);
 	F.route('#practicedetail',practice_detail,['*Post']);
 	/*F.route('/news/',news)*/
-    // CMS rendering
-    F.route('/constructor/',constructor);
+	// CMS rendering
+	F.route('/constructor/',constructor);
 	F.route('/', home,['*Post']);
 	F.route('/contacts/',twq);
 	F.route('#publication',           view_publication, 		['*Post']);
 	F.route('#publicationdetail',     view_publication_detail,  ['*Post']);
 	F.route('/events/',events);
-	F.route('/timeline/',timeline);
+	F.route('/timeline/',timeline,['*Post']);
 	
 	
 	//ROUTE('/registration',view_registration,['#session']);
