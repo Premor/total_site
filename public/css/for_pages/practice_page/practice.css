@@ -271,3 +271,7 @@ p {
 .small_icons {
 	height: 30px;
 }
+
+.dib {
+	display: inline-block;
+}
