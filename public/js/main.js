@@ -8,5 +8,7 @@ $(document).ready(function(){
     $('.events_to_publ').click(()=> {
         window.location.replace('/publication')
     })
-
+    $('.events_to_timeline').click(()=> {
+        window.location.replace('/timeline')
+    })
   });
