@@ -10,6 +10,7 @@ exports.install = function() {
 	F.route('#publication',           view_publication, 		['*Post']);
 	F.route('#publicationdetail',     view_publication_detail,  ['*Post']);
 	F.route('/events/',events);
+	F.route('/timeline/',timeline);
 	
 	
 	//ROUTE('/registration',view_registration,['#session']);
@@ -92,6 +93,22 @@ function news () {
 	this.view('news');
 }
 */
+function timeline(){
+	var self = this;
+	var options = {};
+	this.repository.size=F.global.carousel;
+	
+	options.category = 'Event';
+
+	if (self.query.q)
+		options.search = self.query.q;
+
+	if (self.query.page)
+		options.page = self.query.page;
+	
+	self.$query(options, self.callback('timeline'));
+}
+
 function constructor(){
     var self = this;
     var options = {};
