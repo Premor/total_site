@@ -5,14 +5,15 @@
 .timeline__block {
   position: relative;
   top: -78vh;
+  z-index: 3
 }
 
 .timeline__line {
   height: 80vh;
   width: 0.7vh;
   background-color: #7a0500;
-  z-index: -15;
-  left: 1.3vh;
+  z-index: 2;
+  left: 0.7vh;
   position: relative;
   
 } 
@@ -20,7 +21,7 @@
 
 .timeline__text {
   color: #7a0500;
-  font-size: 7vh;
+  font-size: 4vh;
   display: inline-block;
 }
 

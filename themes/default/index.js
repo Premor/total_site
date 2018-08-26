@@ -16,6 +16,7 @@ exports.install = function() {
 	 /*news page*/ `/${PATH}/news_page/news.css`,
 	 /*publications*/ `/${PATH}/publications_page/publications.css`,
 	 /*events*/ `/${PATH}/events_page/events.css`,
+	 /*timeline*/ `${PATH}/events_page/timeline.css`,
 	 /*slick carousel*/ `/css/slick.css`, `/css/slick-theme.css`,
 	 `/css/ui.css`, `/css/bootstrap.min.css`, `/css/animate.css`,
 	 `=default/public/css/default.css`);
