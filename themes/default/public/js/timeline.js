@@ -71,12 +71,12 @@ function timeline_click() {
   let timeline_blocks = $('.timeline__block');
   $('.timeline__block').click(function () {
     if ($(this).hasClass('active')) {
-      // $(this).children('.timeline__dot').transition({
-      //   scale: 1.1,
-      //   backgroundColor: "#7a0500"
-      // }, 300);
-      // $(this).removeClass('active');
-      //$(`.${$(this).children('.timeline__text').html()}`).css({'display':'block'});
+      $(this).children('.timeline__dot').transition({
+        scale: 1.9,
+      }, 75);
+      $(this).children('.timeline__dot').transition({
+        scale: 1.5,
+      }, 75);
     } else {
       for (let i = 0; i < timeline_blocks.length; i++) {
         let jel = $(timeline_blocks[i]);
@@ -86,7 +86,9 @@ function timeline_click() {
             backgroundColor: "#7a0500"
           }, 300);
           jel.removeClass('active');
-          $(`.${jel.children('.timeline__text').html()}`).css({'display':'none'});    
+          $(`.${jel.children('.timeline__text').html()}`).css({
+            'display': 'none'
+          });
         }
       }
       $('.timeline__dot', this).transition({
@@ -94,9 +96,9 @@ function timeline_click() {
         backgroundColor: "#ffffff"
       }, 300);
       $(this).addClass('active');
-      $(`.${$(this).children('.timeline__text').html()}`).css({'display':'block'});
+      $(`.${$(this).children('.timeline__text').html()}`).css({
+        'display': 'block'
+      });
     }
   })
 }
-
-
