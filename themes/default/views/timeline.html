@@ -15,6 +15,13 @@
         </div>
         @{end}
       </div>
+      <div class="col-md-9" id="timeline__body">
+        @{foreach m in model.items}
+        <div class="@{m.name}">
+          @{!m.body.tidyCMS()}
+        </div>
+        @{end}
+      </div>
     </div>
 </div>
 
