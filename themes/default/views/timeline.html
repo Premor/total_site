@@ -1,24 +1,22 @@
 <div class="news_block">
-  <div class="container-fluid white_block">
+<div class="container-fluid white_block timeline__page_wb">
     <div class="row">
-      <div class="col-md-2">
-        <div class="timeline__line"></div>
-        <div class="timeline__block">
-          <div class="timeline__part"></div>
-          <div class="timeline__dot"></div>
-          <div class="timeline__text">Гуси</div>
+      <div class="col-md-3" id="timeline__content">
+        @{foreach m in model.items}
+        <div class="row">
+          <div class="h2 timeline__click_header col-md-12">@{m.datecreated}</div>
+          <div class="col-md-12 timeline__year_part">
+            <div class="timeline__line"></div>
+            <div class="timeline__block">
+              <div class="timeline__dot"></div>
+              <div class="timeline__text">@{m.name}</div>
+            </div>
+          </div>
         </div>
-        <div class="timeline__block">
-          <div class="timeline__part"></div>
-          <div class="timeline__dot"></div>
-          <div class="timeline__text">Буси</div>
-        </div>
-        <div class="timeline__block">
-          <div class="timeline__part"></div>
-          <div class="timeline__dot"></div>
-          <div class="timeline__text">Груси</div>
-        </div>
+        @{end}
       </div>
+    </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js"></script>
 @{import('timeline.js')}

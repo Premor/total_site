@@ -1,15 +1,31 @@
-.timeline__part {
-  
+.timeline__year_part {
+  display: none;
+}
+
+#timeline__content {
+  display: none;
+}
+
+.timeline__text {
+  cursor: pointer;
+}
+
+.timeline__page_wb {
+  min-height: 73vh;
 }
 
 .timeline__block {
   position: relative;
-  top: -78vh;
-  z-index: 3
+  top: -100%;
+  z-index: 3;
+}
+
+.timeline__click_header {
+  cursor: pointer;
 }
 
 .timeline__line {
-  height: 80vh;
+  height: 100%;
   width: 0.7vh;
   background-color: #7a0500;
   z-index: 2;

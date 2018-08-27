@@ -3,8 +3,15 @@ $(document).ready(function(){
         nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right"></i></button>',
         prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"></i></button>',
         autoplay: true,
-        autoplaySpeed: 6000
+        autoplaySpeed: 3000
     });
+    $('.slick_slider').on('swipe', function(event, slick, direction){
+        $('.slick_slider').slick('slickPlay');
+      });
+    $('.slick-prev, .slick-next').click(function() {
+        $('.slick_slider').slick('slickPlay');
+    })
+
     $('.events_to_publ').click(()=> {
         window.location.replace('/publication')
     })
