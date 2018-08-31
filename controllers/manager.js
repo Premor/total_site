@@ -441,11 +441,15 @@ function practice_save(){
 	
 	if (lvl2!=(-1)){
 		let lvl3 =  (buf[this.body.lvl1])[lvl2].category.findIndex((el)=>{return el.name == this.body.lvl3})
-		if (lvl3){
+		if (lvl3!=(-1)){
 			this.json({err:"Allready exist"});
 		}
 		else {
-			(F.global.practics[this.body.lvl1])[lvl2].category.push({name:this.body.lvl3,linker:''});
+			if((F.global.practics[this.body.lvl1])[lvl2].category[0].name == ''){
+				(F.global.practics[this.body.lvl1])[lvl2].category[0].name = this.body.lvl3;
+			}else{
+				(F.global.practics[this.body.lvl1])[lvl2].category.push({name:this.body.lvl3,linker:''});
+			}
 			this.json({ok:"Added"});
 		}
 	}
