@@ -88,6 +88,9 @@ function timeline_click() {
             backgroundColor: "#7a0500"
           }, 300);
           jel.removeClass('active');
+          $(`[nameofbody = "${jel.children('.timeline__text').html()}"]`).css({
+            'display': 'none'
+          });
         }
       }
       $('.timeline__dot', this).transition({
@@ -95,6 +98,9 @@ function timeline_click() {
         backgroundColor: "#ffffff"
       }, 300);
       $(this).addClass('active');
+      $(`[nameofbody = "${$(this).children('.timeline__text').html()}"]`).css({
+        'display': 'block'
+      });
     }
   })
 }

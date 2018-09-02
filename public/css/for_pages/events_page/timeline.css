@@ -38,6 +38,9 @@
   
 } 
 
+#timeline__body > * {
+  display: none;
+}
 
 .timeline__text {
   color: #7a0500;
