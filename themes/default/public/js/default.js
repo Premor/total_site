@@ -8,7 +8,7 @@ $(document).ready(function() {
 		var self = this;
 		var code = $(this).children('.body').text();
 		console.log('code: ',code);
-		var author =`<a href="/publication?author=${$(this).children('.author').text()}"><span class="publications">Публикации</span></a>`;
+		var author =`<a href="/publication?author=${$(this).children('.author').text()}" class="tdnone"><span class="publications">Посмотреть публикации</span></a>`;
 		$('.command-tile').html(code).append(author);
 		$('.backToBeg').removeClass('hidden');
 		$('.about_practice').on('click',function(){

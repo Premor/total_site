@@ -46,6 +46,8 @@ exports.install = function() {
 	F.route('#albumdetail',     view_album_detail,  ['*Post']);
 
 	F.route('/about_us/', 		about_us,		    ['*Post']);
+
+	F.route('/privacy/', 		privacy,		    ['*Post']);
 	
 	// FILES
 	F.file('/download/', 	    file_read);
@@ -68,6 +70,10 @@ function view_page() {
 	self.render(self.url);
 }
 
+
+function privacy() {
+	this.view('privacy');
+}
 
 function contacts () {
 	this.view('contacts');

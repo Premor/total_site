@@ -2,6 +2,10 @@
   display: none;
 }
 
+#timeline__body * {
+  display: none;
+}
+
 #timeline__content {
   display: none;
 }

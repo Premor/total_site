@@ -18,4 +18,11 @@ $(document).ready(function(){
     $('.events_to_timeline').click(()=> {
         window.location.replace('/timeline')
     })
+
+    $('.news_tag').click(function() {
+        let str = document.location.href;
+        let pos = 0;
+        var foundPosPub= str.indexOf("publication",pos);
+        
+    })
   });
