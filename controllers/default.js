@@ -73,15 +73,11 @@ function view_page() {
 }
 
 
-<<<<<<< HEAD
 function privacy() {
 	this.view('privacy');
 }
 
 function contacts () {
-=======
-function contacts() {
->>>>>>> backend
 	this.view('contacts');
 }
 
