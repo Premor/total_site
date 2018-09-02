@@ -12,7 +12,7 @@ exports.install = function () {
 	F.route('/events/', events);
 	F.route('/timeline/', timeline, ['*Post']);
 
-
+	F.route('/search-all/',search);
 	//ROUTE('/registration',view_registration,['#session']);
 	//ROUTE('/registration',view_registration_auth,[/*'authorize',*/'#session']);
 	//ROUTE('/registration', json_create_user, ['post'/*,'unauthorize'*/,'#session']);
@@ -68,6 +68,13 @@ function view_page() {
 	self.render(self.url);
 }
 
+function search(){
+	if(this.query.category){
+		$query('Post', {
+			url: '/'
+		}, function (err, response) {})
+	}
+}
 
 function contacts() {
 	this.view('contacts');
