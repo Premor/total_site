@@ -50,7 +50,6 @@ exports.install = function () {
 	F.route('/about_us/', 		about_us,		    ['*Post']);
 
 	F.route('/privacy/', 		privacy,		    ['*Post']);
-	F.route('/gallery/', 		gallery,		    ['*Post']);
 	
 	// FILES
 	F.file('/download/', file_read);
@@ -67,9 +66,6 @@ function events() {
 	this.view('events');
 }
 
-function gallery() {
-	this.view('gallery');
-}
 
 function view_page() {
 	var self = this;

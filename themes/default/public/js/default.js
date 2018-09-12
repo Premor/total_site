@@ -25,7 +25,7 @@ $(document).ready(function() {
 	});
 
 	$(document).on('click', '.yandexmap_click', function() {
-		$(this).children('.ymap_frame').css("poWinter-events", "auto");
+		$(this).children('.ymap_frame').css("pointer-events", "auto");
 	})
 
 	/*$(document).on('click', '.search-button', function() {

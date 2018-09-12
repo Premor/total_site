@@ -25,9 +25,4 @@ $(document).ready(function(){
         var foundPosPub= str.indexOf("publication",pos);
         
     })
-
-    $("[data-fancybox]").fancybox({
-        transitionEffect: "slide",
-        transitionDuration: 700
-    });
   });
