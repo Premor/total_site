@@ -29,7 +29,7 @@ NEWSCHEMA('Post').make(function(schema) {
 		var filter = NOSQL('posts').find();
 
 		let order = true;
-		options.order && (order = options.order);
+		if (options.order!=undefined && options.order != null) {order = options.order};
 		if (options.category)
 			options.category = options.category.slug();
 		options.author && filter.where('author',options.author);
