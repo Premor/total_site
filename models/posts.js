@@ -55,7 +55,7 @@ NEWSCHEMA('Post').make(function(schema) {
 		filter.sort('datecreated', order);
 
 		filter.callback(function(err, docs, count) {
-
+			console.log("DOC",docs);
 			var data = {};
 			data.options = options.options;
 			data.count = count;
