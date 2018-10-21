@@ -63,6 +63,7 @@ exports.install = function () {
 
 
 function events() {
+	this.repository.size = F.global.carousel;
 	this.view('events');
 }
 
@@ -348,7 +349,6 @@ function view_blogs() {
 	var options = {};
 
 	options.category = 'Blogs';
-	this.repository.size = F.global.carousel;
 	if (self.query.q)
 		options.search = self.query.q;
 
