@@ -7,8 +7,9 @@
 				<!--<p>@{m.datecreated}</p> Как вытащить дату в нормальный формат?-->
 			</div>
 			<img src="@{m.pictures[0]}" alt="" />
+			
 			<a href="@{sitemap_url('publicationdetail', m.linker)}" class="news_title">@{m.name}</a>
-			<p class="news_text">@{m.perex}</p>
+			<br>
 			@{foreach i in m.tags}<a href="#" class="news_tag">@{i}</a>@{end}
 		</div>
 		@{end}

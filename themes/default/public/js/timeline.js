@@ -40,13 +40,15 @@ $(document).ready(() => {
   $('#timeline__content').css({
     'display': 'block'
   })
-  timeline_year_click()
+
+
+  timeline_header_click()
   timeline_click()
 
 })
 
 
-function timeline_year_click() {
+function timeline_header_click() {
   let timeline_headers = $('.timeline__click_header');
   $('.timeline__click_header').click(function () {
     let content = $(this).parent('.row').children('.timeline__year_part');

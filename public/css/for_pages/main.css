@@ -163,3 +163,33 @@ a:hover {
 .adm_carousel {
 	height: 100000px;
 }
+
+.privacy_page h1, .privacy_page h2 {
+	margin-bottom: 0 !important;
+}
+
+.privacy_page h2 {
+	margin-bottom: 0 !important;
+	margin-top: 2vh;
+}
+
+.next-but, .prev-but {
+	font-size: 4vh;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+	padding: 0;
+	z-index: 999;
+	color: #ffffff;
+}
+
+.next-but {
+	right: -25px;
+}
+
+.prev-but {
+	left: -25px;
+}

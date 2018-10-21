@@ -47,6 +47,10 @@ exports.install = function () {
 
 	F.route('/about_us/', about_us, ['*Post']);
 
+	F.route('/about_us/', 		about_us,		    ['*Post']);
+
+	F.route('/privacy/', 		privacy,		    ['*Post']);
+	
 	// FILES
 	F.file('/download/', file_read);
 
@@ -62,6 +66,7 @@ function events() {
 	this.view('events');
 }
 
+
 function view_page() {
 	var self = this;
 	// models/pages.js --> Controller.prototype.render()
@@ -69,7 +74,11 @@ function view_page() {
 }
 
 
-function contacts() {
+function privacy() {
+	this.view('privacy');
+}
+
+function contacts () {
 	this.view('contacts');
 }
 

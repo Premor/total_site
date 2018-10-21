@@ -36,7 +36,8 @@
     border: 2px solid #BA0800;
 }
 .member_name {
-    font-size: 30px;
+    font-size: 4vh;
+    line-height: 1.0;
     color: #7A0500;
     margin-bottom: 0px;
     cursor: pointer;
@@ -64,6 +65,7 @@
     display: inline-block;
     width: 33% !important;
     text-align: center;
+    margin-bottom: 1vh;
 }
 
 .t-a{

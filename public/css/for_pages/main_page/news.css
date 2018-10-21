@@ -4,6 +4,10 @@
     
 }
 
+.noshadow {
+    box-shadow: 0 0 0 0;
+}
+
 .news_block {
     margin-right: auto;
     margin-left: auto;
