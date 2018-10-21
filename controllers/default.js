@@ -348,7 +348,7 @@ function view_blogs() {
 	var options = {};
 
 	options.category = 'Blogs';
-
+	this.repository.size = F.global.carousel;
 	if (self.query.q)
 		options.search = self.query.q;
 
