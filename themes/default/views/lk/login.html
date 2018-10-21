@@ -1,0 +1,28 @@
+@{layout('layout_logreg')}
+ <div class="container-fluid logreg_cont">
+     <div class="row">
+         <div class="col-md-12 logreg_image" >
+                <a href="/">
+                    <img src="/img/logo.png" alt="">
+                </a>
+         </div>
+     </div>
+     <div class="row">
+         <div class="col-md-12">
+             <div class="logreg_wrapper">
+                 <div class="col-md-12">
+                    <form action="/login" method="POST">
+                        <p>Логин:</p>
+                        <input type="text" class = "logreg_inp" name="login"/>
+                        <p>Пароль:</p>
+                        <input type="password" class = "logreg_inp" name="psw"/> 
+                        <button type="submit">
+                            <div class="menu-block practice_but">
+                                Войти
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+         </div>
+ </div>

@@ -8,9 +8,21 @@
 			@{!repository.page.body}
 		@{else}
 			<!-- TEMPLATE HTML -->
-			<div><a href="" class="CMS_edit"><span>aqwe</span></a></div>
-			<div class="CMS_widgets"></div>
-			
+				<div class="publication_flex tar">
+					<p class="annotation_header fifty_percent">
+						Аннотация
+					</p>
+					<div class="fifty_percent">
+						<a href="" class="CMS_edit publication_tag_CMS">Читать</a>
+					</div>
+					
+				</div>
+					<p class="CMS_edit CMS_multiline perex annotation">Введите ваш текст</p>
+					<div class="publication_flex tar">
+						
+					</div>
+				<div class="CMS_widgets"></div>
+		
 			 
 		@{fi}
 	</div>
@@ -31,11 +43,5 @@
 @{else}<!-- render normal page for visitors -->
 	@{if repository.page && repository.page.body}
 		@{!repository.page.body}
-		
-		@{foreach i in repository.test_NOSQL}
-		<h3>@{i.key}</h3>
-		<h3>@{i.value}</h3>
-		<br />
-		@{end}
 	@{fi}
 @{fi}

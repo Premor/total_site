@@ -1,0 +1,15 @@
+.news_page_block {
+    box-shadow: none !important;
+    display: flex;
+    flex-direction: row;
+}
+
+.news_page-item {
+    background-color: #ffffff;
+    margin-right: 1.2%;
+    margin-bottom: 1.2%;
+    padding: 15px;
+    max-width: calc(96.4%/3);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+

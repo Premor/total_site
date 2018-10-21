@@ -1,0 +1,47 @@
+@{import('practice.js')}
+<div class="carousel container-fluid">
+    <div class="row">
+        <div class="col-md-12 slider_shadow">
+            <div class="slick_slider">
+                @{foreach m in repository.size}
+                <div>
+                    <img src="/img/carousel/carousel@{m}.jpg" alt="">
+                </div>
+                @{end}
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="our-command practice-oc">
+        <div class="container-fluid white_block">
+            <div class="row">
+                <div class="col-md-12 command-header">
+                    <p>Практики</p>
+                </div>
+            </div>
+            <div class="row">
+            <ul id="practice_level_system">
+                <li class="lvl1">
+                    <p class="lvl1_click fiz"><img src="/img/fiz.png" alt="" class="small_icons" /> Физическим лицам</p>
+                    
+                </li>
+                <li class="lvl1">
+                    <p class="lvl1_click port"><img src="/img/port.png" alt="" class="small_icons"> Юридическим лицам</p>
+                    
+                </li>
+                <li class="lvl1">
+                    <p class="lvl1_click doc"><img src="/img/doc.png" alt="" class="small_icons"> Административные споры</p>
+                    
+                </li>
+                <li class="lvl1">
+                    <p class="lvl1_click lvl1_last law"><img src="/img/law.png" alt="" class="small_icons"> Уголовно-правовая защита</p>
+                </li>   
+            </ul>
+        </div>
+    </div>
+
+    <script>
+    // AJAX('GET /api/practics/', '',(res)=>{
+    //             console.log('res: ', res);
+    //         });
+    </script>

@@ -72,3 +72,11 @@
 .about_us .pencils img {
 	height: 60vh;
 }
+
+span.publications {
+	color: #7a0500;
+}
+
+.tdnone:hover {
+	text-decoration: none;
+}

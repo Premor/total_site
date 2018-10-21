@@ -1,13 +1,46 @@
 .carousel img {
-	height: 100%;
+	object-fit: cover;
+	height: 548px;
 	width: 86vw;
-	box-shadow: 0 5px 25px 0 rgba(0,0,0,.4);
 }
 
-.carousel iframe {
+.map_contacts iframe {
 	box-shadow: 0 5px 25px 0 rgba(0,0,0,.4);
 }
 
 .carousel {
 	text-align: center;
+	width: 86vw !important;
+}
+
+.slick-slide {
+
+}
+
+.slider_shadow {
+	box-shadow: 0 5px 25px 0 rgba(0,0,0,.4);
+	padding: 0 !important;
+}
+.map_contacts {
+	text-align: center;
+}
+
+/*
+.owl-item {
+	width: 86vw !important;	
+}*/
+
+.owl-nav {
+	position: relative;
+	color: #ffffff;
+	font-size: 30px;
+}
+
+.owl-prev {
+	position: relative;
+	bottom: 500%;
+}
+.owl-next {
+	position: relative;
+	bottom: 600%;
 }

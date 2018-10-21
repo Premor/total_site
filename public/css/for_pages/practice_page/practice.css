@@ -1,0 +1,279 @@
+.fiz2 {
+	background: url(/img/fiz2.png);
+	height: 180px;
+}
+
+.port2 {
+	background: url(/img/port2.png);
+	height: 180px;
+}
+
+.doc2 {
+	background: url(/img/doc2.png);
+	height: 180px;
+}
+
+.law2 {
+	background: url(/img/law2.png);
+	height: 180px;
+}
+
+/*.qwe {
+	display: none;
+	position: relative;
+	z-index:-200;
+}
+
+.qwe3rdlvl {
+	display: none;
+	position: relative;
+	z-index: 200;
+}*/
+
+.practice_block:hover .fiz2 {
+	background: url(/img/fiz.png);
+}
+
+.practice_block:hover .doc2 {
+	background: url(/img/doc.png);
+}
+
+.practice_block:hover .port2 {
+	background: url(/img/port.png);
+}
+
+.practice_block:hover .law2 {
+	background: url(/img/law.png);
+}
+
+.practice_block {
+	cursor: pointer;
+}
+
+.practice-oc {
+	margin-right: 8.5vw !important;
+	margin-left: 8.5vw !important;
+}
+
+.practice-oc .white_block {
+	min-height: 72.7vh;
+}
+
+.pr_page p{
+    text-align: center;
+    color: #000000;
+}
+
+.pr_page.practice_block:hover {
+    background: #ba0800;
+}
+
+.pr_page.practice_block {
+    background: #fff;
+}
+
+
+.pr_page.practice_block:hover p {
+    color: #ffffff;
+}
+
+.raspor {
+	z-index:-100;
+	margin-bottom: 2%;
+}
+
+fiz3_block.rasp {
+	z-index: -99;
+}
+
+port3_block.rasp {
+	z-index: -98;
+}
+
+doc3_block.rasp {
+	z-index: -97;
+}
+
+law3_block.rasp {
+	z-index: -96;
+}
+
+.rasp {
+	position: absolute !important;
+	visibility: hidden;
+}
+
+
+/*new system*/
+#practice_level_system {
+	width: 100%;
+	position: relative;
+	padding-right: 15px !important;
+	padding-left: 15px !important;
+	margin-bottom: 2vh !important;
+}
+
+#practice_level_system ul, #practice_level_system {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#practice_level_system .lvl1 {
+	background-color: #f0f0f0;
+	width: 100%;
+}
+
+/* #practice_level_system p:hover {
+	background-color: #CCCCCC;
+} */
+
+#practice_level_system ul {
+	transition: all .2s ease-in-out;
+	display: none;
+}
+#practice_level_system .lvl1_click:hover {
+	background-color: #7a0500;
+}
+
+#practice_level_system .lvl1_click {
+	background-color: #BA0800;
+	padding-left: 15px;
+	color: #ffffff;
+	font-size: 30px;
+	border: 2px solid #7a0500;
+	border-bottom: 0;
+}
+
+#practice_level_system .lvl1_last {
+	border-bottom: 2px solid #7a0500 !important;
+} 
+
+#practice_level_system .lvl2_click {
+	background-color: #f0f0f0;
+	padding-left: 2%;
+	color: #6c757d;
+	font-size: 23px;
+}
+
+.href_click {
+	text-decoration: none !important;
+	color: #6c757d !important;
+	cursor: pointer;
+}
+
+.lvl3_href {
+	text-decoration: none !important;
+}
+
+.lvl3:hover {
+	background-color: #888888;
+}
+
+.lvl3 {
+	color: #181818;
+}
+
+#practice_level_system .lvl2_click:hover {
+	background-color: #cccccc;
+}
+
+#practice_level_system .lvl2 ul {
+	background-color: #bfbfbf;
+}
+
+p {
+	margin-bottom: 0 !important;
+}
+
+#practice_level_system .lvl3 {
+	padding-left: 3%;
+}
+/* 
+#practice_level_system .lvl1 ul{
+	height: 10%;
+} */
+
+.rotata {
+	font-size: 25px;
+}
+
+#practice_level_system .lvl2>ul{
+	box-shadow: inset 0 2px 5px rgba(154, 147, 140, 0.5);
+}
+
+@keyframes rotataon {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(90deg);}
+}
+
+@keyframes rotataon_back {
+	from {transform: rotate(90deg);}
+	to {transform: rotate(0deg);}
+}
+
+
+.adm_carousel {
+	max-width: 15vw;
+}
+
+.current_practice {
+	font-family: 'Oswald';
+}
+
+.current_practice .news_header {
+	margin-bottom: 2vh !important;
+}
+
+.current_practice .text {
+	font-size: 20px;
+	color: #181818;
+}
+
+.current_practice .people {
+	margin-top: 2vh;
+	margin-bottom: 0vh;
+}
+
+.universal_card {
+	text-align: center;
+	margin-bottom: 1vh;
+	border-radius: 5px;
+	box-shadow: 14px 0px 28px rgba(0,0,0,0.25), 10px 0px 10px rgba(0,0,0,0.22);
+	padding: 1vh;
+	display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
+.current_practice .preson:last-child {
+	/*why ne rabotaet*/
+}
+
+.current_practice .news_block {
+	box-shadow: none;
+}
+
+.current_practice .member_name {
+	font-size: 2.7vh;
+}
+
+.current_practice .member_achievments {
+	font-size: 1.8vh;
+}
+
+.people .header {
+	font-size: 3.5vh;
+	color: #ba0800;
+	background-color: #fff !important;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+.small_icons {
+	height: 30px;
+}
+
+.dib {
+	display: inline-block;
+}

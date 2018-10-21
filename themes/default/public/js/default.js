@@ -5,11 +5,20 @@ UPTODATE('2 hours', '/');
 $(document).ready(function() {
 	var originalCode = $('.command-tile').html();
 	$(document).on('click', '.personname', function() {
-		
-		var code = $(this).children('span').text();
-		$('.command-tile').html(code);
+		var self = this;
+		var code = $(this).children('.body').text();
+		console.log('code: ',code);
+		var author =`<a href="/publication?author=${$(this).children('.author').text()}" class="tdnone"><span class="publications">Посмотреть публикации</span></a>`;
+		$('.command-tile').html(code).append(author);
 		$('.backToBeg').removeClass('hidden');
+		$('.about_practice').on('click',function(){
+			//console.log('PIDOR');
+			document.location.href = `/practice?search=${$(this).text()}`;
+		});
 	});
+	
+	
+
 	$(document).on('click', '.backToBeg',function() {
 		$('.command-tile').html(originalCode);
 		$('.backToBeg').addClass('hidden');
@@ -18,6 +27,12 @@ $(document).ready(function() {
 	$(document).on('click', '.yandexmap_click', function() {
 		$(this).children('.ymap_frame').css("pointer-events", "auto");
 	})
+
+	/*$(document).on('click', '.search-button', function() {
+		if ($(this).hasClass('hidden')) {
+			$(this).removeClass
+		}
+	})*/
 });
 
 COMPONENT('emaildecode', function() {
@@ -258,17 +273,17 @@ COMPONENT('search', 'class:hidden;delay:200;attribute:data-search', function(sel
 
 
 COMPONENT('features', 'height:37', function(self, config) {
-
+	console.log(self);
 	var container, timeout, input, search, scroller = null;
 	var is = false, results = false, selectedindex = 0, resultscount = 0;
-
+	
+	
 	self.oldsearch = '';
 	self.items = null;
-	self.template = Tangular.compile('<li data-search="{{ $.search }}" data-index="{{ $.index }}"{{ if selected }} class="selected"{{ fi }}>{{ if icon }}<i class="fa fa-{{ icon }}"></i>{{ fi }}{{ name | raw }}</li>');
+	self.template = Tangular.compile('<li data-search="{{ $.search }}" linker={{ link }} data-index="{{ $.index }}"{{ if selected }} class="selected"{{ fi }}>{{ if icon }}<i class="fa fa-{{ icon }}"></i>{{ fi }}{{ name | raw }}</li>');
 	self.callback = null;
 	self.readonly();
 	self.singleton();
-
 	self.configure = function(key, value, init) {
 		if (init)
 			return;
@@ -290,7 +305,9 @@ COMPONENT('features', 'height:37', function(self, config) {
 		scroller = self.find('.ui-features-container');
 
 		self.event('touchstart mousedown', 'li[data-index]', function(e) {
-			self.callback && self.callback(self.items[+this.getAttribute('data-index')]);
+			self.callback && self.callback(/*self.items[+this.getAttribute('data-index')]*/);
+			
+			this.getAttribute('linker') && document.location.replace(`/news/${this.getAttribute('linker')}`);
 			self.hide();
 			e.preventDefault();
 			e.stopPropagation();
@@ -490,3 +507,20 @@ COMPONENT('features', 'height:37', function(self, config) {
 		}, sleep ? sleep : 100);
 	};
 });
+
+
+/*
+var params = window
+    .location
+    .search
+    .replace('?','')
+    .split('&')
+    .reduce(
+        function(p,e){
+            var a = e.split('=');
+            p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+            return p;
+        },
+        {}
+    );
+*/ 

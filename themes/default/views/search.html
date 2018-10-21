@@ -24,8 +24,10 @@
     
     <div data-jc="features" data-jc-config="placeholder:Search ..."></div>
     
-    <div class="container">
-        <a href="javascript:features()"><i class="fa fa-search"></i></a>
+    <div class="search_container">
+        <a href="/lk/"><i class="fa fa-user"></i></a>
+        <a href="javascript:features()"><i class="fa fa-search search-button"></i></a>
+
     </div>
     
     <script>
@@ -33,7 +35,6 @@
             AJAX('GET /api/search/', '',(res)=>{SETTER('features', 'show',res , function(value) {
                 console.log('CLICK', value);
             });});
-            
         }
-        setTimeout(features, 500);
+        /*setTimeout(features, 500);*/
     </script>

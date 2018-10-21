@@ -4,6 +4,11 @@ F.resize('/img/small/', function(image) {
 	image.minify();
 }, ['/img/']);
 
+F.resize('/small/', function(image) {
+	image.resize(100, 100);
+	image.quality(90);
+	image.minify();
+});
 
 
 F.resize('/img/grayscale/', function(image) {

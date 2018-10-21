@@ -9,19 +9,35 @@
     color: #BA0800;
 }
 
+.command-header a:hover {
+    font-size: 60px;
+    text-decoration: none;    
+    color: #BA0800;
+    
+}
+
+
+.command-header a {
+    font-size: 60px;
+    
+    color: #BA0800 !important;
+    
+}
+
 .command-list {
     border-right: 3px solid #7A0500;
     padding-right: 0px !important;
 }
 .command-tile {
-    
+    top: -21px;
 }
 .member_img {
     max-width: 100%;
     border: 2px solid #BA0800;
 }
 .member_name {
-    font-size: 30px;
+    font-size: 4vh;
+    line-height: 1.0;
     color: #7A0500;
     margin-bottom: 0px;
     cursor: pointer;
@@ -49,4 +65,9 @@
     display: inline-block;
     width: 33% !important;
     text-align: center;
+    margin-bottom: 1vh;
+}
+
+.t-a{
+    text-align: right;
 }

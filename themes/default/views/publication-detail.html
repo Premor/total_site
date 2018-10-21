@@ -1,0 +1,38 @@
+@{title(model.name)}
+@{sitemap('publicationdetail')}
+@{sitemap_change('publicationdetail', 'url', model.linker)}
+@{sitemap_change('publicationdetail', 'name', model.name)}
+
+
+<div class="carousel container-fluid">
+	<div class="row">
+		<div class="col-md-12 slider_shadow">
+			<div class="slick_slider">
+				<div>
+					<img src="/img/caroutest.png" alt="">
+				</div>
+				<div>
+					<img src="/img/caroutest.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="padding">
+	<div class="news_block">
+		<div class="container-fluid white_block">
+			<div class="publication_flex_paged">
+				<p class="news_header pub_block_flex">Публикации</p>
+				<div class="publication_cont pub_block_flex">
+					<p class="publication_header pub_block_flex">@{title}</p>
+					<p class="pub_block_flex">Автор: <i>@{model.author}</i></p>
+					@{!model.body.tidyCMS()}
+					<div class="tags_cont pub_block_flex">
+						@{foreach i in model.tags}<a href="#" class="news_tag">@{i}</a>@{end}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

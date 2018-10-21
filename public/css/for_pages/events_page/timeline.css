@@ -1,0 +1,59 @@
+.timeline__year_part {
+  display: none;
+}
+
+#timeline__body * {
+  display: none;
+}
+
+#timeline__content {
+  display: none;
+}
+
+.timeline__text {
+  cursor: pointer;
+}
+
+.timeline__page_wb {
+  min-height: 73vh;
+}
+
+.timeline__block {
+  position: relative;
+  top: -100%;
+  z-index: 3;
+}
+
+.timeline__click_header {
+  cursor: pointer;
+}
+
+.timeline__line {
+  height: 100%;
+  width: 0.7vh;
+  background-color: #7a0500;
+  z-index: 2;
+  left: 0.7vh;
+  position: relative;
+  
+} 
+
+#timeline__body > * {
+  display: none;
+}
+
+.timeline__text {
+  color: #7a0500;
+  font-size: 4vh;
+  display: inline-block;
+}
+
+.timeline__dot {
+  width: 2vh;
+  height: 2vh;
+  background-color: #7a0500;
+  border-radius: 50%;
+  border: 0.5vh solid #7a0500;
+  display: inline-block;
+}
+

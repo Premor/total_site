@@ -13,6 +13,17 @@ exports.install = function() {
 	F.route(url + '/upload/base64/',           upload_base64, ['post', 10000], 2048); // 2 MB
 	F.route(url + '/logoff/',                  redirect_logoff);
 
+	// Carousel
+	F.route(url + '/carousel/',carousel_add,['post','upload',10000], 10000);
+	F.route(url + '/delete-image/',delete_image,['post']);
+	F.route(url + '/change-image/',change_image,['post','upload'],10000);
+
+	// Practice
+
+	F.route(url + '/practice-add/',practice_save,['post']);
+	F.route(url + '/practice-del/',practice_delete,['post']);
+	F.route(url + '/add-practicing/',add_practicing,['post']);
+
 	// DASHBOARD
 	F.route(url + '/api/dashboard/',           json_dashboard);
 	F.route(url + '/api/dashboard/online/',    json_dashboard_online);
@@ -54,11 +65,90 @@ exports.install = function() {
 	// SETTINGS
 	F.route(url + '/api/settings/',            json_settings, ['*Settings']);
 	F.route(url + '/api/settings/',            json_settings_save, ['put', '*Settings']);
+
+
+	F.global.carousel=make_size();
 };
 
 // ==========================================================================
 // COMMON
 // ==========================================================================
+
+
+
+
+function change_image(){
+	let self = this;
+	let pos = this.body.id;
+	console.log(pos);
+	Fs.readdir('./public/img/carousel/',(err,files)=>{
+		self.files.wait(function(file, next) {
+			file.read(function(err, data) {
+				Fs.writeFile(`./public/img/carousel/carousel${pos}.jpg`,data,(err)=>{setTimeout(next, 100);});
+				
+			});
+
+		}, () => self.json({ok:true}));	
+	});	
+}
+
+function delete_image(){
+	console.log(`NUM	${this.body.num}`);
+	let index = this.body.num - 1;
+	Fs.unlink(`./public/img/carousel/carousel${index}.jpg`,(err)=>{
+		if (err) return err;
+		F.global.carousel.pop();
+		if (index != F.global.carousel.length){
+			let i = this.body.num;
+			help_callback(null,i);
+		//Fs.rename(`./public/img/carousel/carousel${index}.jpg`,`./public/img/carousel/carousel${index-1}.jpg`,help_callback(err))
+		}
+	
+		this.json({ok:true});
+
+	}) //{Уже нет} Стыдно, конечно, но я не придумал норм способа асинхронно кроме async await
+	
+
+}
+
+function help_callback(err,i){
+	if (err){return err;}
+	if (i <= F.global.carousel.length)
+		Fs.rename(`./public/img/carousel/carousel${i}.jpg`,`./public/img/carousel/carousel${i-1}.jpg`,help_callback(err,i+1));
+}
+
+function make_size(){
+	let files=Fs.readdirSync('./public/img/carousel/');
+	let size=files.length;	
+	let mas_buf=[];
+	let i = 0;
+	while (i < size) {
+		mas_buf.push(i);
+		i+=1;
+	}
+	return mas_buf;
+}
+
+function carousel_add(){
+	var self = this;
+	var id = [];
+	
+	Fs.readdir('./public/img/carousel/',(err,files)=>{let size=files.length;
+		self.files.wait(function(file, next) {
+			file.read(function(err, data) {
+				Fs.writeFile(`./public/img/carousel/carousel${size}.jpg`,data,(err)=>{F.global.carousel.push(size);size+=1;setTimeout(next, 100);});
+				// Store current file into the HDD
+				//size+=1;
+				//file.extension = U.getExtension(file.filename);
+				//id.push(NOSQL('files').binary.insert(file.filename, data) + '.' + file.extension);
+
+				// Next file
+				//setTimeout(next, 100);
+			});
+
+		}, () => self.json({ok:true}));	
+	});	
+}
 
 // Upload (multiple) pictures
 function upload() {
@@ -142,6 +232,7 @@ function json_query() {
 // Saves specific item
 function json_save() {
 	var self = this;
+	
 	self.body.$save(self, self.callback());
 }
 
@@ -340,4 +431,89 @@ function json_settings() {
 function json_settings_save() {
 	var self = this;
 	self.body.$async(self.callback(), 0).$save(self).$workflow('load');
+}
+
+
+
+function practice_save(){
+	let buf = F.global.practics;
+	let lvl2 = buf[this.body.lvl1].findIndex((el)=>{return el.name == this.body.lvl2});
+	
+	if (lvl2!=(-1)){
+		let lvl3 =  (buf[this.body.lvl1])[lvl2].category.findIndex((el)=>{return el.name == this.body.lvl3})
+		if (lvl3!=(-1)){
+			this.json({err:"Allready exist"});
+		}
+		else {
+			if((F.global.practics[this.body.lvl1])[lvl2].category[0].name == ''){
+				(F.global.practics[this.body.lvl1])[lvl2].category[0].name = this.body.lvl3;
+			}else{
+				(F.global.practics[this.body.lvl1])[lvl2].category.push({name:this.body.lvl3,linker:''});
+			}
+			this.json({ok:"Added"});
+		}
+	}
+	else{
+		//buf[this.body.lvl1].push(new Practice(this.body.lvl2,[this.body.lvl3]));
+		F.global.practics[this.body.lvl1].push(new Practice(this.body.lvl2,[{name:this.body.lvl3,linker:''}]))
+		this.json({ok:"Added"});
+	}
+
+
+	MODEL('practics').save(F.global.practics,(err)=>{console.log(err)});
+}
+
+function practice_delete(){
+	let buf = F.global.practics;
+	let lvl2 = buf[this.body.lvl1].findIndex((el)=>{return el.name == this.body.lvl2});
+	if (lvl2!=(-1)){
+		let lvl3 = (buf[this.body.lvl1])[lvl2].category.findIndex((el)=>{return el.name == this.body.lvl3});
+		if (lvl3 !=(-1)){
+			(F.global.practics[this.body.lvl1])[lvl2].category.splice(lvl3,1);
+			if ((F.global.practics[this.body.lvl1])[lvl2].category.length == 0) {
+				(F.global.practics[this.body.lvl1]).splice(lvl2,1);
+				this.json({ok:`Remove last lvl3 and lvl2 ${this.body.lvl2}`});
+			}
+			else {
+				this.json({ok:`Remove lvl3 ${this.body.lvl3} only`});
+			}
+		}
+		else{this.json({err:"Lvl3 not found"})}
+	}
+	else {this.json({err:"Lvl2 not found"});}
+	MODEL('practics').save(F.global.practics,(err)=>{console.log(err)});
+	
+}
+
+function add_practicing(){
+	let practicing = this.body.practicing;
+	let buf = F.global.practics;
+	let lvl2 = buf[this.body.lvl1].findIndex((el)=>{return el.name == this.body.lvl2});
+	if (lvl2!=(-1)){
+		if (this.body.lvl3 == ''){
+			if (!(F.global.practics[this.body.lvl1])[lvl2].practicing){(F.global.practics[this.body.lvl1])[lvl2].practicing = [];}
+				
+			(F.global.practics[this.body.lvl1])[lvl2].practicing.push(practicing);
+		}
+		else{
+			let lvl3 = (buf[this.body.lvl1])[lvl2].category.findIndex((el)=>{return el.name == this.body.lvl3});
+			
+			if (lvl3 !=(-1)){
+				if (!(F.global.practics[this.body.lvl1])[lvl2].category[lvl3].practicing){(F.global.practics[this.body.lvl1])[lvl2].category[lvl3].practicing = [];}
+				(F.global.practics[this.body.lvl1])[lvl2].category[lvl3].practicing.push(practicing);
+				this.json({ok:`Add practicing to lvl3 ${this.body.lvl3}`});
+			}
+			else{this.json({err:"Lvl3 not found"})}
+		}
+	}
+	else {this.json({err:"Lvl2 not found"});}
+	MODEL('practics').save(F.global.practics,(err)=>{console.log(err)});
+		
+}
+
+class Practice{
+	constructor(name,category=[]){
+		this.name = name;
+		this.category=category;
+	}
 }

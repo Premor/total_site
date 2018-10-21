@@ -1,0 +1,30 @@
+
+  <div class="row news_cont">
+		@{foreach m in model.items}
+		<div class="col-md-4 news_item">
+			<div class="news_date">
+				<a href="/about_us?author=@{m.author}"> <span>@{m.author}</span> </a>
+				<!--<p>@{m.datecreated}</p> Как вытащить дату в нормальный формат?-->
+			</div>
+			<img src="@{m.pictures[0]}" alt="" />
+			
+			<a href="@{sitemap_url('publicationdetail', m.linker)}" class="news_title">@{m.name}</a>
+			<br>
+			@{foreach i in m.tags}<a href="#" class="news_tag">@{i}</a>@{end}
+		</div>
+		@{end}
+	</div>
+
+@{if !model.count}
+	<div class="row" style="margin-top:30px;margin-bottom:100px" id="empty">
+		<div class="col-md-6 col-md-offset-3 m ui-center">
+			<div><span class="fa fa-search fa-5x"></span></div>
+			<br />
+			<br />
+			<div>
+				@(Currently we don't have any items sufficient for search criteria.)<br />
+				<b>@(Try to visit our page later)</b>.
+			</div>
+		</div>
+	</div>
+@{fi}

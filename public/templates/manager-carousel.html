@@ -1,0 +1,125 @@
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+
+<style>
+    .adm_carousel img {
+        width: 15vw;
+    }
+    .adm_carousel .col-md-4 {
+        display: block;
+        z-index: 10;
+    }
+    
+    .adm_carousel {
+        z-index: 0;
+    }
+
+
+    
+</style>
+
+
+<div class="filter">
+    <div class="container">
+        <div class="caption" style="margin-bottom:10px"><span class="fa fa-cogs mr5"></span> @(Practice change)</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row adm_carousel">
+
+    </div>
+</div>
+
+<div class="container">
+    <p>Файлы на карусель </p>
+    <form enctype="multipart/form-data" action="" method="POST" class="add-file">
+
+        <input type="file" name="file">
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+
+
+<script src="/js/jquery.fancybox.min.js"></script>
+<script>
+    $(document).ready(function () {
+        let send_num = '';
+        
+        $('.add-file').submit((e)=>{
+            e.preventDefault();
+            let file = $('.add-file').children('[name = "file"]').val();
+            AJAX('POST /$manager/carousel/',{file:file},(res)=>{
+            if (res.err)
+                alert(res.err)
+            if (res.ok){
+                
+                alert(res.ok);
+                get_data(refresh_carousel);
+            }
+            
+        });
+        })
+
+        function get_data(callback) {
+            $.ajax({
+                type: 'GET',
+                url: '/api/carousel/',
+                success: callback
+            });
+        }
+
+        function refresh_carousel(data) {
+            //$('.adm_carousel').html('');
+            for (var i = 0; i < data.size; i++) {
+                $('.adm_carousel').append(
+                    `<div class="col-md-4"><img src="/img/carousel/carousel${i}.jpg"><div><button class="trash"><i class="fa fa-trash"></i></button> <button class="cogs"><i class="fa fa-cogs"></i></button></div></div>`
+                );
+            }
+            //стыдно, да, надо будет норм по функциям расскидать
+            $('.trash').click(function () {
+                let delete_num = (($(this).parent('div').parent('.col-md-4')).children('img')).attr(
+                    'src');
+
+                for (var i = delete_num.length - 5;
+                    ((((delete_num[i]).charCodeAt() >= 48) && ((delete_num[i]).charCodeAt() <= 57))); i--
+                ) {
+                    //Код против кулхацкеров
+                    send_num = delete_num[i] + send_num;
+                }
+                send_num = send_num - (-1);
+                if (!send_num || send_num < 0) {
+                    alert("Неправильный ввод для удаления, введите номер изображения")
+                    return 0;
+                }
+                AJAX('POST /$manager/delete-image', {
+                    num: send_num
+                }, (res) => {
+                    if (res.err)
+                        alert(res.err)
+                    if (res.ok) {
+                        alert("Успешное удаление");
+                        $(this).parent('div').parent('.col-md-4').html('');
+                    }
+                })
+            })
+            $('.cogs').click(function () {
+                let change_num = $(this).parent('div').parent(".col-md-4").children('img').attr('src');
+                for (var i = change_num.length - 5;
+                    ((((change_num[i]).charCodeAt() >= 48) && ((change_num[i]).charCodeAt() <= 57))); i--
+                ) {
+                    //Код против кулхацкеров
+                    send_num = change_num[i] + send_num;
+                }
+                $.fancybox.open(
+                    `<div class="message"><p>Файл на замену: </p><form enctype="multipart/form-data" action="/$manager/change-image" method="POST" ><input type="text" readonly value="${send_num}" name="id"><input type="file" name="file"><input type="submit" value="Отправить"></form></div>`
+                );
+            })
+        }
+
+
+
+        get_data(refresh_carousel);
+
+
+    })
+</script>
