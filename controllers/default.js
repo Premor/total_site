@@ -427,6 +427,8 @@ function about_us() {
 
 	if (this.query.author)
 		options.name = this.query.author;
+	
+	options.order = false;
 
 	self.$query(options, self.callback('about_us'));
 
