@@ -80,3 +80,8 @@ span.publications {
 .tdnone:hover {
 	text-decoration: none;
 }
+
+.abus_blocks {
+	display: flex;
+	align-items: flex-start;
+}

@@ -21,8 +21,16 @@
               <div class="col-md-6">
                   <p class="news_header">Новости</p>
               </div>
-              
-              
+              <!-- <div class="col-md-1 th_wrap">
+                  <p class="themes_header">Темы:</p>
+              </div> -->
+              <!-- <div class="col-md-5 themes_right">
+                    @{foreach m in model.items}
+                        @{foreach i in m.tags}
+                            <a href="#" class="news_tag">@{i}</a>
+                        @{end}
+                    @{end}
+              </div> -->
           </div>
           <div class="row news_cont">
             @{foreach m in model.items}
@@ -33,7 +41,7 @@
                 <img src="@{m.pictures[0]}" alt="" />
                 <a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</a>
                 <p class="news_text">@{m.perex}</p>
-                
+                <!-- @{foreach i in m.tags}<a href="#" class="news_tag">@{i}</a>@{end} -->
             </div>
             @{end}
         </div>

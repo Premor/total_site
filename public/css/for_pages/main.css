@@ -188,8 +188,10 @@ a:hover {
 
 .next-but {
 	right: -25px;
+	cursor: pointer;
 }
 
 .prev-but {
 	left: -25px;
+	cursor: pointer;
 }
