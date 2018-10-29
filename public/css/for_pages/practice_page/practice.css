@@ -235,13 +235,15 @@ p {
 	margin-bottom: 0vh;
 }
 
-.current_practice .person {
+.universal_card {
 	text-align: center;
 	margin-bottom: 1vh;
-	display: inline-block;
 	border-radius: 5px;
 	box-shadow: 14px 0px 28px rgba(0,0,0,0.25), 10px 0px 10px rgba(0,0,0,0.22);
 	padding: 1vh;
+	display: inline-block;
+    float: none;
+    vertical-align: top;
 }
 
 .current_practice .preson:last-child {

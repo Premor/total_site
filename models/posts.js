@@ -28,8 +28,8 @@ NEWSCHEMA('Post').make(function(schema) {
 		var skip = U.parseInt(options.page * options.max);
 		var filter = NOSQL('posts').find();
 
-		
-		
+		let order = true;
+		if (options.order!=undefined && options.order != null) {order = options.order};
 		if (options.category)
 			options.category = options.category.slug();
 		options.author && filter.where('author',options.author);
@@ -52,10 +52,10 @@ NEWSCHEMA('Post').make(function(schema) {
 		filter.take(take);
 		filter.skip(skip);
 		filter.fields('id', 'category', 'body','name', 'language', 'datecreated', 'linker', 'category_linker', 'pictures', 'perex', 'tags','author');
-		filter.sort('datecreated', true);
+		filter.sort('datecreated', order);
 
 		filter.callback(function(err, docs, count) {
-
+			console.log("DOC",docs);
 			var data = {};
 			data.options = options.options;
 			data.count = count;

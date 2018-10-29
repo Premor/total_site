@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.slick_slider').slick({  
-        nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right"></i></button>',
-        prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"></i></button>',
+        nextArrow: '<i class="fa fa-angle-right next-but"></i>',
+        prevArrow: '<i class="fa fa-angle-left prev-but"></i>',
         autoplay: true,
         autoplaySpeed: 3000
     });
@@ -17,5 +17,12 @@ $(document).ready(function(){
     })
     $('.events_to_timeline').click(()=> {
         window.location.replace('/timeline')
+    })
+
+    $('.news_tag').click(function() {
+        let str = document.location.href;
+        let pos = 0;
+        var foundPosPub= str.indexOf("publication",pos);
+        
     })
   });

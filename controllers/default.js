@@ -47,6 +47,10 @@ exports.install = function () {
 
 	F.route('/about_us/', about_us, ['*Post']);
 
+	F.route('/about_us/', 		about_us,		    ['*Post']);
+
+	F.route('/privacy/', 		privacy,		    ['*Post']);
+	
 	// FILES
 	F.file('/download/', file_read);
 
@@ -59,8 +63,10 @@ exports.install = function () {
 
 
 function events() {
+	this.repository.size = F.global.carousel;
 	this.view('events');
 }
+
 
 function view_page() {
 	var self = this;
@@ -76,7 +82,11 @@ function search(){
 	}
 }
 
-function contacts() {
+function privacy() {
+	this.view('privacy');
+}
+
+function contacts () {
 	this.view('contacts');
 }
 
@@ -346,7 +356,6 @@ function view_blogs() {
 	var options = {};
 
 	options.category = 'Blogs';
-
 	if (self.query.q)
 		options.search = self.query.q;
 
@@ -425,6 +434,8 @@ function about_us() {
 
 	if (this.query.author)
 		options.name = this.query.author;
+	
+	options.order = false;
 
 	self.$query(options, self.callback('about_us'));
 

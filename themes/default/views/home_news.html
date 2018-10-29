@@ -1,6 +1,6 @@
 <div class="carousel container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 slider_shadow">
             <div class="slick_slider">
                 @{foreach m in repository.size}
                 <div>
@@ -21,16 +21,8 @@
               <div class="col-md-6">
                   <p class="news_header">Новости</p>
               </div>
-              <div class="col-md-1 th_wrap">
-                  <p class="themes_header">Темы:</p>
-              </div>
-              <div class="col-md-5 themes_right">
-                    @{foreach m in model.items}
-                        @{foreach i in m.tags}
-                            <a href="#" class="news_tag">@{i}</a>
-                        @{end}
-                    @{end}
-              </div>
+              
+              
           </div>
           <div class="row news_cont">
             @{foreach m in model.items}
@@ -41,7 +33,7 @@
                 <img src="@{m.pictures[0]}" alt="" />
                 <a href="@{sitemap_url('blogsdetail', m.linker)}" class="news_title">@{m.name}</a>
                 <p class="news_text">@{m.perex}</p>
-                @{foreach i in m.tags}<a href="#" class="news_tag">@{i}</a>@{end}
+                
             </div>
             @{end}
         </div>
@@ -165,7 +157,7 @@
                         Электронная почта: pravovik-k@bk.ru
                     </p>
                     <a href="/contacts/">
-                    <div class="menu-block">
+                    <div class="menu-block contacts_but">
                         <p>Как проехать?</p>
                     </div>
                     </a>

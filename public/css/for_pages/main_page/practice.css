@@ -1,10 +1,9 @@
 .practice {
 	background-image: radial-gradient(circle, #ba0800, #aa0701, #990602, #8a0501, #7a0500);
-	height: 60vh;
+	height: 63vh;
 	position: relative;
 	z-index: 10;
 	text-align: center;
-	padding-bottom: 20px;
 }
 
 
@@ -101,8 +100,18 @@
 	height: 6vh;
 	font-size: 2.5vh;
 	margin-top: 20px;
+	cursor: pointer;
 }
 
 .practice_but p {
 	margin-top: 0.7vh;
+	cursor: pointer;
+}
+
+.practice_but:hover p {
+	color: #ffffff;	
+}
+
+.contacts_but p {
+	cursor: pointer;
 }
