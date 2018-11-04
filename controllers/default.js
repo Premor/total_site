@@ -12,7 +12,7 @@ exports.install = function () {
 	F.route('/events/', events);
 	F.route('/timeline/', timeline, ['*Post']);
 
-
+	F.route('/search-all/',search);
 	//ROUTE('/registration',view_registration,['#session']);
 	//ROUTE('/registration',view_registration_auth,[/*'authorize',*/'#session']);
 	//ROUTE('/registration', json_create_user, ['post'/*,'unauthorize'*/,'#session']);
@@ -54,6 +54,8 @@ exports.install = function () {
 	// FILES
 	F.file('/download/', file_read);
 
+	F.route('/contract/',contract);
+
 	F.global.corusel_size = 2;
 };
 
@@ -74,6 +76,13 @@ function view_page() {
 	self.render(self.url);
 }
 
+function search(){
+	if(this.query.category){
+		$query('Post', {
+			url: '/'
+		}, function (err, response) {})
+	}
+}
 
 function privacy() {
 	this.view('privacy');
@@ -117,6 +126,10 @@ function timeline() {
 		options.page = self.query.page;
 
 	self.$query(options, self.callback('timeline'));
+}
+
+function contract(){
+	this.view('contract');
 }
 
 function constructor() {

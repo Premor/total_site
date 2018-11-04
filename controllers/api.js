@@ -1,6 +1,9 @@
 // API for e.g. Mobile application
 // This API uses the website
 
+const ejs = require('ejs');
+const pdf = require('html-pdf');
+
 exports.install = function() {
 	// COMMON
 	F.route('/api/ping/',        json_ping);
@@ -12,6 +15,7 @@ exports.install = function() {
 	F.route('/api/contact/',     json_save, ['post', '*Contact']);
 	F.route('/api/practics/', get_practics);
 	F.route('/api/update-practice/',update_practice);
+	F.route('/api/make-contract/',make_contract);
 	F.global.search = [];
 	F.global.practics = [];
 	load_news();
@@ -98,4 +102,21 @@ function load_news(){
 		}
 	
 	})
+}
+
+
+function make_contract(){
+	ejs.renderFile('../public/templates/contract.ejs',{},(err, str) => {
+		console.log('ERR', err);
+		console.log('RENDER STRING', str);
+		// fs.writeFileSync('./report/t.html',str);
+		pdf.create(str, {
+			'base': 'http://localhost:8000/',
+			type: 'pdf'
+		}).toFile(`./contract/${investor}.pdf`, (err, data) => {
+			console.log(err);
+			console.log(data);
+			res.json({suc:'suc'});
+		});
+	});
 }
