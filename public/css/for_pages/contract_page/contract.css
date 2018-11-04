@@ -1,0 +1,35 @@
+
+.contract_input{
+    border:none;
+    border-bottom: 1px solid #181818; 
+    border-radius: 0; 
+    -webkit-border-radius: 0; 
+    -moz-border-radius: 0; 
+    -khtml-border-radius: 0; 
+    background: #ffffff !important; 
+    outline: none; 
+    /*height: 24px; 
+    width: 120px; */
+    /* color: #cccccc; 
+    font-size: 11px;  */
+    /* font-family: Tahoma;  */
+ }
+
+ .contract_header {
+     width: 100%;
+     font-size: 3vh;
+     display: block;
+     text-align: center;
+ }
+
+.contract_day {
+    width: 1.5vw;
+}
+
+ .fl {
+     float: left;
+ }
+
+ .fr {
+     float: right;
+ }
