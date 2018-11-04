@@ -54,6 +54,8 @@ exports.install = function () {
 	// FILES
 	F.file('/download/', file_read);
 
+	F.route('/contract/',contract);
+
 	F.global.corusel_size = 2;
 };
 
@@ -124,6 +126,10 @@ function timeline() {
 		options.page = self.query.page;
 
 	self.$query(options, self.callback('timeline'));
+}
+
+function contract(){
+	this.view('contract');
 }
 
 function constructor() {
