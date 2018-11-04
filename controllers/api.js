@@ -15,7 +15,7 @@ exports.install = function() {
 	F.route('/api/contact/',     json_save, ['post', '*Contact']);
 	F.route('/api/practics/', get_practics);
 	F.route('/api/update-practice/',update_practice);
-	F.route('/api/make-contract/',make_contract);
+	F.route('/api/make-contract/',make_contract,['post']);
 	F.global.search = [];
 	F.global.practics = [];
 	load_news();
@@ -106,17 +106,18 @@ function load_news(){
 
 
 function make_contract(){
-	ejs.renderFile('../public/templates/contract.ejs',{},(err, str) => {
+	const {fio,address,date,type} = this.body;
+	ejs.renderFile('../public/templates/contract.ejs',{fio,address,date},(err, str) => {
 		console.log('ERR', err);
 		console.log('RENDER STRING', str);
 		// fs.writeFileSync('./report/t.html',str);
 		pdf.create(str, {
 			'base': 'http://localhost:8000/',
 			type: 'pdf'
-		}).toFile(`./contract/${investor}.pdf`, (err, data) => {
+		}).toFile(`./contract/${fio}-${type}.pdf`, (err, data) => {
 			console.log(err);
 			console.log(data);
-			res.json({suc:'suc'});
+			this.json({suc:'suc'});
 		});
 	});
 }
