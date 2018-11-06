@@ -1,4 +1,25 @@
 $(document).ready(function(){
+    $('.contract_wrap').submit( function () {
+        var data = {};
+        var elems = $('.contract_wrap').find('input');
+        elems.each(function() {
+            data[$(this).attr('name')] = $(this).val();
+        })
+        $.ajax({
+            url: '/api/contract',
+            type: "POST",
+            data: data,
+            complete: function(){
+                console.log('done');
+            },
+            success: (data) => {
+                if (data['suc'/* ?????????????????? */]=="suc") {
+                    console.log('suc ajax');
+                }
+            }
+        })
+    })
+
     $('.slick_slider').slick({  
         nextArrow: '<i class="fa fa-angle-right next-but"></i>',
         prevArrow: '<i class="fa fa-angle-left prev-but"></i>',
