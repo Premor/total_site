@@ -1,5 +1,5 @@
 
-/* .contract_input{
+.contract_input{
     border:none;
     border-bottom: 1px solid #181818; 
     border-radius: 0; 
@@ -7,13 +7,13 @@
     -moz-border-radius: 0; 
     -khtml-border-radius: 0; 
     background: #ffffff !important; 
-    outline: none;  */
+    outline: none; 
     /*height: 24px; 
     width: 120px; */
     /* color: #cccccc; 
     font-size: 11px;  */
     /* font-family: Tahoma;  */
- /* }
+ }
 
  .contract_header {
      width: 100%;
@@ -32,4 +32,4 @@
 
  .fr {
      float: right;
- } */
+ }
