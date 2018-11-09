@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded',function () {
 		methods: {
 			send:function(){
 				axios.post('/api/make-contract/',this.post)
-					.then((val)=>{console.log(val);this.answer = val.data;alert('SUCCESS')})
-					.catch((error)=>{this.error.push(error);});
+					.then((val)=>{console.log(val.data);alert('SUCCESS')})
+					.catch((error)=>{console.log(error);});
 			}
 		},
 	});
