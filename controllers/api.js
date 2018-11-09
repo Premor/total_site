@@ -106,8 +106,8 @@ function load_news(){
 
 
 function make_contract(){
-	const {fio,address,date,type} = this.body;
-	ejs.renderFile('../public/templates/contract.ejs',{fio,address,date},(err, str) => {
+	const {fio,address,date,type,company,company2,fio2,osn,osn2,square} = this.body;
+	ejs.renderFile('../public/templates/contract.ejs',{fio,address,date,type,company,company2,fio2,osn,osn2,square},(err, str) => {
 		console.log('ERR', err);
 		console.log('RENDER STRING', str);
 		// fs.writeFileSync('./report/t.html',str);
