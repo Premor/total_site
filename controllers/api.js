@@ -15,7 +15,7 @@ exports.install = function() {
 	F.route('/api/contact/',     json_save, ['post', '*Contact']);
 	F.route('/api/practics/', get_practics);
 	F.route('/api/update-practice/',update_practice);
-	F.route('/api/make-contract/',make_contract,['post']);
+	F.route('/api/make-contract',make_contract,['post']);
 	F.global.search = [];
 	F.global.practics = [];
 	load_news();
