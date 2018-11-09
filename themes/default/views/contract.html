@@ -5,7 +5,7 @@
 <div id="app" class="padding">
     <div class="news_block">
         <div class="container-fluid white_block">
-            <form v-on:submit.prevent="send()" class="contract_wrap" method="post">
+            <form v-on:submit.prevent="send()" id="form" class="contract_wrap" method="post">
                 <div class="long_elem"><h1 class="contract_header">Договор</h1></div>
                 <div class="short_elem_left"><p>г. Москва</p></div>
                 <div class="short_elem_right placing_right"><input v-model="post.date" type="date" name="date" class = "contract_date"/></div>
