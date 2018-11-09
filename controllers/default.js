@@ -1,3 +1,6 @@
+
+const ejs = require('ejs');
+const pdf = require('html-pdf');
 exports.install = function () {
 	F.route('/contacts/', contacts)
 	F.route('#practice', practice, ['*Post']);
@@ -46,7 +49,8 @@ exports.install = function () {
 	F.route('#albumdetail', view_album_detail, ['*Post']);
 
 	F.route('/about_us/', about_us, ['*Post']);
-
+	F.route('/contract/',make_contract,['post']);
+	
 	F.route('/about_us/', 		about_us,		    ['*Post']);
 
 	F.route('/privacy/', 		privacy,		    ['*Post']);
@@ -75,6 +79,24 @@ function view_page() {
 	// models/pages.js --> Controller.prototype.render()
 	self.render(self.url);
 }
+
+function make_contract(){
+	const {fio,address,date,type,company,company2,fio2,osn,osn2,square} = this.body;
+	ejs.renderFile('../public/templates/contract.ejs',{fio,address,date,type,company,company2,fio2,osn,osn2,square},(err, str) => {
+		console.log('ERR', err);
+		console.log('RENDER STRING', str);
+		// fs.writeFileSync('./report/t.html',str);
+		pdf.create(str, {
+			'base': 'http://localhost:8000/',
+			type: 'pdf'
+		}).toFile(`./contract/${fio}-${type}.pdf`, (err, data) => {
+			console.log(err);
+			console.log(data);
+			this.json({suc:'suc'});
+		});
+	});
+}
+
 
 function search(){
 	if(this.query.category){
