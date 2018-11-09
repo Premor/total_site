@@ -17,7 +17,7 @@ $(document).ready(function(){
 	$('#form').submit(function(e){
 		e.preventDefault();
 		const post = {fio:123};
-		axios.post('/api/make-contract',post)
+		axios.post('/api/make-contract/',post)
  					.then((val)=>{console.log(val.data);alert('SUCCESS')})
  					.catch((error)=>{console.log(error);});
 
