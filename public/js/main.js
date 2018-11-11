@@ -1,19 +1,20 @@
 $(document).ready(function(){
-    $('.contract_wrap').submit( function () {
+    $('.subm_contract').click(function () {
+        alert("Clop")
         var data = {};
         var elems = $('.contract_wrap').find('input');
         elems.each(function() {
             data[$(this).attr('name')] = $(this).val();
         })
         $.ajax({
-            url: '/api/contract',
+            url: '/api/make-contract',
             type: "POST",
             data: data,
             complete: function(){
                 console.log('done');
             },
             success: (data) => {
-                if (data['suc'/* ?????????????????? */]=="suc") {
+                if (data['suc']=="suc") {
                     console.log('suc ajax');
                 }
             }
