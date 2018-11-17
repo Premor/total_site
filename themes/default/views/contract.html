@@ -1,15 +1,18 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+@{import('contract.js')}
 <!-- BEGINNING -->
-<div class="padding">
+<div id="app" class="padding">
     <div class="news_block">
         <div class="container-fluid white_block">
             <div class="contract_wrap">
                 <div class="long_elem"><h1 class="contract_header">Договор</h1></div>
                 <div class="short_elem_left"><p>г. Москва</p></div>
-                <div class="short_elem_right placing_right"><input type="date" name="date" class = "contract_date"/></div>
+                <div class="short_elem_right placing_right"><input v-model="post.date" type="date" name="date" class = "contract_date"/></div>
                 <br/>
                 <div class="text_elem">
                     <p>
-                        <input type="text" name="company" class="contract_inp_underline contract_company"/>, именуемое в дальнейшем "СТОРОНА 1", в лице <input type="text" name="fio" class="contract_inp_underline contract_fio"/>, действующее на основании <input type="text" name="osn" class="contract_osn contract_inp_underline"/> с одной стороны и <input type="text" name="company2" class="contract_inp_underline contract_company2"/>, именуемое в дальнейшем "СТОРОНА 2" в лице <input type="text" name="fio2" class="contract_inp_underline contract_fio2"/>, действующее на основании <input type="text" name="osn2" class="contract_osn2 contract_inp_underline"/>, с другой стороны, а вместе "СТОРОНЫ" заключили Договор о нижеследующем:
+                        <input v-model="post.company" type="text" name="company" class="contract_inp_underline contract_company"/>, именуемое в дальнейшем "СТОРОНА 1", в лице <input v-model="post.fio" type="text" name="fio" class="contract_inp_underline contract_fio"/>, действующее на основании <input v-model="post.osn" type="text" name="osn" class="contract_osn contract_inp_underline"/> с одной стороны и <input v-model="post.company2" type="text" name="company2" class="contract_inp_underline contract_company2"/>, именуемое в дальнейшем "СТОРОНА 2" в лице <input v-model="post.fio2" type="text" name="fio2" class="contract_inp_underline contract_fio2"/>, действующее на основании <input v-model="post.osn2" type="text" name="osn2" class="contract_osn2 contract_inp_underline"/>, с другой стороны, а вместе "СТОРОНЫ" заключили Договор о нижеследующем:
                     </p>
                 </div>
                 <div class="long_elem">
@@ -30,7 +33,7 @@
                         2.2. Сторона 1 обязуется:
                         <ul>
                             <li>Оказывать ...</li>
-                            <li>Выделить сторогне два необходимое помещение площадью <input type="text" name="square" class="contract_inp_underline contract_square"> кв. м. в здании, расположенном по адресу <input type="text" name="adress" class="contract_inp_underline contract_adress"/> для успешной реализации задач, вытекающих из настоящего договора.</li>
+                            <li>Выделить сторогне два необходимое помещение площадью <input v-model="post.square" type="text" name="square" class="contract_inp_underline contract_square"> кв. м. в здании, расположенном по адресу <input v-model="post.address" type="text" name="address" class="contract_inp_underline contract_adress"/> для успешной реализации задач, вытекающих из настоящего договора.</li>
                             <li>Решать иные задачи Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae quidem sunt voluptatibus praesentium repellendus sint asperiores suscipit quos aut aliquid vero, corporis tempore! Labore ipsa corporis tenetur molestias quaerat exercitationem?</li>
                         </ul>
                     </p>

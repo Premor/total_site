@@ -3,9 +3,13 @@ $(document).ready(function(){
         alert("Clop")
         var data = {};
         var elems = $('.contract_wrap').find('input');
+        
         elems.each(function() {
             data[$(this).attr('name')] = $(this).val();
         })
+
+        console.log(typeof data.date.toString());
+
         $.ajax({
             url: '/api/make-contract',
             type: "POST",

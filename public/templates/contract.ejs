@@ -1,10 +1,16 @@
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700&subset=latin,latin-ext" />
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
+<link rel="stylesheet" href="@{global.css}" />
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="http://localhost:8000/default/css/default.css" rel="stylesheet">
 <div class="padding">
         <div class="news_block">
             <div class="container-fluid white_block">
                 <form class="contract_wrap">
                     <div class="long_elem"><h1 class="contract_header">Договор</h1></div>
                     <div class="short_elem_left"><p>г. Москва</p></div>
-                    <div class="short_elem_right placing_right">    = date%></div>
+                    <div class="short_elem_right placing_right"><%= date%></div>
                     <br/>
                     <div class="text_elem">
                         <p>
@@ -29,7 +35,7 @@
                             2.2. Сторона 1 обязуется:
                             <ul>
                                 <li>Оказывать ...</li>
-                                <li>Выделить сторогне два необходимое помещение площадью <%= square%> кв. м. в здании, расположенном по адресу <%= adress%> для успешной реализации задач, вытекающих из настоящего договора.</li>
+                                <li>Выделить сторогне два необходимое помещение площадью <%= square%> кв. м. в здании, расположенном по адресу <%= address%> для успешной реализации задач, вытекающих из настоящего договора.</li>
                                 <li>Решать иные задачи Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae quidem sunt voluptatibus praesentium repellendus sint asperiores suscipit quos aut aliquid vero, corporis tempore! Labore ipsa corporis tenetur molestias quaerat exercitationem?</li>
                             </ul>
                         </p>
@@ -44,9 +50,6 @@
                         <p>Подпись 1 : _______________</p>
                         <p>Подпись 2 : _______________</p>
                         <br>
-                    </div>
-                    <div class="long_elem">
-                        <input type="submit" value = "Подтвердить">
                     </div>
                     <br>
                 </form>

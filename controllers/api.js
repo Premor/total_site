@@ -15,7 +15,7 @@ exports.install = function() {
 	F.route('/api/contact/',     json_save, ['post', '*Contact']);
 	F.route('/api/practics/', get_practics);
 	F.route('/api/update-practice/',update_practice);
-	F.route('/api/make-contract/',make_contract,['post']);
+	F.route('/api/make-contract',make_contract,['post']);
 	F.global.search = [];
 	F.global.practics = [];
 	load_news();
@@ -106,8 +106,8 @@ function load_news(){
 
 
 function make_contract(){
-	const {fio,address,date,type} = this.body;
-	ejs.renderFile('./public/templates/contract.ejs',{fio,address,date},(err, str) => {
+	const {fio,address,date,type,company,company2,fio2,osn,osn2,square} = this.body;
+	ejs.renderFile('./public/templates/contract.ejs',{fio,address,date,type,company,company2,fio2,osn,osn2,square},(err, str) => {
 		console.log('ERR', err);
 		console.log('RENDER STRING', str);
 		// fs.writeFileSync('./report/t.html',str);
