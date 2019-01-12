@@ -46,7 +46,7 @@
     "babel-register": "^6.18.0",
     "bootstrap-grid": "^3.0.1",
     "concurrently": "^3.4.0",
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.18.9",
     "total.js": "^2.9.4"
   }
 }
